@@ -1,0 +1,102 @@
+.north-oak {
+  --no-cream: #f6f1e8;
+  --no-beige: #ebe3d6;
+  --no-sand: #d9cfc0;
+  --no-espresso: #2c2118;
+  --no-espresso-soft: #3d2f24;
+  --no-charcoal: #1c1917;
+  --no-muted: #6b635a;
+  --no-green: #5c6b4a;
+  --no-green-soft: rgba(92, 107, 74, 0.12);
+  --no-border: rgba(44, 33, 24, 0.12);
+  --no-surface: rgba(255, 255, 255, 0.55);
+
+  background: var(--no-cream);
+  color: var(--no-charcoal);
+  font-family: var(--font-outfit), system-ui, sans-serif;
+  min-height: 100vh;
+}
+
+.north-oak ::selection {
+  background: var(--no-green-soft);
+  color: var(--no-espresso);
+}
+
+.north-oak .font-display {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.north-oak .no-container {
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .north-oak .no-container {
+    padding-inline: 2rem;
+  }
+}
+
+.north-oak .no-eyebrow {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--no-green);
+}
+
+.north-oak .no-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.125rem;
+  padding: 0.875rem 1.5rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.north-oak .no-btn-primary {
+  background: var(--no-espresso);
+  color: var(--no-cream);
+}
+
+.north-oak .no-btn-primary:hover {
+  background: var(--no-espresso-soft);
+}
+
+.north-oak .no-btn-secondary {
+  background: transparent;
+  color: var(--no-espresso);
+  border: 1px solid var(--no-border);
+}
+
+.north-oak .no-btn-secondary:hover {
+  border-color: var(--no-espresso);
+  background: rgba(44, 33, 24, 0.04);
+}
+
+.north-oak .no-grain {
+  background-image:
+    radial-gradient(ellipse 80% 50% at 10% 0%, rgba(217, 207, 192, 0.55), transparent 55%),
+    radial-gradient(ellipse 60% 40% at 90% 10%, rgba(92, 107, 74, 0.06), transparent 50%);
+}
+
+.north-oak .no-map-grid {
+  background-color: var(--no-beige);
+  background-image:
+    linear-gradient(rgba(44, 33, 24, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(44, 33, 24, 0.06) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
