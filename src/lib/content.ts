@@ -71,7 +71,8 @@ export const caseStudies = [
     id: "restaurant",
     title: "Local Restaurant Growth Campaign",
     industry: "Hospitality",
-    summary: "Website redesign, Google Ads, and increased enquiries.",
+    summary:
+      "The Copper Pan — website redesign, Google Ads, and increased enquiries.",
     problem:
       "A neighbourhood restaurant had strong reviews but weak digital presence. Booking enquiries were inconsistent and paid ads were underperforming.",
     solution:
@@ -82,6 +83,7 @@ export const caseStudies = [
       { label: "Ad ROAS", value: "4.2x" },
     ],
     tags: ["Website", "Google Ads", "CRO"],
+    href: "/work/the-copper-pan",
   },
   {
     id: "ecommerce",

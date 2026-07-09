@@ -1,40 +1,15 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
-import type { ReactNode } from "react";
+import { FadeIn, type FadeInProps } from "@/components/ui/FadeIn";
 
-type RevealProps = {
-  children: ReactNode;
-  className?: string;
-  delay?: number;
-  y?: number;
-};
-
+/** FORMA scroll reveal — brand defaults preserved. */
 export function Reveal({
-  children,
-  className,
-  delay = 0,
   y = 24,
-}: RevealProps) {
-  const reduceMotion = useReducedMotion();
-
-  if (reduceMotion) {
-    return <div className={className}>{children}</div>;
-  }
-
+  duration = 0.6,
+  viewportMargin = "-70px",
+  ...props
+}: FadeInProps) {
   return (
-    <motion.div
-      className={className}
-      initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-70px" }}
-      transition={{
-        duration: 0.6,
-        delay,
-        ease: [0.22, 1, 0.36, 1],
-      }}
-    >
-      {children}
-    </motion.div>
+    <FadeIn y={y} duration={duration} viewportMargin={viewportMargin} {...props} />
   );
 }

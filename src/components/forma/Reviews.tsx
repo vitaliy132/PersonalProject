@@ -1,5 +1,3 @@
-"use client";
-
 import { Reveal } from "@/components/forma/Reveal";
 import { formaReviews } from "@/lib/forma-content";
 

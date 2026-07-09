@@ -1,0 +1,134 @@
+.copper-pan {
+  --cp-bg: #12100e;
+  --cp-bg-elevated: #1a1714;
+  --cp-surface: #221e1a;
+  --cp-ink: #f3ebe3;
+  --cp-muted: #a89a8c;
+  --cp-copper: #c4784a;
+  --cp-copper-soft: rgba(196, 120, 74, 0.16);
+  --cp-copper-hot: #d98a58;
+  --cp-border: rgba(243, 235, 227, 0.1);
+  --cp-border-strong: rgba(243, 235, 227, 0.18);
+  --cp-stone: #d4c4b0;
+
+  background:
+    radial-gradient(ellipse 90% 55% at 15% -10%, rgba(196, 120, 74, 0.14), transparent 55%),
+    radial-gradient(ellipse 70% 45% at 95% 5%, rgba(120, 80, 50, 0.1), transparent 50%),
+    var(--cp-bg);
+  color: var(--cp-ink);
+  font-family: var(--font-manrope), system-ui, sans-serif;
+  min-height: 100vh;
+}
+
+.copper-pan ::selection {
+  background: var(--cp-copper-soft);
+  color: var(--cp-ink);
+}
+
+.copper-pan .font-display {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.copper-pan .cp-container {
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .copper-pan .cp-container {
+    padding-inline: 2rem;
+  }
+}
+
+.copper-pan .cp-eyebrow {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cp-copper);
+}
+
+.copper-pan .cp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.125rem;
+  padding: 0.875rem 1.5rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.copper-pan .cp-btn-primary {
+  background: var(--cp-copper);
+  color: #1a120e;
+}
+
+.copper-pan .cp-btn-primary:hover {
+  background: var(--cp-copper-hot);
+}
+
+.copper-pan .cp-btn-secondary {
+  background: transparent;
+  color: var(--cp-ink);
+  border: 1px solid var(--cp-border-strong);
+}
+
+.copper-pan .cp-btn-secondary:hover {
+  border-color: var(--cp-copper);
+  color: var(--cp-copper-hot);
+}
+
+.copper-pan .cp-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.copper-pan .cp-input {
+  width: 100%;
+  border: 1px solid var(--cp-border-strong);
+  border-radius: 0.125rem;
+  background: var(--cp-bg);
+  color: var(--cp-ink);
+  padding: 0.75rem 0.875rem;
+  font-size: 0.9375rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.copper-pan .cp-input:focus {
+  border-color: var(--cp-copper);
+}
+
+.copper-pan .cp-input::placeholder {
+  color: var(--cp-muted);
+}
+
+.copper-pan .cp-label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cp-muted);
+}
+
+.copper-pan .cp-map-grid {
+  background-color: var(--cp-surface);
+  background-image:
+    linear-gradient(rgba(243, 235, 227, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(243, 235, 227, 0.04) 1px, transparent 1px);
+  background-size: 28px 28px;
+}

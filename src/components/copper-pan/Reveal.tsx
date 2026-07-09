@@ -2,7 +2,7 @@
 
 import { FadeIn, type FadeInProps } from "@/components/ui/FadeIn";
 
-/** North & Oak scroll reveal — brand defaults preserved. */
+/** The Copper Pan scroll reveal — brand defaults preserved. */
 export function Reveal({
   y = 28,
   duration = 0.7,
