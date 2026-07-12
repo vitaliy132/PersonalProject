@@ -6,6 +6,7 @@ import { Footer } from "@/components/forma/Footer";
 import { FreeShippingBanner } from "@/components/forma/FreeShippingBanner";
 import { Header } from "@/components/forma/Header";
 import { SearchDialog } from "@/components/forma/SearchDialog";
+import { formaSeo } from "@/lib/forma-content";
 import "./forma.css";
 
 const space = Space_Grotesk({
@@ -21,22 +22,19 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "FORMA Studio | Premium Everyday Essentials",
-  description:
-    "Minimal, functional products designed for modern lifestyles.",
+  title: formaSeo.title,
+  description: formaSeo.description,
   openGraph: {
-    title: "FORMA Studio | Premium Everyday Essentials",
-    description:
-      "Minimal, functional products designed for modern lifestyles.",
+    title: formaSeo.title,
+    description: formaSeo.description,
     type: "website",
     locale: "en_GB",
-    siteName: "FORMA Studio",
+    siteName: formaSeo.siteName,
   },
   twitter: {
     card: "summary_large_image",
-    title: "FORMA Studio | Premium Everyday Essentials",
-    description:
-      "Minimal, functional products designed for modern lifestyles.",
+    title: formaSeo.title,
+    description: formaSeo.description,
   },
 };
 

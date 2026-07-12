@@ -1,9 +1,10 @@
 import { Suspense } from "react";
 import { ShopClient } from "@/components/forma/ShopClient";
+import { formaSeo } from "@/lib/forma-content";
 
 export const metadata = {
-  title: "Shop | FORMA Studio",
-  description: "Browse premium everyday essentials from FORMA Studio.",
+  title: formaSeo.shop.title,
+  description: formaSeo.shop.description,
 };
 
 export default function ShopPage() {

@@ -104,3 +104,18 @@ export const formaImages = {
     alt: "Craftsperson working with premium materials",
   },
 };
+
+export const formaSeo = {
+  title: "FORMA Studio | Premium Everyday Essentials",
+  description:
+    "Minimal, functional products designed for modern lifestyles.",
+  siteName: "FORMA Studio",
+  shop: {
+    title: "Shop | FORMA Studio",
+    description: "Browse premium everyday essentials from FORMA Studio.",
+  },
+  checkout: {
+    title: "Checkout | FORMA Studio",
+    description: "Complete your FORMA Studio order.",
+  },
+};

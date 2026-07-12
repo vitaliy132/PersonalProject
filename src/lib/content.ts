@@ -96,20 +96,6 @@ export const caseStudies = [
     },
   },
   {
-    id: "restaurant",
-    title: "BRICK & SALT",
-    category: "Hospitality",
-    description:
-      "Industrial-elegant small plates restaurant — cinematic scroll, seasonal menu and reservation flow.",
-    tech: ["Next.js", "UX", "Booking Flow"],
-    href: "/work/the-copper-pan",
-    tone: "copper" as const,
-    image: {
-      src: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1600&q=80",
-      alt: "BRICK & SALT website — plated dishes on a warmly lit restaurant table",
-    },
-  },
-  {
     id: "fashion",
     title: "E-Commerce Fashion Brand",
     category: "Fashion / Retail",
@@ -124,14 +110,32 @@ export const caseStudies = [
     },
   },
   {
-    id: "hospitality",
-    title: "Hospitality Website",
+    id: "restaurant",
+    title: "BRICK & SALT",
     category: "Hospitality",
     description:
-      "A calm, conversion-led digital presence for an ambitious Northern hospitality brand.",
-    tech: ["Web Design", "Brand", "SEO"],
-    href: null,
+      "Industrial-elegant small plates restaurant — cinematic scroll, seasonal menu and reservation flow.",
+    tech: ["Next.js", "UX", "Booking Flow"],
+    href: "/work/the-copper-pan",
+    tone: "copper" as const,
+    image: {
+      src: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1600&q=80",
+      alt: "BRICK & SALT website — plated dishes on a warmly lit restaurant table",
+    },
+  },
+  {
+    id: "hospitality",
+    title: "Savoy Sip",
+    category: "Coffee / Café",
+    description:
+      "Specialty Mayfair café — cinematic GSAP scroll, menu storytelling and visit-led conversion.",
+    tech: ["Next.js", "GSAP", "Brand"],
+    href: "/work/savoy-sip",
     tone: "stone" as const,
+    image: {
+      src: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1600&q=80",
+      alt: "Savoy Sip website — ceramic coffee cup in soft window light",
+    },
   },
 ];
 

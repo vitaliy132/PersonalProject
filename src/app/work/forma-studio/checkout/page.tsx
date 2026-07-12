@@ -1,8 +1,9 @@
 import { CheckoutClient } from "@/components/forma/CheckoutClient";
+import { formaSeo } from "@/lib/forma-content";
 
 export const metadata = {
-  title: "Checkout | FORMA Studio",
-  description: "Complete your FORMA Studio order.",
+  title: formaSeo.checkout.title,
+  description: formaSeo.checkout.description,
 };
 
 export default function CheckoutPage() {

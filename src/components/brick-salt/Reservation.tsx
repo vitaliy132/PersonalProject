@@ -2,7 +2,7 @@
 
 import { useBooking } from "@/components/brick-salt/booking-context";
 import { brickSaltReservation } from "@/lib/brick-salt-content";
-import { MagneticButton } from "./MagneticButton";
+import { MagneticButton } from "@/components/motion/MagneticButton";
 import { Reveal } from "./Reveal";
 
 export function Reservation() {

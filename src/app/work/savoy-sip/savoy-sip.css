@@ -1,0 +1,188 @@
+.savoy-sip {
+  --ss-fog: #e6e9ee;
+  --ss-paper: #f8f9fb;
+  --ss-ink: #0a0a0b;
+  --ss-ink-soft: #1c1e22;
+  --ss-mute: #6a7078;
+  --ss-steel: #3a5c7a;
+  --ss-steel-bright: #4a7194;
+  --ss-steel-soft: rgba(58, 92, 122, 0.12);
+  --ss-foam: #d4cbc0;
+  --ss-border: rgba(10, 10, 11, 0.1);
+  --ss-border-strong: rgba(10, 10, 11, 0.22);
+  --ss-on-dark: #f8f9fb;
+
+  background:
+    radial-gradient(ellipse 55% 40% at 100% 0%, rgba(58, 92, 122, 0.08), transparent 55%),
+    radial-gradient(ellipse 40% 35% at 0% 100%, rgba(212, 203, 192, 0.35), transparent 50%),
+    var(--ss-fog);
+  color: var(--ss-ink);
+  font-family: var(--font-sora), system-ui, sans-serif;
+  min-height: 100vh;
+  overflow-x: clip;
+}
+
+.savoy-sip ::selection {
+  background: var(--ss-steel-soft);
+  color: var(--ss-ink);
+}
+
+.savoy-sip .font-display {
+  font-family: var(--font-bodoni), Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+}
+
+.savoy-sip .ss-container {
+  width: 100%;
+  max-width: 92rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .savoy-sip .ss-container {
+    padding-inline: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .savoy-sip .ss-container {
+    padding-inline: 3rem;
+  }
+}
+
+.savoy-sip .ss-kicker {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ss-steel);
+}
+
+.savoy-sip .ss-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: inherit;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 0.2rem;
+  transition: opacity 0.3s ease, gap 0.3s ease;
+}
+
+.savoy-sip .ss-link:hover {
+  opacity: 0.7;
+  gap: 0.85rem;
+}
+
+.savoy-sip .ss-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  padding: 0.95rem 1.6rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.savoy-sip .ss-btn-primary {
+  background: var(--ss-ink);
+  color: var(--ss-on-dark);
+}
+
+.savoy-sip .ss-btn-primary:hover {
+  background: var(--ss-steel);
+}
+
+.savoy-sip .ss-btn-ghost {
+  background: transparent;
+  color: var(--ss-on-dark);
+  border: 1px solid rgba(248, 249, 251, 0.45);
+}
+
+.savoy-sip .ss-btn-ghost:hover {
+  background: rgba(248, 249, 251, 0.1);
+  border-color: var(--ss-on-dark);
+}
+
+.savoy-sip .ss-btn-line {
+  background: transparent;
+  color: var(--ss-ink);
+  border: 1px solid var(--ss-ink);
+}
+
+.savoy-sip .ss-btn-line:hover {
+  background: var(--ss-ink);
+  color: var(--ss-on-dark);
+}
+
+.savoy-sip .ss-mask-line {
+  display: block;
+  overflow: hidden;
+}
+
+.savoy-sip .ss-grain {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  opacity: 0.028;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.savoy-sip .ss-vert {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+.savoy-sip .ss-menu-track {
+  display: flex;
+  gap: 1.25rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 0.5rem;
+}
+
+.savoy-sip .ss-menu-track::-webkit-scrollbar {
+  display: none;
+}
+
+.savoy-sip .ss-menu-card {
+  scroll-snap-align: start;
+  flex: 0 0 min(78vw, 22rem);
+}
+
+@media (min-width: 768px) {
+  .savoy-sip .ss-menu-card {
+    flex-basis: min(40vw, 20rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  .savoy-sip .ss-menu-card {
+    flex-basis: calc((100% - 2.5rem) / 3);
+  }
+}
+
+.savoy-sip .ss-space-track {
+  display: flex;
+  height: 100%;
+  width: max-content;
+  will-change: transform;
+}

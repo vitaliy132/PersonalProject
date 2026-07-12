@@ -7,7 +7,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useBooking } from "@/components/brick-salt/booking-context";
 import { brickSaltHero } from "@/lib/brick-salt-content";
-import { MagneticButton } from "./MagneticButton";
+import { MagneticButton } from "@/components/motion/MagneticButton";
 
 gsap.registerPlugin(ScrollTrigger);
 
