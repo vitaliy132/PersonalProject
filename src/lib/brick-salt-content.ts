@@ -188,8 +188,8 @@ export const brickSaltChef = {
       description:
         "Live fire, precise pan work and slow braises give BRICK & SALT its industrial soul and Michelin ambition.",
       image: {
-        src: "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=1600&q=80",
-        alt: "Flames rising from a restaurant grill",
+        src: "/brick-salt/techniques.jpg",
+        alt: "Flames erupting from a pan on an industrial restaurant stove",
       },
     },
   ],
