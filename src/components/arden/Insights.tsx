@@ -49,7 +49,7 @@ export function Insights() {
             <SplitText
               as="h2"
               mode="words"
-              className="font-display mt-5 text-[clamp(2.2rem,4.5vw,3.75rem)] text-[var(--aw-ink)]"
+              className="font-display mt-5 text-[clamp(2.2rem,4.5vw,3.75rem)] leading-[1.08] text-[var(--aw-ink)]"
             >
               Briefings from the desk
             </SplitText>
@@ -69,7 +69,7 @@ export function Insights() {
               <span className="text-[0.62rem] tracking-[0.2em] text-[var(--aw-verdant)] uppercase">
                 {item.tag}
               </span>
-              <h3 className="font-display text-[clamp(1.35rem,2.5vw,2rem)] text-[var(--aw-ink)] transition-colors group-hover:text-[var(--aw-verdant)]">
+              <h3 className="font-display text-[clamp(1.35rem,2.5vw,2rem)] leading-[1.12] text-[var(--aw-ink)] transition-colors group-hover:text-[var(--aw-verdant)]">
                 {item.title}
               </h3>
               <div className="flex items-center gap-4 sm:justify-end">

@@ -66,7 +66,7 @@ export function Philosophy() {
           <SplitText
             as="h2"
             mode="words"
-            className="font-display mt-5 text-[clamp(2.6rem,5.5vw,5rem)] text-[var(--aw-ink)]"
+            className="font-display mt-5 text-[clamp(2.6rem,5.5vw,5rem)] leading-[1.08] text-[var(--aw-ink)]"
           >
             {ardenPhilosophy.headline}
           </SplitText>

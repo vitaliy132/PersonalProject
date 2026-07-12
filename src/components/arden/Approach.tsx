@@ -88,7 +88,7 @@ export function Approach() {
                   <p className="font-display text-[clamp(5rem,14vw,9rem)] leading-none text-[var(--aw-verdant)]/[0.12]">
                     {step.step}
                   </p>
-                  <h3 className="font-display -mt-4 text-[clamp(2.25rem,4vw,3.75rem)] text-[var(--aw-ink)]">
+                  <h3 className="font-display mt-1 text-[clamp(2.25rem,4vw,3.75rem)] leading-[1.08] text-[var(--aw-ink)]">
                     {step.title}
                   </h3>
                   <p className="mt-5 max-w-md text-base leading-[1.7] text-[var(--aw-slate)] sm:text-lg">

@@ -21,6 +21,7 @@
   --aw-glass: rgba(241, 245, 247, 0.72);
   --aw-shadow: 0 28px 80px rgba(10, 26, 38, 0.1);
   --aw-shadow-lg: 0 40px 100px rgba(10, 26, 38, 0.16);
+  --aw-display-tracking: -0.035em;
 
   --ms-container-max: 82rem;
   --ms-pad: 1.25rem;
@@ -48,8 +49,53 @@
 .arden .font-display {
   font-family: var(--font-syne), system-ui, sans-serif;
   font-weight: 600;
-  letter-spacing: -0.035em;
-  line-height: 0.98;
+  letter-spacing: var(--aw-display-tracking, -0.035em);
+  line-height: 1.08;
+}
+
+/* SplitText: masks clip the reveal; tracking lives on glyphs, not between boxes */
+.arden .aw-split {
+  letter-spacing: 0;
+}
+
+.arden .aw-split-inner {
+  display: inline;
+}
+
+.arden .aw-split-line {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  padding-bottom: 0.15em;
+  margin-bottom: -0.15em;
+}
+
+.arden .aw-split-char,
+.arden .aw-split-word {
+  display: inline-block;
+  letter-spacing: normal;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+.arden .font-display.aw-split .aw-split-char,
+.arden .font-display.aw-split .aw-split-word {
+  letter-spacing: var(--aw-display-tracking, -0.035em);
+}
+
+.arden .aw-split-space {
+  white-space: pre-wrap;
+}
+
+.arden .aw-watermark {
+  pointer-events: none;
+  user-select: none;
+  font-family: var(--font-syne), system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.06em;
+  line-height: 0.95;
+  color: var(--aw-ink);
+  opacity: 0.04;
 }
 
 
@@ -198,28 +244,6 @@
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--aw-slate);
-}
-
-.arden .aw-split-char,
-.arden .aw-split-word {
-  display: inline-block;
-  will-change: transform, opacity;
-}
-
-.arden .aw-split-line {
-  display: block;
-  overflow: hidden;
-}
-
-.arden .aw-watermark {
-  pointer-events: none;
-  user-select: none;
-  font-family: var(--font-syne), system-ui, sans-serif;
-  font-weight: 700;
-  letter-spacing: -0.06em;
-  line-height: 0.85;
-  color: var(--aw-ink);
-  opacity: 0.04;
 }
 
 .arden .aw-frame {

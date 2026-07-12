@@ -28,7 +28,7 @@ export function Cta() {
         <SplitText
           as="h2"
           mode="words"
-          className="font-display mx-auto mt-6 max-w-4xl text-[clamp(2.6rem,6.5vw,5.5rem)]"
+          className="font-display mx-auto mt-6 max-w-4xl text-[clamp(2.6rem,6.5vw,5.5rem)] leading-[1.08]"
         >
           {ardenCta.headline}
         </SplitText>

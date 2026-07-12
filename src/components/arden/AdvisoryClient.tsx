@@ -89,8 +89,8 @@ export function AdvisoryClient() {
           </div>
           <SplitText
             as="h1"
-            mode="chars"
-            className="font-display mt-2 text-[clamp(2.75rem,6.5vw,5rem)] text-[var(--aw-ink)]"
+            mode="words"
+            className="font-display mt-2 text-[clamp(2.75rem,6.5vw,5rem)] leading-[1.08] text-[var(--aw-ink)]"
           >
             We will be in touch.
           </SplitText>

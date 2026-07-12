@@ -31,9 +31,9 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Case studies
 
-Self-contained brand microsites under `/work`:
+Portfolio cards open a short intro at `/case-studies/{slug}`, then link into the live demo microsite under `/work`:
 
-- `/work/arden-wealth`
-- `/work/forma-studio`
-- `/work/brick-salt` (BRICK & SALT)
-- `/work/savoy-sip`
+- `/case-studies/arden-wealth` → `/work/arden-wealth`
+- `/case-studies/forma-studio` → `/work/forma-studio`
+- `/case-studies/brick-salt` → `/work/brick-salt` (BRICK & SALT)
+- `/case-studies/savoy-sip` → `/work/savoy-sip`

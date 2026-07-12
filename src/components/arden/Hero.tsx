@@ -7,7 +7,7 @@ import { useEffect, useRef } from "react";
 import { Parallax, SplitText } from "@/components/arden/motion";
 import { usePrefersReducedMotion } from "@/components/motion/usePrefersReducedMotion";
 import { arden, ardenHero } from "@/lib/arden-content";
-import { ensureGsap, gsap } from "@/lib/gsap";
+import { ensureGsap, gsap, ScrollTrigger } from "@/lib/gsap";
 
 ensureGsap();
 
@@ -23,29 +23,43 @@ export function Hero() {
     if (!section || !content || reduced) return;
 
     const ctx = gsap.context(() => {
-      gsap.to(content, {
-        y: 120,
-        opacity: 0.2,
-        ease: "none",
-        scrollTrigger: {
-          trigger: section,
-          start: "top top",
-          end: "bottom top",
-          scrub: true,
-        },
-      });
+      // Reset before scrub so client navigations never leave the hero faded out
+      gsap.set(content, { y: 0, opacity: 1 });
+      if (mistRef.current) gsap.set(mistRef.current, { yPercent: 0 });
 
-      if (mistRef.current) {
-        gsap.to(mistRef.current, {
-          yPercent: 25,
+      gsap.fromTo(
+        content,
+        { y: 0, opacity: 1 },
+        {
+          y: 120,
+          opacity: 0.2,
           ease: "none",
           scrollTrigger: {
             trigger: section,
             start: "top top",
             end: "bottom top",
             scrub: true,
+            invalidateOnRefresh: true,
           },
-        });
+        },
+      );
+
+      if (mistRef.current) {
+        gsap.fromTo(
+          mistRef.current,
+          { yPercent: 0 },
+          {
+            yPercent: 25,
+            ease: "none",
+            scrollTrigger: {
+              trigger: section,
+              start: "top top",
+              end: "bottom top",
+              scrub: true,
+              invalidateOnRefresh: true,
+            },
+          },
+        );
       }
 
       gsap.from("[data-hero-meta]", {
@@ -54,8 +68,10 @@ export function Hero() {
         duration: 1,
         stagger: 0.12,
         ease: "power3.out",
-        delay: 1.1,
+        delay: 0.85,
       });
+
+      requestAnimationFrame(() => ScrollTrigger.refresh());
     }, section);
 
     return () => ctx.revert();
@@ -106,8 +122,9 @@ export function Hero() {
 
           <SplitText
             as="h1"
-            mode="chars"
-            className="font-display mt-6 text-[clamp(3.4rem,12vw,8.75rem)] text-[var(--aw-mist)]"
+            mode="words"
+            immediate
+            className="font-display mt-6 text-[clamp(3.4rem,12vw,8.75rem)] leading-[1.05] text-[var(--aw-mist)]"
             delay={0.12}
           >
             {ardenHero.brand}
@@ -118,8 +135,9 @@ export function Hero() {
               <SplitText
                 as="p"
                 mode="words"
+                immediate
                 className="text-[clamp(1.45rem,3.2vw,2.35rem)] font-medium leading-[1.15] text-[var(--aw-mist)]"
-                delay={0.5}
+                delay={0.35}
               >
                 {ardenHero.headline}
               </SplitText>

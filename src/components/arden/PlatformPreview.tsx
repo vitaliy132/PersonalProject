@@ -98,17 +98,17 @@ export function PlatformPreview() {
         </div>
 
         <div
-          className="relative mx-auto h-[30rem] w-full max-w-lg perspective-[1200px]"
+          className="relative mx-auto h-[36rem] w-full max-w-lg perspective-[1200px]"
           style={{ perspective: "1200px" }}
         >
           <div
             data-float-card
-            className="aw-glass absolute top-0 left-0 w-[74%] p-6"
+            className="aw-glass absolute top-0 left-0 z-10 w-[74%] p-6"
           >
             <p className="text-[0.62rem] tracking-[0.18em] text-[var(--aw-slate)] uppercase">
               Net worth
             </p>
-            <p className="font-display mt-3 text-4xl text-[var(--aw-ink)]">
+            <p className="font-display mt-3 text-4xl leading-none text-[var(--aw-ink)]">
               {formatCurrency(4_280_000, true)}
             </p>
             <div className="mt-3 inline-flex items-center gap-2 border border-[var(--aw-verdant)]/25 bg-[var(--aw-verdant-soft)] px-2.5 py-1 text-xs text-[var(--aw-verdant)]">
@@ -118,7 +118,7 @@ export function PlatformPreview() {
 
           <div
             data-float-card
-            className="aw-glass absolute top-32 right-0 w-[72%] p-6"
+            className="aw-glass absolute top-44 right-0 z-20 w-[72%] p-6"
           >
             <p className="text-[0.62rem] tracking-[0.18em] text-[var(--aw-slate)] uppercase">
               Allocation
@@ -147,7 +147,7 @@ export function PlatformPreview() {
 
           <div
             data-float-card
-            className="aw-glass absolute bottom-2 left-[10%] w-[78%] p-6"
+            className="aw-glass absolute bottom-8 left-[10%] z-30 w-[78%] p-6"
           >
             <p className="text-[0.62rem] tracking-[0.18em] text-[var(--aw-slate)] uppercase">
               Performance

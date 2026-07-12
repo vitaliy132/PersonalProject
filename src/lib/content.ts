@@ -83,12 +83,23 @@ export const services = [
 export const caseStudies = [
   {
     id: "wealth",
+    slug: "arden-wealth",
     title: "Arden Wealth",
     category: "Wealth Management",
     description:
       "Private wealth platform — cinematic GSAP storytelling, portfolio dashboard, planning tools and advisory flow.",
+    brief:
+      "Arden Wealth needed a private-client digital presence that felt as considered as the advice itself — not another generic finance template. We designed and built a full product experience: a cinematic marketing site, portfolio dashboard, goal-planning tools, and an advisory booking flow.",
+    deliverables: [
+      "Brand marketing site",
+      "Portfolio dashboard",
+      "Planning tools",
+      "Advisory booking flow",
+      "Motion & storytelling",
+    ],
     tech: ["Next.js", "GSAP", "Product UX"],
-    href: "/work/arden-wealth",
+    href: "/case-studies/arden-wealth",
+    demoHref: "/work/arden-wealth",
     tone: "oak" as const,
     image: {
       src: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80",
@@ -97,12 +108,23 @@ export const caseStudies = [
   },
   {
     id: "fashion",
+    slug: "forma-studio",
     title: "E-Commerce Fashion Brand",
     category: "Fashion / Retail",
     description:
       "Premium DTC storefront with product storytelling, wishlist and modern checkout UX.",
+    brief:
+      "FORMA Studio required a premium direct-to-consumer storefront that put product storytelling first. We built a full retail experience — editorial homepage, shop, product detail pages, wishlist, and a modern checkout — tuned for conversion without losing the brand’s quiet luxury feel.",
+    deliverables: [
+      "DTC storefront",
+      "Product storytelling",
+      "Shop & PDP",
+      "Wishlist & cart",
+      "Checkout UX",
+    ],
     tech: ["Next.js", "E-Commerce", "CRO"],
-    href: "/work/forma-studio",
+    href: "/case-studies/forma-studio",
+    demoHref: "/work/forma-studio",
     tone: "forma" as const,
     image: {
       src: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1600&q=80",
@@ -111,12 +133,23 @@ export const caseStudies = [
   },
   {
     id: "restaurant",
+    slug: "brick-salt",
     title: "BRICK & SALT",
     category: "Hospitality",
     description:
       "Industrial-elegant small plates restaurant — cinematic scroll, seasonal menu and reservation flow.",
+    brief:
+      "BRICK & SALT wanted a site that matched the industrial-elegant atmosphere of the room — cinematic, menu-led, and easy to book. We delivered a full hospitality experience with seasonal storytelling, drinks and gallery sections, and a reservation flow designed to convert visits.",
+    deliverables: [
+      "Brand hospitality site",
+      "Seasonal menu",
+      "Gallery & atmosphere",
+      "Reservation flow",
+      "Location & visit cues",
+    ],
     tech: ["Next.js", "UX", "Booking Flow"],
-    href: "/work/brick-salt",
+    href: "/case-studies/brick-salt",
+    demoHref: "/work/brick-salt",
     tone: "brick" as const,
     image: {
       src: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1600&q=80",
@@ -125,19 +158,36 @@ export const caseStudies = [
   },
   {
     id: "hospitality",
+    slug: "savoy-sip",
     title: "Savoy Sip",
     category: "Coffee / Café",
     description:
       "Specialty Mayfair café — cinematic GSAP scroll, menu storytelling and visit-led conversion.",
+    brief:
+      "Savoy Sip needed a specialty café presence that felt as crafted as the coffee — cinematic scroll, clear menu storytelling, and a visit-led close. We built a brand site focused on craft, space, origin, and getting guests through the door.",
+    deliverables: [
+      "Brand café site",
+      "Menu storytelling",
+      "Craft & origin narrative",
+      "Space photography",
+      "Visit-led conversion",
+    ],
     tech: ["Next.js", "GSAP", "Brand"],
-    href: "/work/savoy-sip",
+    href: "/case-studies/savoy-sip",
+    demoHref: "/work/savoy-sip",
     tone: "stone" as const,
     image: {
       src: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1600&q=80",
       alt: "Savoy Sip website — ceramic coffee cup in soft window light",
     },
   },
-];
+] as const;
+
+export type CaseStudy = (typeof caseStudies)[number];
+
+export function getCaseStudy(slug: string): CaseStudy | undefined {
+  return caseStudies.find((study) => study.slug === slug);
+}
 
 export const pricing = [
   {

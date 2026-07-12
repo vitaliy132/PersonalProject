@@ -7,7 +7,7 @@ import {
   type ReactNode,
 } from "react";
 import { usePrefersReducedMotion } from "@/components/motion/usePrefersReducedMotion";
-import { ensureGsap, gsap } from "@/lib/gsap";
+import { ensureGsap, gsap, ScrollTrigger } from "@/lib/gsap";
 
 ensureGsap();
 
@@ -20,6 +20,8 @@ type SplitTextProps = {
   className?: string;
   style?: CSSProperties;
   delay?: number;
+  /** Play on mount — use for above-the-fold hero copy */
+  immediate?: boolean;
   scrub?: boolean | number;
   trigger?: string | HTMLElement | null;
   once?: boolean;
@@ -29,30 +31,49 @@ function splitToSpans(text: string, mode: SplitMode) {
   if (mode === "words") {
     return text.split(/(\s+)/).map((part, i) => {
       if (/^\s+$/.test(part)) {
-        return <span key={`s-${i}`}>{part}</span>;
+        return (
+          <span key={`s-${i}`} className="aw-split-space">
+            {part}
+          </span>
+        );
       }
       return (
-        <span key={`w-${i}`} className="aw-split-word">
-          {part}
+        <span key={`w-${i}`} className="aw-split-line">
+          <span className="aw-split-word">{part}</span>
         </span>
       );
     });
   }
 
-  return text.split("").map((char, i) => (
-    <span key={`c-${i}`} className="aw-split-char">
-      {char === " " ? "\u00A0" : char}
-    </span>
-  ));
+  return text.split("").map((char, i) => {
+    if (char === " " || char === "\n") {
+      return (
+        <span key={`s-${i}`} className="aw-split-space">
+          {" "}
+        </span>
+      );
+    }
+    return (
+      <span key={`c-${i}`} className="aw-split-line">
+        <span className="aw-split-char">{char}</span>
+      </span>
+    );
+  });
+}
+
+function isAlreadyInView(el: HTMLElement, ratio = 0.92) {
+  const rect = el.getBoundingClientRect();
+  return rect.top < window.innerHeight * ratio && rect.bottom > 0;
 }
 
 export function SplitText({
   children,
   as: Tag = "h2",
-  mode = "chars",
+  mode = "words",
   className = "",
   style,
   delay = 0,
+  immediate = false,
   scrub = false,
   trigger,
   once = true,
@@ -62,60 +83,99 @@ export function SplitText({
 
   useEffect(() => {
     const el = ref.current;
-    if (!el || reduced) return;
+    if (!el) return;
 
-    const units = el.querySelectorAll(
+    const units = el.querySelectorAll<HTMLElement>(
       mode === "chars" ? ".aw-split-char" : ".aw-split-word",
     );
     if (!units.length) return;
 
-    const ctx = gsap.context(() => {
-      gsap.set(units, { yPercent: 110, opacity: 0, rotateX: 18 });
+    if (reduced) {
+      gsap.set(units, { clearProps: "all", yPercent: 0, opacity: 1, rotateX: 0 });
+      return;
+    }
 
-      const tween = {
+    let cancelled = false;
+    const ctx = gsap.context(() => {
+      gsap.set(units, {
+        yPercent: 110,
+        opacity: 0,
+        rotateX: 12,
+        transformOrigin: "50% 100%",
+      });
+
+      const vars = {
         yPercent: 0,
         opacity: 1,
         rotateX: 0,
-        duration: 1.05,
-        stagger: mode === "chars" ? 0.018 : 0.06,
+        duration: 0.95,
+        stagger: mode === "chars" ? 0.016 : 0.05,
         ease: "power3.out",
         delay,
+        force3D: true,
+        overwrite: "auto" as const,
       };
 
       if (scrub) {
         gsap.to(units, {
-          ...tween,
+          ...vars,
           delay: 0,
           scrollTrigger: {
             trigger: trigger || el,
-            start: "top 80%",
-            end: "top 35%",
+            start: "top 82%",
+            end: "top 40%",
             scrub: typeof scrub === "number" ? scrub : 1,
           },
         });
-      } else {
-        gsap.to(units, {
-          ...tween,
-          scrollTrigger: {
-            trigger: trigger || el,
-            start: "top 85%",
-            once,
-          },
-        });
+        return;
       }
+
+      const play = () => {
+        if (cancelled) return;
+        gsap.to(units, vars);
+      };
+
+      const triggerEl = trigger || el;
+      const shouldPlayNow = immediate || isAlreadyInView(el);
+
+      if (shouldPlayNow) {
+        play();
+        return;
+      }
+
+      ScrollTrigger.create({
+        trigger: triggerEl,
+        start: "top 88%",
+        once,
+        onEnter: play,
+      });
+
+      // Client navigations can remount before scroll/layout settles —
+      // re-check after refresh so in-view headings never stay at opacity 0.
+      requestAnimationFrame(() => {
+        ScrollTrigger.refresh();
+        if (!cancelled && isAlreadyInView(el)) {
+          play();
+        }
+      });
     }, el);
 
-    return () => ctx.revert();
-  }, [children, delay, mode, once, reduced, scrub, trigger]);
+    return () => {
+      cancelled = true;
+      ctx.revert();
+    };
+  }, [children, delay, immediate, mode, once, reduced, scrub, trigger]);
 
   return (
     <Tag
       ref={ref as never}
-      className={className}
-      style={{ perspective: 800, ...style }}
+      className={["aw-split", className].filter(Boolean).join(" ")}
+      style={{ perspective: 900, ...style }}
       aria-label={children}
     >
-      <span aria-hidden>{splitToSpans(children, mode)}</span>
+      <span aria-hidden className="aw-split-inner">
+        {splitToSpans(children, mode)}
+      </span>
     </Tag>
   );
 }
@@ -224,9 +284,17 @@ export function PinSection({
             gsap.set(panel, { opacity: 1, y: 0 });
             return;
           }
-          gsap.set(panel, { opacity: 0, y: 48 });
-          tl.to(panels[i - 1], { opacity: 0, y: -32, duration: 0.5 }, i - 0.5);
-          tl.to(panel, { opacity: 1, y: 0, duration: 0.5 }, i - 0.5);
+          gsap.set(panel, { opacity: 0, y: 16 });
+          tl.to(
+            panels[i - 1],
+            { opacity: 0, y: -10, duration: 0.4, ease: "power2.inOut" },
+            i - 0.5,
+          );
+          tl.to(
+            panel,
+            { opacity: 1, y: 0, duration: 0.4, ease: "power2.inOut" },
+            i - 0.42,
+          );
         });
       }
     }, section);

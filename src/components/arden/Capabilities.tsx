@@ -46,7 +46,7 @@ export function Capabilities() {
               <p className="font-display text-[clamp(5rem,12vw,9rem)] leading-none text-[var(--aw-verdant)]/[0.18]">
                 {String(i + 1).padStart(2, "0")}
               </p>
-              <h3 className="font-display mt-2 text-[clamp(2.1rem,4.2vw,3.5rem)] leading-[1.02]">
+              <h3 className="font-display mt-3 text-[clamp(2.1rem,4.2vw,3.5rem)] leading-[1.08]">
                 {cap.title}
               </h3>
               <p className="mt-7 max-w-sm text-[0.95rem] leading-[1.7] text-[var(--aw-mist)]/55">
