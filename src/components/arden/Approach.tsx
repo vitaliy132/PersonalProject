@@ -1,13 +1,12 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { PinSection, SplitText } from "@/components/arden/motion";
 import { usePrefersReducedMotion } from "@/components/motion/usePrefersReducedMotion";
 import { ardenApproach } from "@/lib/arden-content";
+import { ensureGsap, gsap } from "@/lib/gsap";
 
-gsap.registerPlugin(ScrollTrigger);
+ensureGsap();
 
 export function Approach() {
   const progressRef = useRef<HTMLDivElement>(null);

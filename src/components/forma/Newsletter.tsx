@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { Reveal } from "@/components/forma/Reveal";
+import { FadeIn as Reveal } from "@/components/ui/FadeIn";
 
 export function Newsletter() {
   const [email, setEmail] = useState("");

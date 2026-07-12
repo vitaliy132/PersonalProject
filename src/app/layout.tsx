@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
-const satoshi = Space_Grotesk({
-  variable: "--font-satoshi",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
   display: "swap",
   weight: ["400", "500", "600", "700"],
@@ -36,7 +36,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en-GB">
-      <body className={`${satoshi.variable} antialiased`}>{children}</body>
+      <body className={`${spaceGrotesk.variable} antialiased`}>{children}</body>
     </html>
   );
 }

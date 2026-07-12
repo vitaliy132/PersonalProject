@@ -1,4 +1,4 @@
-import { Reveal } from "@/components/forma/Reveal";
+import { FadeIn as Reveal } from "@/components/ui/FadeIn";
 import { formaReviews } from "@/lib/forma-content";
 
 export function Reviews() {

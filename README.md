@@ -35,5 +35,5 @@ Self-contained brand microsites under `/work`:
 
 - `/work/arden-wealth`
 - `/work/forma-studio`
-- `/work/the-copper-pan` (BRICK & SALT)
+- `/work/brick-salt` (BRICK & SALT)
 - `/work/savoy-sip`

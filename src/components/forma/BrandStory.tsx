@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Reveal } from "@/components/forma/Reveal";
+import { FadeIn as Reveal } from "@/components/ui/FadeIn";
 import { formaImages } from "@/lib/forma-content";
 
 const pillars = [

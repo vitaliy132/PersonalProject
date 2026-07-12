@@ -1,3 +1,5 @@
+import type { NavLink, SeoMeta } from "@/lib/types/microsite";
+
 export {
   type FormaCategory,
   type FormaProduct,
@@ -9,7 +11,7 @@ export {
   formatPrice,
 } from "./forma/products";
 
-export const formaNav = [
+export const formaNav: NavLink[] = [
   { label: "Shop", href: "/work/forma-studio/shop" },
   { label: "About", href: "/work/forma-studio#story" },
   { label: "Reviews", href: "/work/forma-studio#reviews" },
@@ -105,7 +107,10 @@ export const formaImages = {
   },
 };
 
-export const formaSeo = {
+export const formaSeo: SeoMeta & {
+  shop: SeoMeta;
+  checkout: SeoMeta;
+} = {
   title: "FORMA Studio | Premium Everyday Essentials",
   description:
     "Minimal, functional products designed for modern lifestyles.",

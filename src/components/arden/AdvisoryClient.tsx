@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
-import gsap from "gsap";
 import { SplitText } from "@/components/arden/motion";
 import { usePlanning } from "@/components/arden/planning-context";
 import { usePrefersReducedMotion } from "@/components/motion/usePrefersReducedMotion";
@@ -10,6 +9,9 @@ import {
   ardenGoals,
   ardenTimeSlots,
 } from "@/lib/arden-content";
+import { ensureGsap, gsap } from "@/lib/gsap";
+
+ensureGsap();
 
 type FormState = {
   name: string;

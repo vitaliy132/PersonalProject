@@ -8,7 +8,7 @@ import { GsapReveal } from "@/components/motion/GsapReveal";
 
 const toneMap = {
   oak: "from-[#2a2118] via-[#1a1612] to-[#0f0e0c]",
-  copper: "from-[#3a2418] via-[#1c1410] to-[#0f0e0c]",
+  brick: "from-[#3a2418] via-[#1c1410] to-[#0f0e0c]",
   forma: "from-[#1a2230] via-[#12161e] to-[#0f0e0c]",
   stone: "from-[#2a2a26] via-[#181816] to-[#0f0e0c]",
 } as const;

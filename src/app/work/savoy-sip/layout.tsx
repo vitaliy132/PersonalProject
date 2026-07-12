@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Bodoni_Moda, Sora } from "next/font/google";
 import { Footer } from "@/components/savoy-sip/Footer";
 import { Header } from "@/components/savoy-sip/Header";
-import { SmoothScroll } from "@/components/motion/SmoothScroll";
+import { MicrositeShell } from "@/components/microsite/MicrositeShell";
 import { savoySipSeo } from "@/lib/savoy-sip-content";
 import "./savoy-sip.css";
 
@@ -41,13 +41,14 @@ export default function SavoySipLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <SmoothScroll>
-      <div className={`savoy-sip ${bodoni.variable} ${sora.variable}`}>
-        <div className="ss-grain" aria-hidden />
-        <Header />
-        {children}
-        <Footer />
-      </div>
-    </SmoothScroll>
+    <MicrositeShell
+      className={`savoy-sip ${bodoni.variable} ${sora.variable}`}
+      grain
+      smoothScroll
+    >
+      <Header />
+      {children}
+      <Footer />
+    </MicrositeShell>
   );
 }

@@ -3,12 +3,11 @@
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { savoySipHero } from "@/lib/savoy-sip-content";
 import { MagneticButton } from "@/components/motion/MagneticButton";
+import { ensureGsap, gsap } from "@/lib/gsap";
 
-gsap.registerPlugin(ScrollTrigger);
+ensureGsap();
 
 const ease = [0.22, 1, 0.36, 1] as const;
 

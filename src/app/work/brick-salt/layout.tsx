@@ -4,7 +4,7 @@ import { BookingModal } from "@/components/brick-salt/booking/BookingModal";
 import { BookingProvider } from "@/components/brick-salt/booking-context";
 import { Footer } from "@/components/brick-salt/Footer";
 import { Header } from "@/components/brick-salt/Header";
-import { SmoothScroll } from "@/components/motion/SmoothScroll";
+import { MicrositeShell } from "@/components/microsite/MicrositeShell";
 import { brickSaltSeo } from "@/lib/brick-salt-content";
 import "./brick-salt.css";
 
@@ -43,16 +43,17 @@ export default function BrickSaltLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <SmoothScroll>
-      <div className={`brick-salt ${fraunces.variable} ${manrope.variable}`}>
-        <div className="bs-grain" aria-hidden />
-        <BookingProvider>
-          <Header />
-          {children}
-          <Footer />
-          <BookingModal />
-        </BookingProvider>
-      </div>
-    </SmoothScroll>
+    <MicrositeShell
+      className={`brick-salt ${fraunces.variable} ${manrope.variable}`}
+      grain
+      smoothScroll
+    >
+      <BookingProvider>
+        <Header />
+        {children}
+        <Footer />
+        <BookingModal />
+      </BookingProvider>
+    </MicrositeShell>
   );
 }

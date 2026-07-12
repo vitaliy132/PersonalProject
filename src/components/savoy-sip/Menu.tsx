@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { savoySipMenu, savoySipMenuSection } from "@/lib/savoy-sip-content";
-import { Reveal } from "./Reveal";
+import { GsapReveal as Reveal } from "@/components/motion/GsapReveal";
 
 export function Menu() {
   const [active, setActive] = useState<(typeof savoySipMenu)[number]["id"]>(

@@ -1,13 +1,12 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { intro } from "@/lib/content";
 import { GsapReveal } from "@/components/motion/GsapReveal";
 import { usePrefersReducedMotion } from "@/components/motion/usePrefersReducedMotion";
+import { ensureGsap, gsap } from "@/lib/gsap";
 
-gsap.registerPlugin(ScrollTrigger);
+ensureGsap();
 
 export function Intro() {
   const statsRef = useRef<HTMLDivElement>(null);

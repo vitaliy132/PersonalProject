@@ -2,11 +2,10 @@
 
 import { useEffect, useRef } from "react";
 import Lenis from "lenis";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { usePrefersReducedMotion } from "./usePrefersReducedMotion";
+import { ensureGsap, gsap, ScrollTrigger } from "@/lib/gsap";
 
-gsap.registerPlugin(ScrollTrigger);
+ensureGsap();
 
 export function SmoothScroll({ children }: { children: React.ReactNode }) {
   const reduced = usePrefersReducedMotion();

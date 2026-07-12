@@ -5,7 +5,7 @@ import { useState } from "react";
 import { ProductCard } from "@/components/forma/ProductCard";
 import { ProductGallery } from "@/components/forma/ProductGallery";
 import { ProductPurchase } from "@/components/forma/ProductPurchase";
-import { Reveal } from "@/components/forma/Reveal";
+import { FadeIn as Reveal } from "@/components/ui/FadeIn";
 import {
   getRelatedProducts,
   type FormaProduct,

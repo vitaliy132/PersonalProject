@@ -4,7 +4,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { useBooking } from "@/components/brick-salt/booking-context";
 import { brickSalt, brickSaltLocation } from "@/lib/brick-salt-content";
 import { MagneticButton } from "@/components/motion/MagneticButton";
-import { Reveal } from "./Reveal";
+import { Reveal } from "@/components/motion/Reveal";
 
 export function Location() {
   const reduceMotion = useReducedMotion();

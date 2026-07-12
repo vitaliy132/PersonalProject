@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { brickSaltStory } from "@/lib/brick-salt-content";
-import { Reveal } from "./Reveal";
+import { Reveal } from "@/components/motion/Reveal";
 import { SplitReveal } from "./SplitReveal";
 
 export function Story() {

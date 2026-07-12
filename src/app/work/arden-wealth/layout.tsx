@@ -3,7 +3,7 @@ import { Figtree, Syne } from "next/font/google";
 import { Footer } from "@/components/arden/Footer";
 import { Header } from "@/components/arden/Header";
 import { PlanningProvider } from "@/components/arden/planning-context";
-import { SmoothScroll } from "@/components/motion/SmoothScroll";
+import { MicrositeShell } from "@/components/microsite/MicrositeShell";
 import { ardenSeo } from "@/lib/arden-content";
 import "./arden.css";
 
@@ -43,15 +43,16 @@ export default function ArdenLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <SmoothScroll>
-      <div className={`arden ${syne.variable} ${figtree.variable}`}>
-        <div className="aw-grain" aria-hidden />
-        <PlanningProvider>
-          <Header />
-          {children}
-          <Footer />
-        </PlanningProvider>
-      </div>
-    </SmoothScroll>
+    <MicrositeShell
+      className={`arden ${syne.variable} ${figtree.variable}`}
+      grain
+      smoothScroll
+    >
+      <PlanningProvider>
+        <Header />
+        {children}
+        <Footer />
+      </PlanningProvider>
+    </MicrositeShell>
   );
 }

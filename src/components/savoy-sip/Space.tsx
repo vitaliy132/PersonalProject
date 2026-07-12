@@ -2,12 +2,11 @@
 
 import Image from "next/image";
 import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { usePrefersReducedMotion } from "@/components/motion/usePrefersReducedMotion";
 import { savoySipSpace } from "@/lib/savoy-sip-content";
+import { ensureGsap, gsap } from "@/lib/gsap";
 
-gsap.registerPlugin(ScrollTrigger);
+ensureGsap();
 
 export function Space() {
   const sectionRef = useRef<HTMLElement>(null);

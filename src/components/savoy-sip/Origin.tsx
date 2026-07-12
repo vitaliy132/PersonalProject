@@ -1,7 +1,7 @@
 "use client";
 
 import { savoySipOrigin } from "@/lib/savoy-sip-content";
-import { Reveal } from "./Reveal";
+import { GsapReveal as Reveal } from "@/components/motion/GsapReveal";
 
 export function Origin() {
   return (

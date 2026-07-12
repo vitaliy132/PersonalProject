@@ -1,3 +1,10 @@
+import type {
+  Cta,
+  HeroBlock,
+  NavLink,
+  SeoMeta,
+} from "@/lib/types/microsite";
+
 export const arden = {
   name: "Arden Wealth",
   tagline: "Private wealth, precisely tended.",
@@ -7,13 +14,13 @@ export const arden = {
   phone: "+44 20 7946 0180",
 };
 
-export const ardenSeo = {
+export const ardenSeo: SeoMeta = {
   title: "Arden Wealth | Financial Planning & Wealth Management",
   description:
     "A private wealth platform for architecture, tax-aware planning, legacy design and private markets — built with clarity and care.",
 };
 
-export const ardenNav = [
+export const ardenNav: NavLink[] = [
   { label: "Philosophy", href: "/work/arden-wealth#philosophy" },
   { label: "Platform", href: "/work/arden-wealth/platform" },
   { label: "Planning", href: "/work/arden-wealth/planning" },
@@ -30,8 +37,12 @@ export const ardenHero = {
     src: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2400&q=80",
     alt: "Modern glass architecture rising into soft morning light",
   },
-  ctaPrimary: { label: "Enter platform", href: "/work/arden-wealth/platform" },
-  ctaSecondary: { label: "Start planning", href: "/work/arden-wealth/planning" },
+  ctaPrimary: { label: "Enter platform", href: "/work/arden-wealth/platform" } satisfies Cta,
+  ctaSecondary: { label: "Start planning", href: "/work/arden-wealth/planning" } satisfies Cta,
+} satisfies HeroBlock & {
+  eyebrow: string;
+  brand: string;
+  headline: string;
 };
 
 export const ardenPhilosophy = {

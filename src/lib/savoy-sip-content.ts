@@ -1,3 +1,11 @@
+import type {
+  Cta,
+  HeroBlock,
+  NavLink,
+  SectionBlock,
+  SeoMeta,
+} from "@/lib/types/microsite";
+
 export const savoySip = {
   name: "Savoy Sip",
   tagline: "Specialty coffee. Mayfair calm.",
@@ -7,24 +15,29 @@ export const savoySip = {
   instagram: "https://www.instagram.com/",
 };
 
-export const savoySipNav = [
+export const savoySipNav: NavLink[] = [
   { label: "Craft", href: "#craft" },
   { label: "Menu", href: "#menu" },
   { label: "Space", href: "#space" },
   { label: "Visit", href: "#visit" },
-] as const;
+];
 
 export const savoySipHero = {
   brandLineOne: "Savoy",
   brandLineTwo: "Sip",
   line: "Slow pours for a faster city.",
   place: "Mount Street · Mayfair",
-  ctaPrimary: { label: "See the menu", href: "#menu" },
-  ctaSecondary: { label: "Plan a visit", href: "#visit" },
+  ctaPrimary: { label: "See the menu", href: "#menu" } satisfies Cta,
+  ctaSecondary: { label: "Plan a visit", href: "#visit" } satisfies Cta,
   image: {
     src: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=2400&q=80",
     alt: "Ceramic coffee cup on a sunlit table beside a window",
   },
+} satisfies HeroBlock & {
+  brandLineOne: string;
+  brandLineTwo: string;
+  line: string;
+  place: string;
 };
 
 export const savoySipCraft = {
@@ -36,14 +49,14 @@ export const savoySipCraft = {
     src: "https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=1800&q=80",
     alt: "Close-up of freshly ground coffee beans",
   },
-};
+} satisfies SectionBlock;
 
 export const savoySipMenuSection = {
   id: "menu",
   kicker: "02 — Menu",
   headline: "What we pour.",
   body: "Three boards. One ritual. Ask what's on filter today.",
-};
+} satisfies SectionBlock;
 
 export const savoySipMenu = [
   {
@@ -211,7 +224,7 @@ export const savoySipVisit = {
   ],
 };
 
-export const savoySipSeo = {
+export const savoySipSeo: SeoMeta = {
   title: "Savoy Sip | Specialty Coffee · Mayfair, London",
   description:
     "A premium specialty coffee café in Mayfair — slow pours, considered interiors and a quiet corner of London.",

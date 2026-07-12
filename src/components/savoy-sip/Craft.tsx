@@ -2,13 +2,12 @@
 
 import Image from "next/image";
 import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { usePrefersReducedMotion } from "@/components/motion/usePrefersReducedMotion";
 import { savoySipCraft } from "@/lib/savoy-sip-content";
-import { Reveal } from "./Reveal";
+import { GsapReveal as Reveal } from "@/components/motion/GsapReveal";
+import { ensureGsap, gsap } from "@/lib/gsap";
 
-gsap.registerPlugin(ScrollTrigger);
+ensureGsap();
 
 export function Craft() {
   const sectionRef = useRef<HTMLElement>(null);

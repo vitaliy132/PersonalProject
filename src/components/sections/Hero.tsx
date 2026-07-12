@@ -2,14 +2,13 @@
 
 import { useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { hero } from "@/lib/content";
 import { Button } from "@/components/ui/Button";
 import { Magnetic } from "@/components/motion/Magnetic";
 import { usePrefersReducedMotion } from "@/components/motion/usePrefersReducedMotion";
+import { ensureGsap, gsap } from "@/lib/gsap";
 
-gsap.registerPlugin(ScrollTrigger);
+ensureGsap();
 
 const HeroScene = dynamic(
   () =>

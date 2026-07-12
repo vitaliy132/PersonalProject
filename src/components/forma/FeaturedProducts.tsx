@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { ProductCard } from "@/components/forma/ProductCard";
-import { Reveal } from "@/components/forma/Reveal";
+import { FadeIn as Reveal } from "@/components/ui/FadeIn";
 import { getFeaturedProducts } from "@/lib/forma-content";
 
 export function FeaturedProducts() {

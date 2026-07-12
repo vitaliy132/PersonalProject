@@ -3,13 +3,12 @@
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useBooking } from "@/components/brick-salt/booking-context";
 import { brickSaltHero } from "@/lib/brick-salt-content";
 import { MagneticButton } from "@/components/motion/MagneticButton";
+import { ensureGsap, gsap } from "@/lib/gsap";
 
-gsap.registerPlugin(ScrollTrigger);
+ensureGsap();
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -93,8 +92,7 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.45, ease }}
             >
-              Seasonal small plates, craft drinks and shared tables in a
-              converted Northern warehouse.
+              {brickSaltHero.support}
             </motion.p>
           </div>
 
@@ -108,7 +106,7 @@ export function Hero() {
               onClick={openBooking}
               className="bs-btn bs-btn-primary"
             >
-              {brickSaltHero.ctaPrimary}
+              {brickSaltHero.ctaPrimary.label}
             </MagneticButton>
             <MagneticButton
               href={brickSaltHero.ctaSecondary.href}

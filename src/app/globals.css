@@ -32,8 +32,8 @@
   --color-accent: var(--accent);
   --color-accent-soft: var(--accent-soft);
   --color-accent-strong: var(--accent-strong);
-  --font-sans: var(--font-satoshi);
-  --font-display: var(--font-satoshi);
+  --font-sans: var(--font-space-grotesk);
+  --font-display: var(--font-space-grotesk);
 }
 
 html {
@@ -60,7 +60,7 @@ html.lenis body {
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: var(--font-satoshi), "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: var(--font-space-grotesk), "Helvetica Neue", Helvetica, Arial, sans-serif;
   min-height: 100vh;
   overflow-x: hidden;
 }
@@ -71,7 +71,7 @@ body {
 }
 
 .font-display {
-  font-family: var(--font-satoshi), "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: var(--font-space-grotesk), "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .grain {

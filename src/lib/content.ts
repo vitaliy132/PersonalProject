@@ -116,8 +116,8 @@ export const caseStudies = [
     description:
       "Industrial-elegant small plates restaurant — cinematic scroll, seasonal menu and reservation flow.",
     tech: ["Next.js", "UX", "Booking Flow"],
-    href: "/work/the-copper-pan",
-    tone: "copper" as const,
+    href: "/work/brick-salt",
+    tone: "brick" as const,
     image: {
       src: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1600&q=80",
       alt: "BRICK & SALT website — plated dishes on a warmly lit restaurant table",

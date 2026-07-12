@@ -2,17 +2,16 @@
 
 import Image from "next/image";
 import { useEffect, useRef } from "react";
-import { useReducedMotion } from "framer-motion";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { usePrefersReducedMotion } from "@/components/motion/usePrefersReducedMotion";
 import { brickSaltChef } from "@/lib/brick-salt-content";
-import { Reveal } from "./Reveal";
+import { Reveal } from "@/components/motion/Reveal";
+import { ensureGsap, gsap } from "@/lib/gsap";
 
-gsap.registerPlugin(ScrollTrigger);
+ensureGsap();
 
 export function Chef() {
   const sectionRef = useRef<HTMLElement>(null);
-  const reduceMotion = useReducedMotion();
+  const reduceMotion = usePrefersReducedMotion();
 
   useEffect(() => {
     if (reduceMotion || !sectionRef.current) return;

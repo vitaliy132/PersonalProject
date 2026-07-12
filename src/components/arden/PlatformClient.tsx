@@ -2,16 +2,15 @@
 
 import Link from "next/link";
 import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "@/components/arden/motion";
 import { usePrefersReducedMotion } from "@/components/motion/usePrefersReducedMotion";
 import {
   ardenPortfolio,
   formatCurrency,
 } from "@/lib/arden-content";
+import { ensureGsap, gsap } from "@/lib/gsap";
 
-gsap.registerPlugin(ScrollTrigger);
+ensureGsap();
 
 function AllocationChart() {
   const total = ardenPortfolio.allocation.reduce((s, a) => s + a.value, 0);

@@ -6,11 +6,10 @@ import {
   type CSSProperties,
   type ReactNode,
 } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { usePrefersReducedMotion } from "@/components/motion/usePrefersReducedMotion";
+import { ensureGsap, gsap } from "@/lib/gsap";
 
-gsap.registerPlugin(ScrollTrigger);
+ensureGsap();
 
 type SplitMode = "chars" | "words";
 

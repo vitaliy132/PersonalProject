@@ -1,3 +1,11 @@
+import type {
+  Cta,
+  HeroBlock,
+  NavLink,
+  SectionBlock,
+  SeoMeta,
+} from "@/lib/types/microsite";
+
 export const brickSalt = {
   name: "BRICK & SALT",
   tagline: "Food. Fire. Friends.",
@@ -9,14 +17,14 @@ export const brickSalt = {
   instagram: "https://www.instagram.com/",
 };
 
-export const brickSaltNav = [
+export const brickSaltNav: NavLink[] = [
   { label: "Story", href: "#story" },
   { label: "Menu", href: "#menu" },
   { label: "Chef", href: "#chef" },
   { label: "Dining", href: "#gallery" },
   { label: "Drinks", href: "#drinks" },
   { label: "Visit", href: "#location" },
-] as const;
+];
 
 export const brickSaltTimes = [
   "12:00",
@@ -37,12 +45,17 @@ export const brickSaltPartySizes = [1, 2, 3, 4, 5, 6, 7, 8];
 export const brickSaltHero = {
   lineOne: "Small plates.",
   lineTwo: "Big flavours.",
-  ctaPrimary: "Book a Table",
-  ctaSecondary: { label: "Explore Menu", href: "#menu" },
+  support:
+    "Seasonal small plates, craft drinks and shared tables in a converted Northern warehouse.",
+  ctaPrimary: { label: "Book a Table" } satisfies Cta,
+  ctaSecondary: { label: "Explore Menu", href: "#menu" } satisfies Cta,
   image: {
     src: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=2400&q=80",
     alt: "Plated dishes on a warmly lit restaurant table",
   },
+} satisfies HeroBlock & {
+  lineOne: string;
+  lineTwo: string;
 };
 
 export const brickSaltStory = {
@@ -57,6 +70,8 @@ export const brickSaltStory = {
     src: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80",
     alt: "Candlelit dining room with brick walls and wooden tables",
   },
+} satisfies SectionBlock & {
+  secondaryImage: { src: string; alt: string };
 };
 
 export const brickSaltMenu = [
@@ -309,7 +324,7 @@ export const brickSaltLocation = {
   ],
 };
 
-export const brickSaltSeo = {
+export const brickSaltSeo: SeoMeta = {
   title: "BRICK & SALT | Small Plates Restaurant · Leeds",
   description:
     "A modern small plates restaurant in Northern England — seasonal cooking, craft drinks and shared dining in Leeds.",

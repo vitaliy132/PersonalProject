@@ -1,8 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import gsap from "gsap";
 import { usePrefersReducedMotion } from "./usePrefersReducedMotion";
+import { ensureGsap, gsap } from "@/lib/gsap";
+
+ensureGsap();
 
 export function Preloader() {
   const reduced = usePrefersReducedMotion();

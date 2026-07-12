@@ -1,4 +1,4 @@
-import { Reveal } from "@/components/forma/Reveal";
+import { FadeIn as Reveal } from "@/components/ui/FadeIn";
 import { formaWhyUs } from "@/lib/forma-content";
 
 export function WhyChooseUs() {

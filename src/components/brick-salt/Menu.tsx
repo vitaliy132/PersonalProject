@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { brickSaltMenu } from "@/lib/brick-salt-content";
-import { Reveal } from "./Reveal";
+import { Reveal } from "@/components/motion/Reveal";
 
 export function Menu() {
   const [active, setActive] = useState<(typeof brickSaltMenu)[number]["id"]>(

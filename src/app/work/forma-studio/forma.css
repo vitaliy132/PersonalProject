@@ -1,3 +1,5 @@
+@import "../microsite-base.css";
+
 .forma {
   --fo-bg: #f4f4f5;
   --fo-bg-elevated: #ffffff;
@@ -15,6 +17,12 @@
   --fo-black: var(--fo-ink);
   --fo-olive: var(--fo-accent);
   --fo-olive-soft: var(--fo-accent-soft);
+
+  --ms-container-max: 80rem;
+  --ms-pad: 1.25rem;
+  --ms-pad-sm: 2rem;
+  --ms-pad-lg: 2rem;
+  --ms-marquee-duration: 28s;
 
   background:
     linear-gradient(var(--fo-grid) 1px, transparent 1px),
@@ -39,19 +47,6 @@
 
 .forma .font-mono {
   font-family: var(--font-jetbrains), ui-monospace, monospace;
-}
-
-.forma .fo-container {
-  width: 100%;
-  max-width: 80rem;
-  margin-inline: auto;
-  padding-inline: 1.25rem;
-}
-
-@media (min-width: 640px) {
-  .forma .fo-container {
-    padding-inline: 2rem;
-  }
 }
 
 .forma .fo-eyebrow {
@@ -148,12 +143,6 @@
   mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
 }
 
-.forma .fo-marquee-track {
-  display: inline-flex;
-  gap: 2.5rem;
-  animation: fo-marquee 28s linear infinite;
-}
-
 .forma .fo-skeleton {
   background: linear-gradient(
     90deg,
@@ -174,18 +163,8 @@
   }
 }
 
-@keyframes fo-marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .forma .fo-skeleton,
-  .forma .fo-marquee-track {
+  .forma .fo-skeleton {
     animation: none;
   }
 }

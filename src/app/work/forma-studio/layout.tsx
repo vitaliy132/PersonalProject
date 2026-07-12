@@ -6,6 +6,7 @@ import { Footer } from "@/components/forma/Footer";
 import { FreeShippingBanner } from "@/components/forma/FreeShippingBanner";
 import { Header } from "@/components/forma/Header";
 import { SearchDialog } from "@/components/forma/SearchDialog";
+import { MicrositeShell } from "@/components/microsite/MicrositeShell";
 import { formaSeo } from "@/lib/forma-content";
 import "./forma.css";
 
@@ -44,7 +45,7 @@ export default function FormaLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className={`forma ${space.variable} ${jetbrains.variable}`}>
+    <MicrositeShell className={`forma ${space.variable} ${jetbrains.variable}`}>
       <CartProvider>
         <FreeShippingBanner />
         <Header />
@@ -53,6 +54,6 @@ export default function FormaLayout({
         <CartDrawer />
         <SearchDialog />
       </CartProvider>
-    </div>
+    </MicrositeShell>
   );
 }

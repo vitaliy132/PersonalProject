@@ -4,13 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Parallax, SplitText } from "@/components/arden/motion";
 import { usePrefersReducedMotion } from "@/components/motion/usePrefersReducedMotion";
 import { arden, ardenHero } from "@/lib/arden-content";
+import { ensureGsap, gsap } from "@/lib/gsap";
 
-gsap.registerPlugin(ScrollTrigger);
+ensureGsap();
 
 export function Hero() {
   const sectionRef = useRef<HTMLElement>(null);

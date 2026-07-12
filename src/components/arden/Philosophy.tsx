@@ -2,13 +2,12 @@
 
 import Image from "next/image";
 import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Parallax, SplitText } from "@/components/arden/motion";
 import { usePrefersReducedMotion } from "@/components/motion/usePrefersReducedMotion";
 import { ardenPhilosophy } from "@/lib/arden-content";
+import { ensureGsap, gsap } from "@/lib/gsap";
 
-gsap.registerPlugin(ScrollTrigger);
+ensureGsap();
 
 export function Philosophy() {
   const sectionRef = useRef<HTMLElement>(null);

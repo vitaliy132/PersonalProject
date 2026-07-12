@@ -2,13 +2,12 @@
 
 import { ArrowUpRight } from "lucide-react";
 import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "@/components/arden/motion";
 import { usePrefersReducedMotion } from "@/components/motion/usePrefersReducedMotion";
 import { ardenInsights } from "@/lib/arden-content";
+import { ensureGsap, gsap } from "@/lib/gsap";
 
-gsap.registerPlugin(ScrollTrigger);
+ensureGsap();
 
 export function Insights() {
   const sectionRef = useRef<HTMLElement>(null);

@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { brickSaltSeasonal } from "@/lib/brick-salt-content";
-import { Reveal } from "./Reveal";
+import { Reveal } from "@/components/motion/Reveal";
 
 export function Seasonal() {
   const [active, setActive] = useState(0);
