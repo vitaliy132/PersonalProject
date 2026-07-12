@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { caseStudies, getCaseStudy } from "@/lib/content";
-import { CaseStudyIntro } from "@/components/sections/CaseStudyIntro";
+import {
+  caseStudies,
+  getCaseStudy,
+  getNextCaseStudy,
+} from "@/lib/content";
+import { CaseStudyPage } from "@/components/sections/CaseStudyPage";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -27,7 +31,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function CaseStudyPage({ params }: PageProps) {
+export default async function CaseStudyRoute({ params }: PageProps) {
   const { slug } = await params;
   const project = getCaseStudy(slug);
 
@@ -35,5 +39,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
     notFound();
   }
 
-  return <CaseStudyIntro project={project} />;
+  const nextProject = getNextCaseStudy(slug);
+
+  return <CaseStudyPage project={project} nextProject={nextProject} />;
 }

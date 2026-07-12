@@ -31,7 +31,7 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Case studies
 
-Portfolio cards open a short intro at `/case-studies/{slug}`, then link into the live demo microsite under `/work`:
+Portfolio cards open a full narrative case study at `/case-studies/{slug}`, then link into the live demo microsite under `/work`:
 
 - `/case-studies/arden-wealth` → `/work/arden-wealth`
 - `/case-studies/forma-studio` → `/work/forma-studio`
