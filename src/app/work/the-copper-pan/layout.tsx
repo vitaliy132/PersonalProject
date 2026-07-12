@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { Fraunces, Manrope } from "next/font/google";
-import { BookingModal } from "@/components/copper-pan/BookingModal";
-import { BookingProvider } from "@/components/copper-pan/booking-context";
-import { Footer } from "@/components/copper-pan/Footer";
-import { Header } from "@/components/copper-pan/Header";
-import "./copper-pan.css";
+import { BookingModal } from "@/components/brick-salt/booking/BookingModal";
+import { BookingProvider } from "@/components/brick-salt/booking-context";
+import { Footer } from "@/components/brick-salt/Footer";
+import { Header } from "@/components/brick-salt/Header";
+import { SmoothScroll } from "@/components/motion/SmoothScroll";
+import { brickSaltSeo } from "@/lib/brick-salt-content";
+import "./brick-salt.css";
 
 const fraunces = Fraunces({
   variable: "--font-fraunces",
@@ -19,38 +21,38 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "The Copper Pan | Neighbourhood Restaurant",
-  description:
-    "Seasonal British cooking in North London. Book a table for lunch or dinner at The Copper Pan.",
+  title: brickSaltSeo.title,
+  description: brickSaltSeo.description,
   openGraph: {
-    title: "The Copper Pan | Neighbourhood Restaurant",
-    description:
-      "Seasonal British cooking in North London. Book a table for lunch or dinner at The Copper Pan.",
+    title: brickSaltSeo.title,
+    description: brickSaltSeo.description,
     type: "website",
     locale: "en_GB",
-    siteName: "The Copper Pan",
+    siteName: "BRICK & SALT",
   },
   twitter: {
     card: "summary_large_image",
-    title: "The Copper Pan | Neighbourhood Restaurant",
-    description:
-      "Seasonal British cooking in North London. Book a table for lunch or dinner at The Copper Pan.",
+    title: brickSaltSeo.title,
+    description: brickSaltSeo.description,
   },
 };
 
-export default function CopperPanLayout({
+export default function BrickSaltLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <div className={`copper-pan ${fraunces.variable} ${manrope.variable}`}>
-      <BookingProvider>
-        <Header />
-        {children}
-        <Footer />
-        <BookingModal />
-      </BookingProvider>
-    </div>
+    <SmoothScroll>
+      <div className={`brick-salt ${fraunces.variable} ${manrope.variable}`}>
+        <div className="bs-grain" aria-hidden />
+        <BookingProvider>
+          <Header />
+          {children}
+          <Footer />
+          <BookingModal />
+        </BookingProvider>
+      </div>
+    </SmoothScroll>
   );
 }

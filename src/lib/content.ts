@@ -83,20 +83,20 @@ export const services = [
 export const caseStudies = [
   {
     id: "coffee",
-    title: "Specialty Coffee Brand",
+    title: "The Savoy Sip",
     category: "Specialty Coffee",
     description:
-      "Editorial brand site with product storytelling, café atmosphere and conversion-led journeys.",
-    tech: ["Next.js", "Brand Design", "E-Commerce"],
+      "Michelin-calibre specialty coffee boutique — cinematic scroll, editorial storytelling and London craft.",
+    tech: ["Next.js", "Brand Design", "Motion"],
     href: "/work/north-and-oak",
     tone: "oak" as const,
   },
   {
     id: "restaurant",
-    title: "Luxury Restaurant",
+    title: "BRICK & SALT",
     category: "Hospitality",
     description:
-      "Reservation-focused restaurant experience with refined typography and cinematic presentation.",
+      "Industrial-elegant small plates restaurant — cinematic scroll, seasonal menu and reservation flow.",
     tech: ["Next.js", "UX", "Booking Flow"],
     href: "/work/the-copper-pan",
     tone: "copper" as const,

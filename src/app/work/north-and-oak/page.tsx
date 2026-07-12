@@ -1,23 +1,25 @@
-import { BrandStory } from "@/components/north-oak/BrandStory";
-import { Cafe } from "@/components/north-oak/Cafe";
-import { Collection } from "@/components/north-oak/Collection";
-import { Experience } from "@/components/north-oak/Experience";
-import { Hero } from "@/components/north-oak/Hero";
-import { Newsletter } from "@/components/north-oak/Newsletter";
-import { Sustainability } from "@/components/north-oak/Sustainability";
-import { Testimonials } from "@/components/north-oak/Testimonials";
+import { BrandStory } from "@/components/savoy-sip/BrandStory";
+import { CoffeeExperience } from "@/components/savoy-sip/CoffeeExperience";
+import { Community } from "@/components/savoy-sip/Community";
+import { Gallery } from "@/components/savoy-sip/Gallery";
+import { Hero } from "@/components/savoy-sip/Hero";
+import { Location } from "@/components/savoy-sip/Location";
+import { Menu } from "@/components/savoy-sip/Menu";
+import { Products } from "@/components/savoy-sip/Products";
+import { Roastery } from "@/components/savoy-sip/Roastery";
 
-export default function NorthAndOakPage() {
+export default function SavoySipPage() {
   return (
     <main>
       <Hero />
       <BrandStory />
-      <Collection />
-      <Experience />
-      <Cafe />
-      <Sustainability />
-      <Testimonials />
-      <Newsletter />
+      <CoffeeExperience />
+      <Menu />
+      <Roastery />
+      <Gallery />
+      <Community />
+      <Products />
+      <Location />
     </main>
   );
 }
