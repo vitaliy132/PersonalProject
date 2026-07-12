@@ -1,0 +1,362 @@
+.arden {
+  --aw-mist: #e6edf0;
+  --aw-mist-deep: #d2dde3;
+  --aw-ink: #0a1a26;
+  --aw-ink-soft: #163044;
+  --aw-verdant: #2a6346;
+  --aw-verdant-bright: #3d8a5f;
+  --aw-verdant-soft: rgba(42, 99, 70, 0.12);
+  --aw-champagne: #c4a06e;
+  --aw-champagne-bright: #d4b484;
+  --aw-champagne-soft: rgba(196, 160, 110, 0.16);
+  --aw-slate: #567280;
+  --aw-slate-soft: #8a9eaa;
+  --aw-border: rgba(10, 26, 38, 0.1);
+  --aw-border-strong: rgba(10, 26, 38, 0.22);
+  --aw-surface: rgba(255, 255, 255, 0.62);
+  --aw-panel: #f1f5f7;
+  --aw-white: #fafcfd;
+  --aw-glass: rgba(241, 245, 247, 0.72);
+  --aw-shadow: 0 28px 80px rgba(10, 26, 38, 0.1);
+  --aw-shadow-lg: 0 40px 100px rgba(10, 26, 38, 0.16);
+
+  background:
+    radial-gradient(ellipse 80% 50% at 10% -10%, rgba(42, 99, 70, 0.07), transparent 50%),
+    radial-gradient(ellipse 60% 40% at 100% 0%, rgba(196, 160, 110, 0.06), transparent 45%),
+    var(--aw-mist);
+  color: var(--aw-ink);
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  min-height: 100vh;
+  overflow-x: clip;
+}
+
+.arden ::selection {
+  background: var(--aw-verdant-soft);
+  color: var(--aw-ink);
+}
+
+.arden .font-display {
+  font-family: var(--font-syne), system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 0.98;
+}
+
+.arden .aw-container {
+  width: 100%;
+  max-width: 82rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .arden .aw-container {
+    padding-inline: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .arden .aw-container {
+    padding-inline: 3.5rem;
+  }
+}
+
+.arden .aw-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--aw-verdant);
+}
+
+.arden .aw-eyebrow::before {
+  content: "";
+  display: block;
+  width: 1.75rem;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.7;
+}
+
+.arden .aw-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  overflow: hidden;
+  border-radius: 0;
+  padding: 1.05rem 1.85rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition:
+    background-color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s ease;
+}
+
+.arden .aw-btn svg {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.arden .aw-btn:hover svg {
+  transform: translateX(3px);
+}
+
+.arden .aw-btn-primary {
+  background: var(--aw-ink);
+  color: var(--aw-mist);
+}
+
+.arden .aw-btn-primary:hover {
+  background: var(--aw-verdant);
+  color: var(--aw-white);
+  box-shadow: 0 12px 40px rgba(42, 99, 70, 0.28);
+}
+
+.arden .aw-btn-secondary {
+  background: transparent;
+  color: var(--aw-mist);
+  border: 1px solid rgba(230, 237, 240, 0.35);
+  backdrop-filter: blur(8px);
+}
+
+.arden .aw-btn-secondary:hover {
+  border-color: var(--aw-mist);
+  background: rgba(230, 237, 240, 0.1);
+}
+
+.arden .aw-btn-outline {
+  background: transparent;
+  color: var(--aw-ink);
+  border: 1px solid var(--aw-border-strong);
+}
+
+.arden .aw-btn-outline:hover {
+  border-color: var(--aw-ink);
+  background: var(--aw-ink);
+  color: var(--aw-mist);
+}
+
+.arden .aw-btn-champagne {
+  background: var(--aw-champagne);
+  color: var(--aw-ink);
+}
+
+.arden .aw-btn-champagne:hover {
+  background: var(--aw-champagne-bright);
+  box-shadow: 0 12px 36px rgba(196, 160, 110, 0.35);
+}
+
+.arden .aw-grain {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  opacity: 0.04;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.arden .aw-rule {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--aw-border-strong),
+    transparent
+  );
+}
+
+.arden .aw-panel {
+  background: var(--aw-panel);
+  border: 1px solid var(--aw-border);
+  box-shadow: var(--aw-shadow);
+}
+
+.arden .aw-glass {
+  background: var(--aw-glass);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(18px) saturate(1.2);
+  box-shadow: var(--aw-shadow);
+}
+
+.arden .aw-input {
+  width: 100%;
+  border: 1px solid var(--aw-border);
+  background: var(--aw-white);
+  color: var(--aw-ink);
+  padding: 0.95rem 1.1rem;
+  font-size: 0.95rem;
+  outline: none;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.arden .aw-input:focus {
+  border-color: var(--aw-verdant);
+  box-shadow: 0 0 0 3px var(--aw-verdant-soft);
+}
+
+.arden .aw-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--aw-slate);
+}
+
+.arden .aw-split-char,
+.arden .aw-split-word {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+.arden .aw-split-line {
+  display: block;
+  overflow: hidden;
+}
+
+.arden .aw-watermark {
+  pointer-events: none;
+  user-select: none;
+  font-family: var(--font-syne), system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.06em;
+  line-height: 0.85;
+  color: var(--aw-ink);
+  opacity: 0.04;
+}
+
+.arden .aw-frame {
+  position: relative;
+}
+
+.arden .aw-frame::before,
+.arden .aw-frame::after {
+  content: "";
+  position: absolute;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-color: var(--aw-champagne);
+  border-style: solid;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.arden .aw-frame::before {
+  top: -0.5rem;
+  left: -0.5rem;
+  border-width: 1px 0 0 1px;
+}
+
+.arden .aw-frame::after {
+  right: -0.5rem;
+  bottom: -0.5rem;
+  border-width: 0 1px 1px 0;
+}
+
+.arden .aw-scroll-cue {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--aw-mist);
+  opacity: 0.55;
+}
+
+.arden .aw-scroll-cue span {
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.arden .aw-scroll-line {
+  width: 1px;
+  height: 3.5rem;
+  background: linear-gradient(to bottom, var(--aw-mist), transparent);
+  transform-origin: top;
+}
+
+.arden .aw-vert-label {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.arden .aw-progress-rail {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--aw-border);
+}
+
+.arden .aw-progress-dot {
+  position: absolute;
+  left: -4px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--aw-verdant);
+  box-shadow: 0 0 0 4px var(--aw-verdant-soft);
+}
+
+.arden .aw-insight-row {
+  transition: padding-left 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.arden .aw-insight-row:hover {
+  padding-left: 0.75rem;
+}
+
+.arden .aw-insight-row .aw-insight-arrow {
+  opacity: 0;
+  transform: translateX(-8px);
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.arden .aw-insight-row:hover .aw-insight-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@keyframes aw-breathe {
+  0%,
+  100% {
+    transform: scaleY(0.35);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+.arden .aw-scroll-line {
+  animation: aw-breathe 2.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arden .aw-scroll-line {
+    animation: none;
+  }
+}

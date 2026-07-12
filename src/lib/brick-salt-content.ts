@@ -214,8 +214,8 @@ export const brickSaltGallery = [
     id: "dining",
     title: "The Dining Room",
     caption: "Brick · timber · shared tables",
-    src: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=80",
-    alt: "Industrial dining room with warm lighting",
+    src: "https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1600&q=80",
+    alt: "Warm restaurant dining room with wooden tables and pendant lights",
   },
 ] as const;
 

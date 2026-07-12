@@ -82,14 +82,18 @@ export const services = [
 
 export const caseStudies = [
   {
-    id: "coffee",
-    title: "The Savoy Sip",
-    category: "Specialty Coffee",
+    id: "wealth",
+    title: "Arden Wealth",
+    category: "Wealth Management",
     description:
-      "Michelin-calibre specialty coffee boutique — cinematic scroll, editorial storytelling and London craft.",
-    tech: ["Next.js", "Brand Design", "Motion"],
-    href: "/work/north-and-oak",
+      "Private wealth platform — cinematic GSAP storytelling, portfolio dashboard, planning tools and advisory flow.",
+    tech: ["Next.js", "GSAP", "Product UX"],
+    href: "/work/arden-wealth",
     tone: "oak" as const,
+    image: {
+      src: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80",
+      alt: "Arden Wealth website — full-bleed architectural hero",
+    },
   },
   {
     id: "restaurant",
@@ -110,6 +114,10 @@ export const caseStudies = [
     tech: ["Next.js", "E-Commerce", "CRO"],
     href: "/work/forma-studio",
     tone: "forma" as const,
+    image: {
+      src: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1600&q=80",
+      alt: "FORMA Studio website — minimal lifestyle retail hero",
+    },
   },
   {
     id: "hospitality",

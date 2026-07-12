@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { caseStudies } from "@/lib/content";
@@ -45,7 +46,32 @@ export function Work() {
                     toneMap[project.tone],
                   ].join(" ")}
                 >
-                  <div className="absolute inset-0 opacity-40 mix-blend-overlay bg-[radial-gradient(circle_at_30%_20%,rgba(244,242,238,0.25),transparent_45%)]" />
+                  {"image" in project && project.image ? (
+                    <>
+                      <Image
+                        src={project.image.src}
+                        alt={project.image.alt}
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 50vw"
+                        className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                      />
+                      <div
+                        className={[
+                          "absolute inset-0 bg-gradient-to-t via-transparent to-transparent",
+                          project.id === "wealth"
+                            ? "from-[#0a1a26]/85 via-[#0a1a26]/35"
+                            : project.id === "fashion"
+                              ? "from-[#0f0e0c]/85 via-[#0f0e0c]/40"
+                              : "from-black/80 via-black/35",
+                        ].join(" ")}
+                      />
+                      {project.id === "wealth" ? (
+                        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(42,99,70,0.28),transparent_50%)]" />
+                      ) : null}
+                    </>
+                  ) : (
+                    <div className="absolute inset-0 opacity-40 mix-blend-overlay bg-[radial-gradient(circle_at_30%_20%,rgba(244,242,238,0.25),transparent_45%)]" />
+                  )}
                   <div className="absolute inset-0 flex items-end p-6 sm:p-8">
                     <p className="font-display text-3xl font-semibold tracking-tight text-off-white/90 sm:text-4xl">
                       {project.title}
