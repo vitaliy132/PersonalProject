@@ -1,36 +1,31 @@
 import type { Metadata } from "next";
-import { DM_Sans, Syne } from "next/font/google";
+import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
-const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
+const satoshi = Space_Grotesk({
+  variable: "--font-satoshi",
   subsets: ["latin"],
   display: "swap",
-});
-
-const syne = Syne({
-  variable: "--font-syne",
-  subsets: ["latin"],
-  display: "swap",
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
-  title: "Northline Digital | Websites, SEO & Growth for UK Businesses",
+  title: "Northline Digital | Creative Digital Agency — Leeds, UK",
   description:
-    "Websites, SEO and digital marketing strategies designed to attract customers, increase conversions and help brands grow online.",
+    "A modern digital agency based in Leeds. We help ambitious businesses build strong brands, high-performing websites, e-commerce experiences and digital marketing strategies.",
   openGraph: {
-    title: "Northline Digital | Websites, SEO & Growth for UK Businesses",
+    title: "Northline Digital | Creative Digital Agency — Leeds, UK",
     description:
-      "A premium UK digital studio helping SMBs get more customers online through websites, SEO and performance marketing.",
+      "Northern creativity. Digital experiences built to move businesses forward. Based in Leeds, working across the UK.",
     type: "website",
     locale: "en_GB",
     siteName: "Northline Digital",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Northline Digital | Websites, SEO & Growth for UK Businesses",
+    title: "Northline Digital | Creative Digital Agency — Leeds, UK",
     description:
-      "Websites, SEO and digital marketing strategies designed to attract customers and grow brands online.",
+      "Northern creativity. Digital experiences built to move businesses forward.",
   },
 };
 
@@ -41,11 +36,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en-GB">
-      <body
-        className={`${dmSans.variable} ${syne.variable} atmosphere antialiased`}
-      >
-        {children}
-      </body>
+      <body className={`${satoshi.variable} antialiased`}>{children}</body>
     </html>
   );
 }

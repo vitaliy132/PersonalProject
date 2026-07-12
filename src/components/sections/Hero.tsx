@@ -1,88 +1,156 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
-import { Button } from "@/components/ui/Button";
-import { AuroraBackground } from "@/components/ui/AuroraBackground";
-import { DashboardMock } from "@/components/ui/DashboardMock";
+import { useEffect, useRef } from "react";
+import dynamic from "next/dynamic";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { hero } from "@/lib/content";
+import { Button } from "@/components/ui/Button";
+import { Magnetic } from "@/components/motion/Magnetic";
+import { usePrefersReducedMotion } from "@/components/motion/usePrefersReducedMotion";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const HeroScene = dynamic(
+  () =>
+    import("@/components/canvas/HeroScene").then((m) => m.HeroScene),
+  { ssr: false },
+);
 
 export function Hero() {
-  const reduceMotion = useReducedMotion();
+  const root = useRef<HTMLElement>(null);
+  const mouse = useRef({ x: 0, y: 0 });
+  const reduced = usePrefersReducedMotion();
 
-  const initial = reduceMotion ? false : { opacity: 0, y: 20 };
-  const animate = { opacity: 1, y: 0 };
-  const transition = { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const };
+  useEffect(() => {
+    const el = root.current;
+    if (!el) return;
+
+    const onMove = (e: MouseEvent) => {
+      const rect = el.getBoundingClientRect();
+      mouse.current.x = (e.clientX - rect.left) / rect.width - 0.5;
+      mouse.current.y = (e.clientY - rect.top) / rect.height - 0.5;
+      gsap.to(".hero-parallax", {
+        x: mouse.current.x * 24,
+        y: mouse.current.y * 16,
+        duration: 1.1,
+        ease: "power2.out",
+      });
+    };
+
+    if (!reduced) {
+      el.addEventListener("mousemove", onMove);
+    }
+
+    const ctx = gsap.context(() => {
+      if (reduced) {
+        gsap.set([".hero-brand", ".hero-line", ".hero-cta", ".hero-scroll"], {
+          opacity: 1,
+          y: 0,
+          clearProps: "all",
+        });
+        return;
+      }
+
+      const tl = gsap.timeline({ delay: 1.1 });
+      tl.fromTo(
+        ".hero-brand",
+        { y: 30, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" },
+      )
+        .fromTo(
+          ".hero-line",
+          { y: 80, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1.05,
+            stagger: 0.12,
+            ease: "power4.out",
+          },
+          "-=0.35",
+        )
+        .fromTo(
+          ".hero-cta",
+          { y: 24, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.7, ease: "power3.out" },
+          "-=0.45",
+        )
+        .fromTo(
+          ".hero-scroll",
+          { opacity: 0 },
+          { opacity: 1, duration: 0.6 },
+          "-=0.2",
+        );
+
+      gsap.to(".hero-scroll-line", {
+        scaleY: 0.35,
+        transformOrigin: "top",
+        duration: 1.2,
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inOut",
+      });
+
+      gsap.to(".hero-bg-shift", {
+        yPercent: 18,
+        ease: "none",
+        scrollTrigger: {
+          trigger: el,
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+    }, el);
+
+    return () => {
+      el.removeEventListener("mousemove", onMove);
+      ctx.revert();
+    };
+  }, [reduced]);
 
   return (
-    <section className="relative isolate min-h-[100svh] overflow-hidden pt-28 sm:pt-32 lg:pt-36">
-      <AuroraBackground />
+    <section
+      ref={root}
+      className="relative isolate flex min-h-[100svh] items-end overflow-hidden pb-16 pt-28 sm:pb-20 sm:pt-32"
+    >
+      <div className="hero-bg-shift absolute inset-0 -z-10">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_20%,rgba(92,107,74,0.18),transparent_55%),radial-gradient(ellipse_at_80%_70%,rgba(138,133,124,0.12),transparent_50%),linear-gradient(180deg,#0a0a0a_0%,#121210_55%,#0a0a0a_100%)]" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-bg to-transparent" />
+        <HeroScene mouse={mouse} />
+      </div>
 
-      <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-14 px-5 pb-20 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10 lg:pb-28">
-        <div>
-          <motion.p
-            initial={initial}
-            animate={animate}
-            transition={transition}
-            className="font-display text-sm font-semibold tracking-[0.08em] text-accent sm:text-base"
-          >
-            {hero.brand}
-          </motion.p>
+      <div className="hero-parallax container-nl relative z-10 w-full">
+        <p className="hero-brand mb-8 text-[0.75rem] font-medium tracking-[0.32em] text-accent-strong uppercase opacity-0">
+          {hero.brand}
+        </p>
 
-          <motion.h1
-            initial={initial}
-            animate={animate}
-            transition={{ ...transition, delay: reduceMotion ? 0 : 0.08 }}
-            className="mt-4 max-w-xl font-display text-[2.35rem] font-semibold leading-[1.08] tracking-tight text-text sm:text-5xl lg:text-[3.35rem]"
-          >
-            {hero.headline}
-          </motion.h1>
+        <h1 className="max-w-5xl font-display text-[clamp(2.4rem,7vw,5.6rem)] font-semibold leading-[1.02] tracking-[-0.03em] text-off-white">
+          <span className="hero-line block overflow-hidden opacity-0">
+            {hero.lineOne}
+          </span>
+          <span className="hero-line mt-2 block max-w-4xl overflow-hidden text-stone-light opacity-0 sm:mt-3">
+            {hero.lineTwo}
+          </span>
+        </h1>
 
-          <motion.p
-            initial={initial}
-            animate={animate}
-            transition={{ ...transition, delay: reduceMotion ? 0 : 0.16 }}
-            className="mt-5 max-w-lg text-base leading-relaxed text-muted sm:text-lg"
-          >
-            {hero.subheadline}
-          </motion.p>
-
-          <motion.div
-            initial={initial}
-            animate={animate}
-            transition={{ ...transition, delay: reduceMotion ? 0 : 0.24 }}
-            className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center"
-          >
-            <Button href={hero.primaryCta.href}>{hero.primaryCta.label}</Button>
-            <Button href={hero.secondaryCta.href} variant="secondary">
-              {hero.secondaryCta.label}
-            </Button>
-          </motion.div>
-
-          <motion.ul
-            initial={initial}
-            animate={animate}
-            transition={{ ...transition, delay: reduceMotion ? 0 : 0.32 }}
-            className="mt-10 flex flex-wrap gap-x-6 gap-y-3"
-          >
-            {hero.trust.map((item) => (
-              <li
-                key={item}
-                className="flex items-center gap-2 text-sm text-muted"
-              >
-                <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-                {item}
-              </li>
-            ))}
-          </motion.ul>
+        <div className="hero-cta mt-10 opacity-0 sm:mt-12">
+          <Magnetic>
+            <Button href={hero.cta.href}>{hero.cta.label}</Button>
+          </Magnetic>
         </div>
 
-        <motion.div
-          initial={reduceMotion ? false : { opacity: 0, y: 28 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ ...transition, delay: reduceMotion ? 0 : 0.2 }}
+        <a
+          href="#about"
+          className="hero-scroll mt-16 inline-flex items-center gap-3 text-[0.7rem] tracking-[0.22em] text-stone uppercase opacity-0"
+          data-cursor="hover"
         >
-          <DashboardMock />
-        </motion.div>
+          <span className="relative h-10 w-px overflow-hidden bg-border-strong">
+            <span className="hero-scroll-line absolute inset-x-0 top-0 h-full origin-top bg-accent-strong" />
+          </span>
+          Scroll
+        </a>
       </div>
     </section>
   );

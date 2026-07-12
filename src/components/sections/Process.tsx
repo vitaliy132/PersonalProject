@@ -1,45 +1,43 @@
-import { FadeIn } from "@/components/ui/FadeIn";
-import { SectionHeading } from "@/components/ui/SectionHeading";
-import { process } from "@/lib/content";
+"use client";
+
+import { process as steps } from "@/lib/content";
+import { GsapReveal } from "@/components/motion/GsapReveal";
 
 export function Process() {
   return (
     <section
       id="process"
       aria-labelledby="process-heading"
-      className="scroll-mt-24 py-24 sm:py-28"
+      className="section-pad scroll-mt-24 border-t border-border"
     >
-      <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <FadeIn>
-          <SectionHeading
+      <div className="container-nl">
+        <GsapReveal>
+          <p className="text-[0.7rem] tracking-[0.24em] text-accent-strong uppercase">
+            Process
+          </p>
+          <h2
             id="process-heading"
-            eyebrow="Process"
-            title="A clear path from brief to growth"
-            description="Simple stages, senior attention, and measurable progress at every step."
-          />
-        </FadeIn>
+            className="mt-4 max-w-2xl font-display text-[clamp(1.8rem,4vw,3rem)] font-semibold tracking-tight text-off-white"
+          >
+            How we work
+          </h2>
+        </GsapReveal>
 
-        <ol className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-          {process.map((item, index) => (
-            <FadeIn key={item.step} delay={index * 0.06}>
-              <li className="relative h-full rounded-2xl border border-border bg-surface p-6 sm:p-7">
-                <span className="font-display text-sm font-semibold text-accent">
-                  {item.step}
+        <ol className="mt-14 divide-y divide-border border-y border-border">
+          {steps.map((step, index) => (
+            <GsapReveal key={step.step} delay={index * 0.06} y={28}>
+              <li className="grid gap-4 py-8 sm:grid-cols-[6rem_1fr_1.2fr] sm:items-baseline sm:gap-8">
+                <span className="font-display text-sm tracking-[0.2em] text-accent-strong">
+                  {step.step}
                 </span>
-                <h3 className="mt-4 font-display text-xl font-semibold tracking-tight">
-                  {item.title}
+                <h3 className="font-display text-2xl font-semibold tracking-tight text-off-white">
+                  {step.title}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted">
-                  {item.description}
+                <p className="text-sm leading-relaxed text-stone-light sm:text-base">
+                  {step.description}
                 </p>
-                {index < process.length - 1 ? (
-                  <div
-                    aria-hidden
-                    className="gradient-line absolute -right-2 top-1/2 hidden h-px w-4 lg:block"
-                  />
-                ) : null}
               </li>
-            </FadeIn>
+            </GsapReveal>
           ))}
         </ol>
       </div>

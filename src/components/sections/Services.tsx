@@ -1,56 +1,51 @@
-import {
-  Megaphone,
-  Monitor,
-  Palette,
-  type LucideIcon,
-} from "lucide-react";
-import { FadeIn } from "@/components/ui/FadeIn";
-import { GlassCard } from "@/components/ui/GlassCard";
-import { SectionHeading } from "@/components/ui/SectionHeading";
-import { services } from "@/lib/content";
+"use client";
 
-const icons: Record<(typeof services)[number]["icon"], LucideIcon> = {
-  monitor: Monitor,
-  palette: Palette,
-  megaphone: Megaphone,
-};
+import { services } from "@/lib/content";
+import { GsapReveal } from "@/components/motion/GsapReveal";
+import { Magnetic } from "@/components/motion/Magnetic";
 
 export function Services() {
   return (
     <section
       id="services"
       aria-labelledby="services-heading"
-      className="scroll-mt-24 py-24 sm:py-28"
+      className="section-pad scroll-mt-24 border-t border-border"
     >
-      <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <FadeIn>
-          <SectionHeading
+      <div className="container-nl">
+        <GsapReveal>
+          <p className="text-[0.7rem] tracking-[0.24em] text-accent-strong uppercase">
+            Services
+          </p>
+          <h2
             id="services-heading"
-            eyebrow="Services"
-            title="Everything you need to grow online"
-            description="Three focused disciplines — web, brand and marketing — working together so your business attracts more of the right customers."
-          />
-        </FadeIn>
+            className="mt-4 max-w-2xl font-display text-[clamp(1.8rem,4vw,3rem)] font-semibold tracking-tight text-off-white"
+          >
+            Capabilities built for ambitious brands
+          </h2>
+        </GsapReveal>
 
-        <div className="mt-12 grid gap-4 md:grid-cols-3">
-          {services.map((service, index) => {
-            const Icon = icons[service.icon];
-            return (
-              <FadeIn key={service.id} delay={index * 0.06}>
-                <GlassCard className="h-full">
-                  <div className="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-accent-soft text-accent">
-                    <Icon size={20} strokeWidth={1.75} />
-                  </div>
-                  <h3 className="font-display text-xl font-semibold tracking-tight">
+        <div className="mt-14 grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-3">
+          {services.map((service, index) => (
+            <GsapReveal key={service.id} delay={index * 0.05} y={36}>
+              <Magnetic strength={0.08} className="h-full">
+                <article
+                  className="group relative h-full bg-bg p-7 transition-colors duration-500 hover:bg-surface sm:p-9"
+                  data-cursor="hover"
+                >
+                  <span className="text-[0.7rem] tracking-[0.2em] text-stone">
+                    0{index + 1}
+                  </span>
+                  <h3 className="mt-8 font-display text-xl font-semibold tracking-tight text-off-white transition-colors group-hover:text-accent-strong sm:text-2xl">
                     {service.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted sm:text-[15px]">
+                  <p className="mt-4 max-w-sm text-sm leading-relaxed text-stone-light">
                     {service.description}
                   </p>
-                </GlassCard>
-              </FadeIn>
-            );
-          })}
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-accent-strong transition-transform duration-500 group-hover:scale-x-100" />
+                </article>
+              </Magnetic>
+            </GsapReveal>
+          ))}
         </div>
       </div>
     </section>

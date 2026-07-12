@@ -1,82 +1,84 @@
-import { Check } from "lucide-react";
-import { Button } from "@/components/ui/Button";
-import { FadeIn } from "@/components/ui/FadeIn";
-import { SectionHeading } from "@/components/ui/SectionHeading";
+"use client";
+
 import { pricing } from "@/lib/content";
+import { Button } from "@/components/ui/Button";
+import { GsapReveal } from "@/components/motion/GsapReveal";
+import { Magnetic } from "@/components/motion/Magnetic";
 
 export function Pricing() {
   return (
     <section
       id="pricing"
       aria-labelledby="pricing-heading"
-      className="scroll-mt-24 py-24 sm:py-28"
+      className="section-pad scroll-mt-24 border-t border-border"
     >
-      <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <FadeIn className="flex justify-center">
-          <SectionHeading
+      <div className="container-nl">
+        <GsapReveal className="mx-auto max-w-2xl text-center">
+          <p className="text-[0.7rem] tracking-[0.24em] text-accent-strong uppercase">
+            Pricing
+          </p>
+          <h2
             id="pricing-heading"
-            eyebrow="Pricing"
-            title="Packages built for real growth stages"
-            description="Transparent starting points. Final scope is tailored after a short discovery conversation."
-            align="center"
-          />
-        </FadeIn>
+            className="mt-4 font-display text-[clamp(1.8rem,4vw,3rem)] font-semibold tracking-tight text-off-white"
+          >
+            Website packages
+          </h2>
+          <p className="mt-4 text-sm leading-relaxed text-stone-light sm:text-base">
+            Transparent starting points. Final scope is shaped after discovery.
+          </p>
+        </GsapReveal>
 
-        <div className="mt-12 grid gap-4 lg:grid-cols-3 lg:items-stretch">
+        <div className="mt-14 grid gap-5 lg:grid-cols-3 lg:items-stretch">
           {pricing.map((tier, index) => (
-            <FadeIn key={tier.id} delay={index * 0.06}>
-              <div
-                className={[
-                  "relative flex h-full flex-col rounded-2xl border p-6 sm:p-7",
-                  tier.highlighted
-                    ? "border-accent/40 bg-gradient-to-b from-accent/10 to-surface shadow-[0_0_0_1px_rgba(91,159,255,0.12),0_30px_60px_-30px_var(--accent-glow)]"
-                    : "border-border bg-surface",
-                ].join(" ")}
-              >
-                {tier.highlighted ? (
-                  <span className="absolute -top-3 left-6 rounded-full bg-accent px-3 py-1 text-[11px] font-semibold text-[#061018]">
-                    Recommended
-                  </span>
-                ) : null}
-
-                <p className="text-xs font-medium uppercase tracking-[0.16em] text-muted">
-                  {tier.tagline}
-                </p>
-                <h3 className="mt-3 font-display text-2xl font-semibold tracking-tight">
-                  {tier.name}
-                </h3>
-                <p className="mt-4 font-display text-3xl font-semibold tracking-tight text-text">
-                  {tier.price}
-                </p>
-                <p className="mt-3 text-sm leading-relaxed text-muted">
-                  {tier.description}
-                </p>
-
-                <ul className="mt-7 flex-1 space-y-3">
-                  {tier.features.map((feature) => (
-                    <li
-                      key={feature}
-                      className="flex items-start gap-2.5 text-sm text-text/90"
-                    >
-                      <Check
-                        size={16}
-                        className="mt-0.5 shrink-0 text-accent"
-                        strokeWidth={2.25}
-                      />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-
-                <Button
-                  href={tier.cta.href}
-                  variant={tier.highlighted ? "primary" : "secondary"}
-                  className="mt-8 w-full"
+            <GsapReveal key={tier.id} delay={index * 0.08} className="h-full">
+              <Magnetic strength={0.06} className="h-full">
+                <article
+                  className={[
+                    "relative flex h-full flex-col border p-7 sm:p-8",
+                    tier.highlighted
+                      ? "border-accent-strong/50 bg-surface"
+                      : "border-border bg-bg-elevated",
+                  ].join(" ")}
+                  data-cursor="hover"
                 >
-                  {tier.cta.label}
-                </Button>
-              </div>
-            </FadeIn>
+                  {tier.highlighted ? (
+                    <span className="absolute -top-3 left-7 bg-accent px-3 py-1 text-[0.65rem] tracking-[0.16em] text-off-white uppercase">
+                      Recommended
+                    </span>
+                  ) : null}
+
+                  <h3 className="font-display text-xl font-semibold tracking-tight text-off-white">
+                    {tier.name}
+                  </h3>
+                  <p className="mt-5 font-display text-3xl font-semibold tracking-tight text-off-white">
+                    {tier.price}
+                  </p>
+                  <p className="mt-4 text-sm leading-relaxed text-stone-light">
+                    {tier.description}
+                  </p>
+
+                  <ul className="mt-8 flex-1 space-y-3">
+                    {tier.features.map((feature) => (
+                      <li
+                        key={feature}
+                        className="flex items-start gap-3 text-sm text-off-white/90"
+                      >
+                        <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent-strong" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <Button
+                    href={tier.cta.href}
+                    variant={tier.highlighted ? "primary" : "secondary"}
+                    className="mt-8 w-full"
+                  >
+                    {tier.cta.label}
+                  </Button>
+                </article>
+              </Magnetic>
+            </GsapReveal>
           ))}
         </div>
       </div>

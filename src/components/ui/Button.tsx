@@ -1,56 +1,61 @@
 import Link from "next/link";
-import type { ComponentPropsWithoutRef, ReactNode } from "react";
 
-type Variant = "primary" | "secondary" | "ghost";
-
-const variants: Record<Variant, string> = {
-  primary:
-    "bg-accent text-[#061018] hover:bg-[#7ab0ff] shadow-[0_0_0_1px_rgba(91,159,255,0.35),0_12px_40px_-12px_var(--accent-glow)]",
-  secondary:
-    "bg-surface text-text border border-border hover:border-border-strong hover:bg-surface-hover",
-  ghost: "text-muted hover:text-text",
-};
-
-type ButtonBase = {
-  children: ReactNode;
-  variant?: Variant;
+type ButtonProps = {
+  href?: string;
+  children: React.ReactNode;
+  variant?: "primary" | "secondary" | "ghost";
   className?: string;
+  type?: "button" | "submit";
+  onClick?: () => void;
 };
 
-type ButtonAsLink = ButtonBase & {
-  href: string;
-} & Omit<ComponentPropsWithoutRef<"a">, "href" | "children" | "className">;
-
-type ButtonAsButton = ButtonBase & {
-  href?: undefined;
-} & Omit<ComponentPropsWithoutRef<"button">, "children" | "className">;
+const variants = {
+  primary:
+    "bg-accent text-off-white hover:bg-accent-strong border border-accent",
+  secondary:
+    "bg-transparent text-off-white border border-border-strong hover:border-off-white/50 hover:bg-white/[0.03]",
+  ghost: "bg-transparent text-muted hover:text-off-white border border-transparent",
+};
 
 export function Button({
+  href,
   children,
   variant = "primary",
   className = "",
-  ...props
-}: ButtonAsLink | ButtonAsButton) {
+  type = "button",
+  onClick,
+}: ButtonProps) {
   const classes = [
-    "inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-medium tracking-tight transition-colors duration-200",
+    "inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-medium tracking-wide transition-colors duration-300",
     variants[variant],
     className,
-  ]
-    .filter(Boolean)
-    .join(" ");
+  ].join(" ");
 
-  if ("href" in props && props.href) {
-    const { href, onClick, ...rest } = props;
+  if (href) {
+    const external = href.startsWith("http");
+    if (external) {
+      return (
+        <a href={href} className={classes} target="_blank" rel="noreferrer">
+          {children}
+        </a>
+      );
+    }
+    if (href.startsWith("#")) {
+      return (
+        <a href={href} className={classes}>
+          {children}
+        </a>
+      );
+    }
     return (
-      <Link href={href} className={classes} onClick={onClick} {...rest}>
+      <Link href={href} className={classes}>
         {children}
       </Link>
     );
   }
 
-  const buttonProps = props as ButtonAsButton;
   return (
-    <button type="button" className={classes} {...buttonProps}>
+    <button type={type} className={classes} onClick={onClick}>
       {children}
     </button>
   );

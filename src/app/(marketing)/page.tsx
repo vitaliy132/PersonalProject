@@ -1,25 +1,23 @@
-import { Faq } from "@/components/sections/Faq";
-import { FinalCta } from "@/components/sections/FinalCta";
 import { Hero } from "@/components/sections/Hero";
-import { Portfolio } from "@/components/sections/Portfolio";
+import { Intro } from "@/components/sections/Intro";
+import { Services } from "@/components/sections/Services";
+import { Work } from "@/components/sections/Work";
 import { Pricing } from "@/components/sections/Pricing";
 import { Process } from "@/components/sections/Process";
-import { Services } from "@/components/sections/Services";
-import { Testimonials } from "@/components/sections/Testimonials";
-import { WhyUs } from "@/components/sections/WhyUs";
+import { Story } from "@/components/sections/Story";
+import { Contact } from "@/components/sections/Contact";
 
 export default function Home() {
   return (
     <main>
       <Hero />
+      <Intro />
       <Services />
-      <Portfolio />
-      <WhyUs />
-      <Process />
-      <Testimonials />
+      <Work />
       <Pricing />
-      <Faq />
-      <FinalCta />
+      <Process />
+      <Story />
+      <Contact />
     </main>
   );
 }
