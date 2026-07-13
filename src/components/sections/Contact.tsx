@@ -4,7 +4,6 @@ import { useState, type FormEvent } from "react";
 import { contact } from "@/lib/content";
 import { Button } from "@/components/ui/Button";
 import { GsapReveal } from "@/components/motion/GsapReveal";
-import { Magnetic } from "@/components/motion/Magnetic";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
@@ -135,7 +134,7 @@ export function Contact() {
               />
             </div>
 
-            <Magnetic className="pt-2">
+            <div className="pt-2">
               <Button
                 type="submit"
                 className="w-full sm:w-auto"
@@ -143,7 +142,7 @@ export function Contact() {
               >
                 {status === "sending" ? "Sending…" : "Send enquiry"}
               </Button>
-            </Magnetic>
+            </div>
 
             {status === "sent" ? (
               <p className="text-sm text-accent-strong">
