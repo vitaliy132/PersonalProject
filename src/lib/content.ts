@@ -1,7 +1,7 @@
 export const agency = {
   name: "Northline Digital",
   location: "Leeds, UK",
-  email: "hello@northlinedigital.co.uk",
+  email: "hello@northlinedigital.agency",
   tagline: "Northern creativity. Digital experiences.",
   linkedIn: "https://www.linkedin.com/",
   instagram: "https://www.instagram.com/",
@@ -411,7 +411,7 @@ export const story = {
 export const contact = {
   headline: "Have a project in mind?",
   subheadline: "Let's build something remarkable.",
-  email: "hello@northlinedigital.co.uk",
+  email: "hello@northlinedigital.agency",
 };
 
 export const footer = {
