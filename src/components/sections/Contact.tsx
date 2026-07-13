@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { contact, agency } from "@/lib/content";
+import { contact } from "@/lib/content";
 import { Button } from "@/components/ui/Button";
 import { GsapReveal } from "@/components/motion/GsapReveal";
 import { Magnetic } from "@/components/motion/Magnetic";
@@ -47,7 +47,7 @@ export function Contact() {
             </span>
           </h2>
 
-          <div className="mt-10 space-y-4">
+          <div className="mt-10">
             <a
               href={`mailto:${contact.email}`}
               className="block text-lg text-off-white transition-colors hover:text-accent-strong"
@@ -55,29 +55,6 @@ export function Contact() {
             >
               {contact.email}
             </a>
-            <div className="flex flex-wrap gap-5 pt-2 text-sm text-stone">
-              <a
-                href={agency.linkedIn}
-                className="transition-colors hover:text-off-white"
-                data-cursor="hover"
-              >
-                LinkedIn
-              </a>
-              <a
-                href={agency.instagram}
-                className="transition-colors hover:text-off-white"
-                data-cursor="hover"
-              >
-                Instagram
-              </a>
-              <a
-                href={agency.twitter}
-                className="transition-colors hover:text-off-white"
-                data-cursor="hover"
-              >
-                X
-              </a>
-            </div>
           </div>
         </GsapReveal>
 

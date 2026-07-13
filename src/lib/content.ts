@@ -3,9 +3,6 @@ export const agency = {
   location: "Leeds, UK",
   email: "hello@northlinedigital.agency",
   tagline: "Northern creativity. Digital experiences.",
-  linkedIn: "https://www.linkedin.com/",
-  instagram: "https://www.instagram.com/",
-  twitter: "https://x.com/",
 };
 
 export const navLinks = [
