@@ -6,24 +6,48 @@ import { Button } from "@/components/ui/Button";
 import { GsapReveal } from "@/components/motion/GsapReveal";
 import { Magnetic } from "@/components/motion/Magnetic";
 
-export function Contact() {
-  const [status, setStatus] = useState<"idle" | "sent">("idle");
+type Status = "idle" | "sending" | "sent" | "error";
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+export function Contact() {
+  const [status, setStatus] = useState<Status>("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);
-    const name = String(data.get("name") || "");
-    const email = String(data.get("email") || "");
-    const message = String(data.get("message") || "");
+    const name = String(data.get("name") || "").trim();
+    const email = String(data.get("email") || "").trim();
+    const message = String(data.get("message") || "").trim();
 
-    const subject = encodeURIComponent(`Project enquiry from ${name}`);
-    const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\n\n${message}`,
-    );
-    window.location.href = `mailto:${contact.email}?subject=${subject}&body=${body}`;
-    setStatus("sent");
-    form.reset();
+    setStatus("sending");
+    setErrorMessage("");
+
+    try {
+      const response = await fetch("/api/enquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, message }),
+      });
+
+      const payload = (await response.json().catch(() => null)) as {
+        error?: string;
+      } | null;
+
+      if (!response.ok) {
+        setStatus("error");
+        setErrorMessage(
+          payload?.error || "Something went wrong. Please try again.",
+        );
+        return;
+      }
+
+      setStatus("sent");
+      form.reset();
+    } catch {
+      setStatus("error");
+      setErrorMessage("Something went wrong. Please try again.");
+    }
   };
 
   return (
@@ -74,7 +98,8 @@ export function Contact() {
                 id="name"
                 name="name"
                 required
-                className="mt-2 w-full border-b border-border bg-transparent py-3 text-sm text-off-white outline-none transition-colors focus:border-accent-strong"
+                disabled={status === "sending"}
+                className="mt-2 w-full border-b border-border bg-transparent py-3 text-sm text-off-white outline-none transition-colors focus:border-accent-strong disabled:opacity-60"
               />
             </div>
             <div>
@@ -89,7 +114,8 @@ export function Contact() {
                 name="email"
                 type="email"
                 required
-                className="mt-2 w-full border-b border-border bg-transparent py-3 text-sm text-off-white outline-none transition-colors focus:border-accent-strong"
+                disabled={status === "sending"}
+                className="mt-2 w-full border-b border-border bg-transparent py-3 text-sm text-off-white outline-none transition-colors focus:border-accent-strong disabled:opacity-60"
               />
             </div>
             <div>
@@ -104,19 +130,36 @@ export function Contact() {
                 name="message"
                 required
                 rows={4}
-                className="mt-2 w-full resize-none border-b border-border bg-transparent py-3 text-sm text-off-white outline-none transition-colors focus:border-accent-strong"
+                disabled={status === "sending"}
+                className="mt-2 w-full resize-none border-b border-border bg-transparent py-3 text-sm text-off-white outline-none transition-colors focus:border-accent-strong disabled:opacity-60"
               />
             </div>
 
             <Magnetic className="pt-2">
-              <Button type="submit" className="w-full sm:w-auto">
-                Send enquiry
+              <Button
+                type="submit"
+                className="w-full sm:w-auto"
+                disabled={status === "sending"}
+              >
+                {status === "sending" ? "Sending…" : "Send enquiry"}
               </Button>
             </Magnetic>
 
             {status === "sent" ? (
               <p className="text-sm text-accent-strong">
-                Opening your email client…
+                Thanks — your enquiry has been sent.
+              </p>
+            ) : null}
+
+            {status === "error" ? (
+              <p className="text-sm text-red-400">
+                {errorMessage}{" "}
+                <a
+                  href={`mailto:${contact.email}`}
+                  className="underline underline-offset-2"
+                >
+                  Email us directly
+                </a>
               </p>
             ) : null}
           </form>
