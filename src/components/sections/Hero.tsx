@@ -135,7 +135,7 @@ export function Hero() {
         </h1>
 
         <div className="hero-cta mt-10 opacity-0 sm:mt-12">
-          <Magnetic>
+          <Magnetic strength={0.22} className="inline-block">
             <Button href={hero.cta.href}>{hero.cta.label}</Button>
           </Magnetic>
         </div>
