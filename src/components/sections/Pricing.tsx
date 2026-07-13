@@ -3,7 +3,6 @@
 import { pricing, pricingAddOns } from "@/lib/content";
 import { Button } from "@/components/ui/Button";
 import { GsapReveal } from "@/components/motion/GsapReveal";
-import { Magnetic } from "@/components/motion/Magnetic";
 
 export function Pricing() {
   return (
@@ -31,56 +30,54 @@ export function Pricing() {
         <div className="mt-14 grid gap-5 lg:grid-cols-3 lg:items-stretch">
           {pricing.map((tier, index) => (
             <GsapReveal key={tier.id} delay={index * 0.08} className="h-full">
-              <Magnetic strength={0.06} className="h-full">
-                <article
-                  className={[
-                    "relative flex h-full flex-col border p-7 sm:p-8",
-                    tier.highlighted
-                      ? "border-accent-strong/50 bg-surface"
-                      : "border-border bg-bg-elevated",
-                  ].join(" ")}
-                  data-cursor="hover"
+              <article
+                className={[
+                  "relative flex h-full flex-col border p-7 sm:p-8",
+                  tier.highlighted
+                    ? "border-accent-strong/50 bg-surface"
+                    : "border-border bg-bg-elevated",
+                ].join(" ")}
+                data-cursor="hover"
+              >
+                {tier.highlighted ? (
+                  <span className="absolute -top-3 left-7 bg-accent px-3 py-1 text-[0.65rem] tracking-[0.16em] text-off-white uppercase">
+                    Recommended
+                  </span>
+                ) : null}
+
+                <h3 className="font-display text-xl font-semibold tracking-tight text-off-white">
+                  {tier.name}
+                </h3>
+                <p className="mt-2 text-[0.7rem] tracking-[0.16em] text-stone uppercase">
+                  Starting price
+                </p>
+                <p className="mt-2 font-display text-3xl font-semibold tracking-tight text-off-white">
+                  {tier.price}
+                </p>
+                <p className="mt-4 text-sm leading-relaxed text-stone-light">
+                  {tier.description}
+                </p>
+
+                <ul className="mt-8 flex-1 space-y-3">
+                  {tier.features.map((feature) => (
+                    <li
+                      key={feature}
+                      className="flex items-start gap-3 text-sm text-off-white/90"
+                    >
+                      <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent-strong" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+
+                <Button
+                  href={tier.cta.href}
+                  variant={tier.highlighted ? "primary" : "secondary"}
+                  className="mt-8 w-full"
                 >
-                  {tier.highlighted ? (
-                    <span className="absolute -top-3 left-7 bg-accent px-3 py-1 text-[0.65rem] tracking-[0.16em] text-off-white uppercase">
-                      Recommended
-                    </span>
-                  ) : null}
-
-                  <h3 className="font-display text-xl font-semibold tracking-tight text-off-white">
-                    {tier.name}
-                  </h3>
-                  <p className="mt-2 text-[0.7rem] tracking-[0.16em] text-stone uppercase">
-                    Starting price
-                  </p>
-                  <p className="mt-2 font-display text-3xl font-semibold tracking-tight text-off-white">
-                    {tier.price}
-                  </p>
-                  <p className="mt-4 text-sm leading-relaxed text-stone-light">
-                    {tier.description}
-                  </p>
-
-                  <ul className="mt-8 flex-1 space-y-3">
-                    {tier.features.map((feature) => (
-                      <li
-                        key={feature}
-                        className="flex items-start gap-3 text-sm text-off-white/90"
-                      >
-                        <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent-strong" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-
-                  <Button
-                    href={tier.cta.href}
-                    variant={tier.highlighted ? "primary" : "secondary"}
-                    className="mt-8 w-full"
-                  >
-                    {tier.cta.label}
-                  </Button>
-                </article>
-              </Magnetic>
+                  {tier.cta.label}
+                </Button>
+              </article>
             </GsapReveal>
           ))}
         </div>
