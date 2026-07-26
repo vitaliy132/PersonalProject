@@ -397,11 +397,6 @@ export const process = [
   },
 ];
 
-export const story = {
-  lines: ["Born in Leeds.", "Built for ambitious brands."],
-  body: "Northline Digital combines Northern creativity with modern technology to create digital experiences that help businesses grow.",
-};
-
 export const contact = {
   headline: "Have a project in mind?",
   subheadline: "Let's build something remarkable.",
