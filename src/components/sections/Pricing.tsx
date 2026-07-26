@@ -48,17 +48,17 @@ export function Pricing() {
                 <h3 className="font-display text-xl font-semibold tracking-tight text-off-white">
                   {tier.name}
                 </h3>
-                <p className="mt-2 text-[0.7rem] tracking-[0.16em] text-stone uppercase">
-                  Starting price
-                </p>
-                <p className="mt-2 font-display text-3xl font-semibold tracking-tight text-off-white">
+                <p className="mt-3 font-display text-3xl font-semibold tracking-tight text-off-white">
                   {tier.price}
                 </p>
                 <p className="mt-4 text-sm leading-relaxed text-stone-light">
                   {tier.description}
                 </p>
 
-                <ul className="mt-8 flex-1 space-y-3">
+                <p className="mt-8 text-[0.7rem] tracking-[0.16em] text-stone uppercase">
+                  {tier.featuresLabel}
+                </p>
+                <ul className="mt-4 flex-1 space-y-3">
                   {tier.features.map((feature) => (
                     <li
                       key={feature}
@@ -69,6 +69,11 @@ export function Pricing() {
                     </li>
                   ))}
                 </ul>
+
+                <p className="mt-8 text-[0.7rem] tracking-[0.16em] text-stone uppercase">
+                  Delivery
+                </p>
+                <p className="mt-2 text-sm text-off-white/90">{tier.delivery}</p>
 
                 <Button
                   href={tier.cta.href}
