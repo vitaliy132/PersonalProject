@@ -10,7 +10,7 @@ export function AboutPage() {
   const { images, story, approach, why, values, cta } = aboutPage;
 
   return (
-    <main>
+    <main className="about-page">
       {/* 1. Statement hero */}
       <section
         aria-labelledby="about-page-heading"
@@ -22,16 +22,16 @@ export function AboutPage() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center opacity-50"
+          className="object-cover object-center opacity-70"
           aria-hidden
         />
         <div
           aria-hidden
-          className="absolute inset-0 bg-gradient-to-t from-bg via-bg/80 to-bg/45"
+          className="absolute inset-0 bg-gradient-to-t from-[var(--bg)] via-[var(--bg)]/55 to-[var(--bg)]/20"
         />
         <div
           aria-hidden
-          className="absolute inset-0 bg-[radial-gradient(ellipse_65%_45%_at_15%_85%,rgba(92,107,74,0.22),transparent_55%)]"
+          className="absolute inset-0 bg-[radial-gradient(ellipse_65%_45%_at_15%_85%,rgba(92,107,74,0.28),transparent_55%)]"
         />
 
         <div className="container-nl relative flex min-h-[62svh] flex-col justify-end pb-14 pt-28 sm:min-h-[68svh] sm:pb-20 sm:pt-36">
@@ -155,7 +155,7 @@ export function AboutPage() {
       {/* 3. Approach — open hairline chapters */}
       <section
         aria-labelledby="about-approach-heading"
-        className="border-b border-border py-20 sm:py-28"
+        className="about-band border-b border-border py-20 sm:py-28"
       >
         <div className="container-nl">
           <GsapReveal>
@@ -257,7 +257,7 @@ export function AboutPage() {
       {/* 5. Values — open columns, not Services tiles */}
       <section
         aria-labelledby="about-values-heading"
-        className="border-b border-border py-20 sm:py-28"
+        className="about-band border-b border-border py-20 sm:py-28"
       >
         <div className="container-nl">
           <GsapReveal>

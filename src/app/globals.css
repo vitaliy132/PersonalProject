@@ -285,6 +285,25 @@ html.cursor-visible .cursor-trail {
   }
 }
 
+/* About page — warmer charcoal, less pure black than the homepage */
+.about-page {
+  --bg: #1a1916;
+  --bg-elevated: #22211d;
+  --surface: #2a2924;
+  --surface-hover: #32312c;
+  --border: rgba(244, 242, 238, 0.12);
+  --border-strong: rgba(244, 242, 238, 0.2);
+  background:
+    radial-gradient(ellipse 80% 50% at 10% 0%, rgba(92, 107, 74, 0.12), transparent 50%),
+    radial-gradient(ellipse 60% 40% at 90% 30%, rgba(244, 242, 238, 0.03), transparent 45%),
+    var(--bg);
+  color: var(--text);
+}
+
+.about-page .about-band {
+  background: rgba(255, 255, 255, 0.02);
+}
+
 .section-pad {
   padding-block: clamp(5rem, 12vw, 9rem);
 }
