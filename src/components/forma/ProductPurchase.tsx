@@ -2,7 +2,7 @@
 
 import { Heart, Minus, Plus, ShieldCheck, Truck } from "lucide-react";
 import { useCart } from "@/components/forma/cart-context";
-import { formatPrice, type FormaProduct } from "@/lib/forma-content";
+import { formatPrice, type FormaProduct } from "@/lib/forma/content";
 
 type ProductPurchaseProps = {
   product: FormaProduct;

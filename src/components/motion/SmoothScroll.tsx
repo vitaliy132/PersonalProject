@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import Lenis from "lenis";
-import { usePrefersReducedMotion } from "./usePrefersReducedMotion";
+import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 import { ensureGsap, gsap, ScrollTrigger } from "@/lib/gsap";
 import { setLenisInstance } from "@/lib/lenis-control";
 

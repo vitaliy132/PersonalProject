@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { savoySipHero } from "@/lib/savoy-sip-content";
+import { savoySipHero } from "@/lib/savoy-sip/content";
 import { MagneticButton } from "@/components/motion/MagneticButton";
 import { ensureGsap, gsap } from "@/lib/gsap";
 
@@ -62,12 +62,12 @@ export function Hero() {
         {savoySipHero.place}
       </p>
 
-      <div className="ss-container relative z-10 flex min-h-[100svh] flex-col justify-center pt-[5rem] pb-16">
+      <div className="ms-container relative z-10 flex min-h-[100svh] flex-col justify-center pt-[5rem] pb-16">
         <h1
           id="hero-heading"
           className="font-display mx-auto max-w-5xl text-center text-[clamp(4.5rem,16vw,11rem)] text-[var(--ss-on-dark)]"
         >
-          <span className="ss-mask-line">
+          <span className="ms-mask-line">
             <motion.span
               className="block"
               initial={reduceMotion ? false : { y: "115%" }}
@@ -77,7 +77,7 @@ export function Hero() {
               {savoySipHero.brandLineOne}
             </motion.span>
           </span>
-          <span className="ss-mask-line italic">
+          <span className="ms-mask-line italic">
             <motion.span
               className="block"
               initial={reduceMotion ? false : { y: "115%" }}

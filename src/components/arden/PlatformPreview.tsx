@@ -5,8 +5,8 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { useEffect, useRef } from "react";
 import { SplitText } from "@/components/arden/motion";
-import { usePrefersReducedMotion } from "@/components/motion/usePrefersReducedMotion";
-import { ardenPlatformPreview, formatCurrency } from "@/lib/arden-content";
+import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
+import { ardenPlatformPreview, formatCurrency } from "@/lib/arden/content";
 import { ensureGsap, gsap } from "@/lib/gsap";
 
 ensureGsap();
@@ -75,7 +75,7 @@ export function PlatformPreview() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_40%,rgba(42,99,70,0.1),transparent_50%)]" />
       </div>
 
-      <div className="aw-container relative z-10 grid items-center gap-16 lg:grid-cols-2 lg:gap-20">
+      <div className="ms-container relative z-10 grid items-center gap-16 lg:grid-cols-2 lg:gap-20">
         <div>
           <p className="aw-eyebrow">{ardenPlatformPreview.eyebrow}</p>
           <SplitText

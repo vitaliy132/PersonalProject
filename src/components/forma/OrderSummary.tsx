@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { formatPrice } from "@/lib/forma-content";
+import { formatPrice } from "@/lib/forma/content";
 import type { CartLine } from "@/components/forma/cart-context";
 
 type OrderSummaryProps = {

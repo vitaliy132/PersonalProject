@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
-import { formaProducts, formatPrice } from "@/lib/forma-content";
+import { formaProducts, formatPrice } from "@/lib/forma/content";
 
 export function LimitedEdition() {
   const product = formaProducts.find((p) => p.limited);
@@ -26,7 +26,7 @@ export function LimitedEdition() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_40%,rgba(95,111,82,0.35),transparent_55%),linear-gradient(90deg,rgba(9,9,11,0.92),rgba(9,9,11,0.55))]" />
       </div>
 
-      <div className="fo-container relative z-10 grid min-h-[28rem] items-center gap-10 py-16 lg:grid-cols-[1fr_auto] lg:py-24">
+      <div className="ms-container relative z-10 grid min-h-[28rem] items-center gap-10 py-16 lg:grid-cols-[1fr_auto] lg:py-24">
         <motion.div
           initial={reduceMotion ? false : { opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

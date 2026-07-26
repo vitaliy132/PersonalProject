@@ -5,8 +5,8 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { useEffect, useRef } from "react";
 import { Parallax, SplitText } from "@/components/arden/motion";
-import { usePrefersReducedMotion } from "@/components/motion/usePrefersReducedMotion";
-import { arden, ardenHero } from "@/lib/arden-content";
+import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
+import { arden, ardenHero } from "@/lib/arden/content";
 import { ensureGsap, gsap, ScrollTrigger } from "@/lib/gsap";
 
 ensureGsap();
@@ -115,7 +115,7 @@ export function Hero() {
 
       <div
         ref={contentRef}
-        className="aw-container relative z-10 flex min-h-[100svh] flex-col justify-end pb-14 pt-28 sm:pb-16 sm:pt-32"
+        className="ms-container relative z-10 flex min-h-[100svh] flex-col justify-end pb-14 pt-28 sm:pb-16 sm:pt-32"
       >
         <div className="max-w-5xl">
           <p className="aw-eyebrow !text-[var(--aw-champagne)]">{ardenHero.eyebrow}</p>

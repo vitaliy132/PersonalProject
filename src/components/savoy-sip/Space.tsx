@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import { useEffect, useRef } from "react";
-import { usePrefersReducedMotion } from "@/components/motion/usePrefersReducedMotion";
-import { savoySipSpace } from "@/lib/savoy-sip-content";
+import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
+import { savoySipSpace } from "@/lib/savoy-sip/content";
 import { ensureGsap, gsap } from "@/lib/gsap";
 
 ensureGsap();
@@ -48,7 +48,7 @@ export function Space() {
         className="bg-[var(--ss-ink)] py-20 sm:py-28"
         aria-labelledby="space-heading"
       >
-        <div className="ss-container">
+        <div className="ms-container">
           <p className="ss-kicker text-[var(--ss-foam)]">{savoySipSpace.kicker}</p>
           <h2
             id="space-heading"
@@ -93,7 +93,7 @@ export function Space() {
       className="relative overflow-hidden bg-[var(--ss-ink)]"
       aria-labelledby="space-heading"
     >
-      <div className="ss-container absolute inset-x-0 top-0 z-10 pt-10 sm:pt-14">
+      <div className="ms-container absolute inset-x-0 top-0 z-10 pt-10 sm:pt-14">
         <p className="ss-kicker text-[var(--ss-foam)]">{savoySipSpace.kicker}</p>
         <h2
           id="space-heading"

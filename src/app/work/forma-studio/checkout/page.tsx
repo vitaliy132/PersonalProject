@@ -1,5 +1,5 @@
 import { CheckoutClient } from "@/components/forma/CheckoutClient";
-import { formaSeo } from "@/lib/forma-content";
+import { formaSeo } from "@/lib/forma/content";
 
 export const metadata = {
   title: formaSeo.checkout.title,
@@ -9,7 +9,7 @@ export const metadata = {
 export default function CheckoutPage() {
   return (
     <main className="pb-20 pt-10 sm:pb-24 sm:pt-14">
-      <div className="fo-container">
+      <div className="ms-container">
         <CheckoutClient />
       </div>
     </main>

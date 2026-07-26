@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { intro } from "@/lib/content";
 import { GsapReveal } from "@/components/motion/GsapReveal";
-import { usePrefersReducedMotion } from "@/components/motion/usePrefersReducedMotion";
+import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 import { ensureGsap, gsap } from "@/lib/gsap";
 
 ensureGsap();

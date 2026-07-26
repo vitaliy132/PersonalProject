@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { FadeIn as Reveal } from "@/components/ui/FadeIn";
-import { formaImages } from "@/lib/forma-content";
+import { FadeIn } from "@/components/ui/FadeIn";
+import { formaImages } from "@/lib/forma/content";
 
 const pillars = [
   {
@@ -32,9 +32,9 @@ export function BrandStory() {
       aria-labelledby="story-heading"
       className="scroll-mt-24 py-16 sm:py-24"
     >
-      <div className="fo-container">
+      <div className="ms-container">
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-6">
-          <Reveal className="lg:sticky lg:top-28 lg:self-start">
+          <FadeIn className="lg:sticky lg:top-28 lg:self-start">
             <p className="fo-eyebrow">Brand system</p>
             <h2
               id="story-heading"
@@ -49,10 +49,10 @@ export function BrandStory() {
               simplicity, functionality and craftsmanship — products that
               disappear into your life until you notice how well they work.
             </p>
-          </Reveal>
+          </FadeIn>
 
           <div className="grid gap-3 sm:grid-cols-2">
-            <Reveal className="relative min-h-[18rem] overflow-hidden border border-[var(--fo-border)] bg-[var(--fo-bg-elevated)] sm:col-span-2 sm:min-h-[22rem]">
+            <FadeIn className="relative min-h-[18rem] overflow-hidden border border-[var(--fo-border)] bg-[var(--fo-bg-elevated)] sm:col-span-2 sm:min-h-[22rem]">
               <Image
                 src={formaImages.story.src}
                 alt={formaImages.story.alt}
@@ -65,10 +65,10 @@ export function BrandStory() {
                   Studio notes · Materials lab
                 </p>
               </div>
-            </Reveal>
+            </FadeIn>
 
             {pillars.map((item, index) => (
-              <Reveal key={item.code} delay={index * 0.05}>
+              <FadeIn key={item.code} delay={index * 0.05}>
                 <article className="flex h-full flex-col border border-[var(--fo-border)] bg-[var(--fo-bg-elevated)] p-5 transition-colors hover:border-[var(--fo-border-strong)]">
                   <p className="font-mono text-[0.68rem] tracking-[0.14em] text-[var(--fo-accent)]">
                     {item.code}
@@ -80,7 +80,7 @@ export function BrandStory() {
                     {item.text}
                   </p>
                 </article>
-              </Reveal>
+              </FadeIn>
             ))}
           </div>
         </div>

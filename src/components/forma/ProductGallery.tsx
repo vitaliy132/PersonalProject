@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import type { FormaProduct } from "@/lib/forma-content";
+import type { FormaProduct } from "@/lib/forma/content";
 
 type ProductGalleryProps = {
   product: FormaProduct;

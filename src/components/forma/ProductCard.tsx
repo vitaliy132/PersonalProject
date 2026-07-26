@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Heart, Plus } from "lucide-react";
 import { useCart } from "@/components/forma/cart-context";
-import { formatPrice, type FormaProduct } from "@/lib/forma-content";
+import { formatPrice, type FormaProduct } from "@/lib/forma/content";
 
 type ProductCardProps = {
   product: FormaProduct;

@@ -35,7 +35,7 @@ export function SplitReveal({
   return (
     <Tag id={id} className={className}>
       {lines.map((line, lineIndex) => (
-        <span key={lineIndex} className="bs-mask-line">
+        <span key={lineIndex} className="ms-mask-line">
           <motion.span
             className="block"
             initial={{ y: "110%" }}

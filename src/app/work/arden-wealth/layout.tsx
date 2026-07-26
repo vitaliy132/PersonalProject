@@ -1,10 +1,10 @@
-import type { Metadata } from "next";
 import { Figtree, Syne } from "next/font/google";
 import { Footer } from "@/components/arden/Footer";
 import { Header } from "@/components/arden/Header";
 import { PlanningProvider } from "@/components/arden/planning-context";
 import { MicrositeShell } from "@/components/microsite/MicrositeShell";
-import { ardenSeo } from "@/lib/arden-content";
+import { ardenSeo } from "@/lib/arden/content";
+import { buildMicrositeMetadata } from "@/lib/microsite-metadata";
 import "./arden.css";
 
 const syne = Syne({
@@ -20,22 +20,7 @@ const figtree = Figtree({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: ardenSeo.title,
-  description: ardenSeo.description,
-  openGraph: {
-    title: ardenSeo.title,
-    description: ardenSeo.description,
-    type: "website",
-    locale: "en_GB",
-    siteName: "Arden Wealth",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: ardenSeo.title,
-    description: ardenSeo.description,
-  },
-};
+export const metadata = buildMicrositeMetadata(ardenSeo, "Arden Wealth");
 
 export default function ArdenLayout({
   children,

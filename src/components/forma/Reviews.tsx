@@ -1,5 +1,5 @@
-import { FadeIn as Reveal } from "@/components/ui/FadeIn";
-import { formaReviews } from "@/lib/forma-content";
+import { FadeIn } from "@/components/ui/FadeIn";
+import { formaReviews } from "@/lib/forma/content";
 
 export function Reviews() {
   return (
@@ -8,8 +8,8 @@ export function Reviews() {
       aria-labelledby="reviews-heading"
       className="scroll-mt-24 py-16 sm:py-20"
     >
-      <div className="fo-container">
-        <Reveal className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+      <div className="ms-container">
+        <FadeIn className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="fo-eyebrow">Signal / Reviews</p>
             <h2
@@ -22,13 +22,13 @@ export function Reviews() {
           <p className="font-mono text-[0.72rem] tracking-[0.12em] text-[var(--fo-stone)] uppercase">
             4.9 avg · 400+ reviews
           </p>
-        </Reveal>
+        </FadeIn>
       </div>
 
       <div className="mt-10 pl-5 sm:pl-8 lg:pl-[max(2rem,calc((100vw-80rem)/2+2rem))]">
         <div className="fo-rail pr-5 sm:pr-8">
           {formaReviews.map((review, index) => (
-            <Reveal key={review.name} delay={index * 0.06}>
+            <FadeIn key={review.name} delay={index * 0.06}>
               <blockquote className="flex h-full min-h-[18rem] flex-col border border-[var(--fo-border)] bg-[var(--fo-bg-elevated)] p-6">
                 <div className="flex items-center justify-between font-mono text-[0.65rem] tracking-[0.14em] text-[var(--fo-stone)] uppercase">
                   <span>Verified</span>
@@ -44,7 +44,7 @@ export function Reviews() {
                   </p>
                 </footer>
               </blockquote>
-            </Reveal>
+            </FadeIn>
           ))}
         </div>
       </div>

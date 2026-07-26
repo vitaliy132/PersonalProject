@@ -1,26 +1,21 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Heart, Menu, Search, ShoppingBag, X } from "lucide-react";
 import { useCart } from "@/components/forma/cart-context";
 import { Logo } from "@/components/forma/Logo";
 import { WishlistDrawer } from "@/components/forma/WishlistDrawer";
-import { useLockBodyScroll } from "@/components/hooks/useLockBodyScroll";
-import { formaNav } from "@/lib/forma-content";
+import { useLockBodyScroll } from "@/hooks/useLockBodyScroll";
+import { useScrolled } from "@/hooks/useScrolled";
+import { formaNav } from "@/lib/forma/content";
 
 export function Header() {
   const { cartCount, wishlist, setCartOpen, setSearchOpen } = useCart();
-  const [scrolled, setScrolled] = useState(false);
+  const scrolled = useScrolled(8);
   const [open, setOpen] = useState(false);
   const [wishlistOpen, setWishlistOpen] = useState(false);
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   useLockBodyScroll(open);
 
@@ -32,7 +27,7 @@ export function Header() {
           : "border-b border-[var(--fo-border)] bg-[var(--fo-bg)]/80 backdrop-blur-sm"
       }`}
     >
-      <div className="fo-container flex h-14 items-center justify-between sm:h-16">
+      <div className="ms-container flex h-14 items-center justify-between sm:h-16">
         <button
           type="button"
           className="flex h-10 w-10 items-center justify-center lg:hidden"
@@ -99,7 +94,7 @@ export function Header() {
           id="fo-mobile-nav"
           className="border-t border-[var(--fo-border)] bg-[var(--fo-bg)] lg:hidden"
         >
-          <nav className="fo-container flex flex-col py-4" aria-label="Mobile">
+          <nav className="ms-container flex flex-col py-4" aria-label="Mobile">
             {formaNav.map((item) => (
               <Link
                 key={item.href}

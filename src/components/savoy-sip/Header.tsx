@@ -1,22 +1,17 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { useLockBodyScroll } from "@/components/hooks/useLockBodyScroll";
-import { savoySip, savoySipNav } from "@/lib/savoy-sip-content";
+import { useLockBodyScroll } from "@/hooks/useLockBodyScroll";
+import { useScrolled } from "@/hooks/useScrolled";
+import { savoySip, savoySipNav } from "@/lib/savoy-sip/content";
 import { Logo } from "./Logo";
 
 export function Header() {
-  const [scrolled, setScrolled] = useState(false);
+  const scrolled = useScrolled(40);
   const [open, setOpen] = useState(false);
   const reduceMotion = useReducedMotion();
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   useLockBodyScroll(open);
 
@@ -30,7 +25,7 @@ export function Header() {
           : "border-b border-transparent bg-transparent"
       }`}
     >
-      <div className="ss-container flex h-[4rem] items-center justify-between sm:h-[4.5rem]">
+      <div className="ms-container flex h-[4rem] items-center justify-between sm:h-[4.5rem]">
         <a
           href="#top"
           className={solid ? "text-[var(--ss-ink)]" : "text-[var(--ss-on-dark)]"}
@@ -97,7 +92,7 @@ export function Header() {
             transition={{ duration: 0.3 }}
           >
             <nav
-              className="ss-container flex flex-col gap-6 py-12"
+              className="ms-container flex flex-col gap-6 py-12"
               aria-label="Mobile"
             >
               {savoySipNav.map((link, i) => (

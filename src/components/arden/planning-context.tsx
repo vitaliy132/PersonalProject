@@ -8,7 +8,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import { ardenGoals, ardenRiskProfiles } from "@/lib/arden-content";
+import { ardenGoals, ardenRiskProfiles } from "@/lib/arden/content";
 
 type RiskId = (typeof ardenRiskProfiles)[number]["id"];
 

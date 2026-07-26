@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 import { hero } from "@/lib/content";
 import { Button } from "@/components/ui/Button";
 import { Magnetic } from "@/components/motion/Magnetic";
-import { usePrefersReducedMotion } from "@/components/motion/usePrefersReducedMotion";
+import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 import { ensureGsap, gsap } from "@/lib/gsap";
 
 ensureGsap();

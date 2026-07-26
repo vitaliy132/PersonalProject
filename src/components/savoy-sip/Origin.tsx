@@ -1,7 +1,7 @@
 "use client";
 
-import { savoySipOrigin } from "@/lib/savoy-sip-content";
-import { GsapReveal as Reveal } from "@/components/motion/GsapReveal";
+import { savoySipOrigin } from "@/lib/savoy-sip/content";
+import { GsapReveal } from "@/components/motion/GsapReveal";
 
 export function Origin() {
   return (
@@ -10,9 +10,9 @@ export function Origin() {
       className="bg-[var(--ss-paper)] py-20 sm:py-28"
       aria-labelledby="origin-heading"
     >
-      <div className="ss-container">
+      <div className="ms-container">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-20">
-          <Reveal>
+          <GsapReveal>
             <p className="ss-kicker">{savoySipOrigin.kicker}</p>
             <h2
               id="origin-heading"
@@ -23,11 +23,11 @@ export function Origin() {
             <p className="mt-7 max-w-md text-base leading-relaxed text-[var(--ss-mute)]">
               {savoySipOrigin.body}
             </p>
-          </Reveal>
+          </GsapReveal>
 
           <div className="divide-y divide-[var(--ss-border)] border-y border-[var(--ss-border)]">
             {savoySipOrigin.origins.map((origin, i) => (
-              <Reveal key={origin.region} delay={0.05 * i} y={24}>
+              <GsapReveal key={origin.region} delay={0.05 * i} y={24}>
                 <div className="group flex flex-col gap-2 py-7 transition-colors sm:flex-row sm:items-baseline sm:justify-between sm:gap-8">
                   <div className="flex items-baseline gap-5">
                     <span className="font-display text-2xl text-[var(--ss-foam)] sm:text-3xl">
@@ -46,7 +46,7 @@ export function Origin() {
                     {origin.note}
                   </p>
                 </div>
-              </Reveal>
+              </GsapReveal>
             ))}
           </div>
         </div>

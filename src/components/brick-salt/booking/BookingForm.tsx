@@ -4,7 +4,7 @@ import type { FormEvent } from "react";
 import {
   brickSaltPartySizes,
   brickSaltTimes,
-} from "@/lib/brick-salt-content";
+} from "@/lib/brick-salt/content";
 import type { FormErrors, FormState } from "./types";
 import { todayISO } from "./validation";
 

@@ -1,5 +1,3 @@
-"use client";
-
 import type { ReactNode } from "react";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
 
@@ -12,6 +10,7 @@ type MicrositeShellProps = {
 
 /**
  * Thin brand wrapper: root class, optional grain, optional Lenis.
+ * Server Component — only nests the client SmoothScroll when requested.
  * Layouts still own fonts, metadata, providers, Header/Footer.
  */
 export function MicrositeShell({

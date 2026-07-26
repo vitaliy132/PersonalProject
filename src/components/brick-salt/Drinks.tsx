@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { brickSaltDrinks } from "@/lib/brick-salt-content";
-import { Reveal } from "@/components/motion/Reveal";
+import { brickSaltDrinks } from "@/lib/brick-salt/content";
+import { FadeIn } from "@/components/ui/FadeIn";
 
 export function Drinks() {
   return (
@@ -11,7 +11,7 @@ export function Drinks() {
       className="border-t-2 border-[var(--bs-charcoal)] bg-[var(--bs-cream-deep)] py-20 sm:py-28"
       aria-labelledby="drinks-heading"
     >
-      <div className="bs-container">
+      <div className="ms-container">
         <div className="mb-14 flex flex-col gap-6 sm:mb-16 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="bs-eyebrow">The bar</p>
@@ -37,7 +37,7 @@ export function Drinks() {
               key={drink.id}
               className="group border-t-2 border-[var(--bs-charcoal)] last:border-b-2"
             >
-              <Reveal delay={0.04 * i}>
+              <FadeIn delay={0.04 * i}>
                 <article className="grid items-stretch gap-0 md:grid-cols-[5rem_minmax(0,1fr)_minmax(0,14rem)] lg:grid-cols-[6rem_minmax(0,1fr)_minmax(0,18rem)]">
                   <div className="flex items-start py-6 font-display text-4xl text-[var(--bs-brick)] md:py-8 md:text-5xl">
                     0{i + 1}
@@ -60,7 +60,7 @@ export function Drinks() {
                     />
                   </div>
                 </article>
-              </Reveal>
+              </FadeIn>
             </li>
           ))}
         </ul>

@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { savoySipMenu, savoySipMenuSection } from "@/lib/savoy-sip-content";
-import { GsapReveal as Reveal } from "@/components/motion/GsapReveal";
+import { savoySipMenu, savoySipMenuSection } from "@/lib/savoy-sip/content";
+import { GsapReveal } from "@/components/motion/GsapReveal";
 
 export function Menu() {
   const [active, setActive] = useState<(typeof savoySipMenu)[number]["id"]>(
@@ -16,8 +16,8 @@ export function Menu() {
       className="bg-[var(--ss-fog)] py-20 sm:py-28"
       aria-labelledby="menu-heading"
     >
-      <div className="ss-container">
-        <Reveal>
+      <div className="ms-container">
+        <GsapReveal>
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div>
               <p className="ss-kicker">{savoySipMenuSection.kicker}</p>
@@ -32,7 +32,7 @@ export function Menu() {
               {savoySipMenuSection.body}
             </p>
           </div>
-        </Reveal>
+        </GsapReveal>
 
         <div
           className="mt-12 flex gap-2 border-b border-[var(--ss-border)] pb-px"
@@ -60,7 +60,7 @@ export function Menu() {
           ))}
         </div>
 
-        <Reveal key={current.id} className="mt-10" y={28} duration={0.75}>
+        <GsapReveal key={current.id} className="mt-10" y={28} duration={0.75}>
           <p className="mb-8 text-sm text-[var(--ss-steel)]">{current.blurb}</p>
           <div className="ss-menu-track">
             {current.items.map((item) => (
@@ -83,7 +83,7 @@ export function Menu() {
               </article>
             ))}
           </div>
-        </Reveal>
+        </GsapReveal>
       </div>
     </section>
   );

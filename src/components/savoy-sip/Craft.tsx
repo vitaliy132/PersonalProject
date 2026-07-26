@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 import { useEffect, useRef } from "react";
-import { usePrefersReducedMotion } from "@/components/motion/usePrefersReducedMotion";
-import { savoySipCraft } from "@/lib/savoy-sip-content";
-import { GsapReveal as Reveal } from "@/components/motion/GsapReveal";
+import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
+import { savoySipCraft } from "@/lib/savoy-sip/content";
+import { GsapReveal } from "@/components/motion/GsapReveal";
 import { ensureGsap, gsap } from "@/lib/gsap";
 
 ensureGsap();
@@ -47,7 +47,7 @@ export function Craft() {
     >
       <div className="grid min-h-[100svh] lg:grid-cols-2">
         <div className="flex flex-col justify-center px-5 py-20 sm:px-8 lg:px-16 lg:py-28">
-          <Reveal>
+          <GsapReveal>
             <p className="ss-kicker">{savoySipCraft.kicker}</p>
             <h2
               id="craft-heading"
@@ -58,7 +58,7 @@ export function Craft() {
             <p className="mt-8 max-w-md text-base leading-relaxed text-[var(--ss-mute)] sm:text-lg">
               {savoySipCraft.body}
             </p>
-          </Reveal>
+          </GsapReveal>
         </div>
 
         <div className="relative min-h-[55svh] overflow-hidden lg:min-h-full">

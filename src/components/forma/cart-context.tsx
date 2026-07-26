@@ -8,7 +8,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import type { FormaProduct } from "@/lib/forma-content";
+import type { FormaProduct } from "@/lib/forma/content";
 
 export type CartLine = {
   key: string;

@@ -1,9 +1,9 @@
 "use client";
 
 import { useBooking } from "@/components/brick-salt/booking-context";
-import { brickSaltReservation } from "@/lib/brick-salt-content";
+import { brickSaltReservation } from "@/lib/brick-salt/content";
 import { MagneticButton } from "@/components/motion/MagneticButton";
-import { Reveal } from "@/components/motion/Reveal";
+import { FadeIn } from "@/components/ui/FadeIn";
 
 export function Reservation() {
   const { openBooking } = useBooking();
@@ -15,7 +15,7 @@ export function Reservation() {
       aria-labelledby="reservation-heading"
     >
       <div className="grid lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
-        <div className="bs-container py-20 sm:py-28 lg:py-32">
+        <div className="ms-container py-20 sm:py-28 lg:py-32">
           <p className="text-[0.7rem] font-bold uppercase tracking-[0.22em] text-[var(--bs-brick-hot)]">
             Reservations
           </p>
@@ -29,14 +29,14 @@ export function Reservation() {
               </span>
             ))}
           </h2>
-          <Reveal delay={0.1} className="mt-10">
+          <FadeIn delay={0.1} className="mt-10">
             <MagneticButton
               onClick={openBooking}
               className="bs-btn bs-btn-primary"
             >
               {brickSaltReservation.cta}
             </MagneticButton>
-          </Reveal>
+          </FadeIn>
         </div>
 
         <div className="relative flex min-h-[14rem] items-center justify-center overflow-hidden bg-[var(--bs-brick)] px-8 py-16 lg:min-h-full">

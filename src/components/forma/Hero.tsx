@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
-import { formaImages, formatPrice } from "@/lib/forma-content";
+import { formaImages, formatPrice } from "@/lib/forma/content";
 
 export function Hero() {
   const reduceMotion = useReducedMotion();
@@ -31,7 +31,7 @@ export function Hero() {
         <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(9,9,11,0.82)_0%,rgba(9,9,11,0.35)_48%,rgba(9,9,11,0.55)_100%)]" />
       </motion.div>
 
-      <div className="fo-container relative z-10 flex min-h-[88svh] flex-col justify-end pb-8 pt-28 sm:pb-10">
+      <div className="ms-container relative z-10 flex min-h-[88svh] flex-col justify-end pb-8 pt-28 sm:pb-10">
         <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
           <div className="max-w-3xl">
             <motion.p

@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { X } from "lucide-react";
 import { useCart } from "@/components/forma/cart-context";
-import { formaProducts, formatPrice } from "@/lib/forma-content";
+import { formaProducts, formatPrice } from "@/lib/forma/content";
 
 type WishlistDrawerProps = {
   open: boolean;

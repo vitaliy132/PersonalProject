@@ -16,7 +16,7 @@ import {
   Vector3,
   type Mesh,
 } from "three";
-import { usePrefersReducedMotion } from "@/components/motion/usePrefersReducedMotion";
+import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 
 function makeRibbon(
   points: [number, number, number][],

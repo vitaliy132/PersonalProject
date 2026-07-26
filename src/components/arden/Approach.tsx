@@ -2,8 +2,8 @@
 
 import { useEffect, useRef } from "react";
 import { PinSection, SplitText } from "@/components/arden/motion";
-import { usePrefersReducedMotion } from "@/components/motion/usePrefersReducedMotion";
-import { ardenApproach } from "@/lib/arden-content";
+import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
+import { ardenApproach } from "@/lib/arden/content";
 import { ensureGsap, gsap } from "@/lib/gsap";
 
 ensureGsap();
@@ -46,7 +46,7 @@ export function Approach() {
         end="+=280%"
         className="bg-[linear-gradient(180deg,var(--aw-mist)_0%,var(--aw-panel)_50%,var(--aw-mist)_100%)]"
       >
-        <div className="aw-container absolute inset-0 flex flex-col justify-center py-24">
+        <div className="ms-container absolute inset-0 flex flex-col justify-center py-24">
           <div className="relative grid gap-12 lg:grid-cols-[1fr_1.2fr]">
             <div>
               <p className="aw-eyebrow">Approach</p>

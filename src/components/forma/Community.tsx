@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { FadeIn as Reveal } from "@/components/ui/FadeIn";
-import { formaCommunity } from "@/lib/forma-content";
+import { FadeIn } from "@/components/ui/FadeIn";
+import { formaCommunity } from "@/lib/forma/content";
 
 export function Community() {
   return (
@@ -9,8 +9,8 @@ export function Community() {
       aria-labelledby="community-heading"
       className="scroll-mt-24 border-t border-[var(--fo-border)] py-16 sm:py-20"
     >
-      <div className="fo-container">
-        <Reveal className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+      <div className="ms-container">
+        <FadeIn className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="fo-eyebrow">@formastudio</p>
             <h2
@@ -28,7 +28,7 @@ export function Community() {
           >
             Follow the feed
           </a>
-        </Reveal>
+        </FadeIn>
 
         <div className="mt-10 grid auto-rows-[11rem] grid-cols-2 gap-2 sm:auto-rows-[13rem] sm:grid-cols-4 sm:gap-3">
           {formaCommunity.map((image, index) => {
@@ -39,7 +39,7 @@ export function Community() {
                   ? "sm:col-span-2"
                   : "";
             return (
-              <Reveal key={image.src} delay={index * 0.04} className={span}>
+              <FadeIn key={image.src} delay={index * 0.04} className={span}>
                 <div className="group relative h-full min-h-[11rem] overflow-hidden border border-[var(--fo-border)] bg-[var(--fo-bg-elevated)]">
                   <Image
                     src={image.src}
@@ -53,7 +53,7 @@ export function Community() {
                     Frame {String(index + 1).padStart(2, "0")}
                   </p>
                 </div>
-              </Reveal>
+              </FadeIn>
             );
           })}
         </div>

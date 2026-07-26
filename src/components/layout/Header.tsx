@@ -7,7 +7,8 @@ import { Menu, X } from "lucide-react";
 import { agency, navLinks } from "@/lib/content";
 import { Button } from "@/components/ui/Button";
 import { Magnetic } from "@/components/motion/Magnetic";
-import { useLockBodyScroll } from "@/components/hooks/useLockBodyScroll";
+import { useLockBodyScroll } from "@/hooks/useLockBodyScroll";
+import { useScrolled } from "@/hooks/useScrolled";
 
 function resolveHref(href: string, pathname: string) {
   if (href.startsWith("#")) {
@@ -19,17 +20,11 @@ function resolveHref(href: string, pathname: string) {
 export function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const scrolled = useScrolled(40);
   // Pill only when scrolled AND menu closed — open menu must be full-width on phones
   const pill = scrolled && !open;
   const contactHref = resolveHref("#contact", pathname);
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   useEffect(() => {
     setOpen(false);

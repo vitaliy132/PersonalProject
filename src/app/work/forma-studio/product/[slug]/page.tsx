@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { ProductDetail } from "@/components/forma/ProductDetail";
-import { formaProducts, getProductBySlug } from "@/lib/forma-content";
+import { formaProducts, getProductBySlug } from "@/lib/forma/content";
 
 type PageProps = {
   params: Promise<{ slug: string }>;

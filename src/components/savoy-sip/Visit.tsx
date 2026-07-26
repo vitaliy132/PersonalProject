@@ -2,10 +2,10 @@
 
 import Image from "next/image";
 import { useEffect, useRef } from "react";
-import { usePrefersReducedMotion } from "@/components/motion/usePrefersReducedMotion";
-import { savoySip, savoySipVisit } from "@/lib/savoy-sip-content";
+import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
+import { savoySip, savoySipVisit } from "@/lib/savoy-sip/content";
 import { MagneticButton } from "@/components/motion/MagneticButton";
-import { GsapReveal as Reveal } from "@/components/motion/GsapReveal";
+import { GsapReveal } from "@/components/motion/GsapReveal";
 import { ensureGsap, gsap } from "@/lib/gsap";
 
 ensureGsap();
@@ -52,8 +52,8 @@ export function Visit() {
         <div className="absolute inset-0 bg-[var(--ss-ink)]/70" />
       </div>
 
-      <div className="ss-container relative z-10 flex min-h-[100svh] items-end py-16 sm:py-20">
-        <Reveal className="w-full max-w-2xl border border-[var(--ss-on-dark)]/15 bg-[var(--ss-ink)]/55 p-8 backdrop-blur-md sm:p-10">
+      <div className="ms-container relative z-10 flex min-h-[100svh] items-end py-16 sm:py-20">
+        <GsapReveal className="w-full max-w-2xl border border-[var(--ss-on-dark)]/15 bg-[var(--ss-ink)]/55 p-8 backdrop-blur-md sm:p-10">
           <p className="ss-kicker text-[var(--ss-foam)]">{savoySipVisit.kicker}</p>
           <h2
             id="visit-heading"
@@ -93,7 +93,7 @@ export function Visit() {
               Email
             </MagneticButton>
           </div>
-        </Reveal>
+        </GsapReveal>
       </div>
     </section>
   );

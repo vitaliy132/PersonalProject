@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { FadeIn as Reveal } from "@/components/ui/FadeIn";
+import { FadeIn } from "@/components/ui/FadeIn";
 
 export function Newsletter() {
   const [email, setEmail] = useState("");
@@ -20,8 +20,8 @@ export function Newsletter() {
       aria-labelledby="newsletter-heading"
       className="scroll-mt-24 py-10 sm:py-14"
     >
-      <div className="fo-container">
-        <Reveal>
+      <div className="ms-container">
+        <FadeIn>
           <div className="grid overflow-hidden border border-[var(--fo-border)] lg:grid-cols-[1.1fr_0.9fr]">
             <div className="bg-[var(--fo-panel)] p-8 text-white sm:p-12">
               <p className="font-mono text-[0.68rem] tracking-[0.18em] text-[var(--fo-accent)] uppercase">
@@ -70,7 +70,7 @@ export function Newsletter() {
               )}
             </div>
           </div>
-        </Reveal>
+        </FadeIn>
       </div>
     </section>
   );

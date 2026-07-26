@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import { useEffect, useRef } from "react";
-import { usePrefersReducedMotion } from "@/components/motion/usePrefersReducedMotion";
-import { brickSaltGallery } from "@/lib/brick-salt-content";
+import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
+import { brickSaltGallery } from "@/lib/brick-salt/content";
 import { ensureGsap, gsap } from "@/lib/gsap";
 
 ensureGsap();
@@ -45,7 +45,7 @@ export function Gallery() {
       className="bg-[var(--bs-charcoal)]"
       aria-labelledby="gallery-heading"
     >
-      <div className="bs-container border-b border-[var(--bs-salt)]/15 py-14 sm:py-16">
+      <div className="ms-container border-b border-[var(--bs-salt)]/15 py-14 sm:py-16">
         <p className="text-[0.7rem] font-bold uppercase tracking-[0.22em] text-[var(--bs-brick-hot)]">
           Dining experience
         </p>
@@ -75,7 +75,7 @@ export function Gallery() {
             />
             <div className="absolute inset-0 bg-[var(--bs-charcoal)]/35" />
           </div>
-          <figcaption className="bs-container relative z-10 flex h-full flex-col justify-between py-10 sm:py-14">
+          <figcaption className="ms-container relative z-10 flex h-full flex-col justify-between py-10 sm:py-14">
             <span className="text-[0.7rem] font-bold uppercase tracking-[0.22em] text-[var(--bs-salt)]/70">
               0{index + 1} / 0{brickSaltGallery.length}
             </span>

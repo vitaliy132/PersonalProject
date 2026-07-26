@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { brickSaltMenu } from "@/lib/brick-salt-content";
-import { Reveal } from "@/components/motion/Reveal";
+import { brickSaltMenu } from "@/lib/brick-salt/content";
+import { FadeIn } from "@/components/ui/FadeIn";
 
 export function Menu() {
   const [active, setActive] = useState<(typeof brickSaltMenu)[number]["id"]>(
@@ -42,7 +42,7 @@ export function Menu() {
       className="bs-paper border-t-2 border-[var(--bs-charcoal)] bg-[var(--bs-cream)] py-16 sm:py-24 lg:py-28"
       aria-labelledby="menu-heading"
     >
-      <div className="bs-container">
+      <div className="ms-container">
         <div className="mb-12 flex flex-col gap-4 border-b-2 border-[var(--bs-charcoal)] pb-8 sm:mb-16 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="bs-eyebrow">Tonight&apos;s board</p>
@@ -97,7 +97,7 @@ export function Menu() {
                 }}
                 className="scroll-mt-28"
               >
-                <Reveal>
+                <FadeIn>
                   <div className="mb-6 flex items-baseline justify-between gap-4 border-b border-[var(--bs-charcoal)] pb-3">
                     <h3 className="font-display text-3xl text-[var(--bs-charcoal)] sm:text-4xl">
                       {cat.category}
@@ -127,7 +127,7 @@ export function Menu() {
                       </li>
                     ))}
                   </ul>
-                </Reveal>
+                </FadeIn>
               </div>
             ))}
           </div>

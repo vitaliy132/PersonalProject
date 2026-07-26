@@ -3,8 +3,8 @@
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { Parallax, SplitText } from "@/components/arden/motion";
-import { usePrefersReducedMotion } from "@/components/motion/usePrefersReducedMotion";
-import { ardenPhilosophy } from "@/lib/arden-content";
+import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
+import { ardenPhilosophy } from "@/lib/arden/content";
 import { ensureGsap, gsap } from "@/lib/gsap";
 
 ensureGsap();
@@ -60,7 +60,7 @@ export function Philosophy() {
         ARDEN
       </p>
 
-      <div className="aw-container grid items-center gap-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-24">
+      <div className="ms-container grid items-center gap-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-24">
         <div className="relative z-10">
           <p className="aw-eyebrow">{ardenPhilosophy.eyebrow}</p>
           <SplitText

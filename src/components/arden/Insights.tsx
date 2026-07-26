@@ -3,8 +3,8 @@
 import { ArrowUpRight } from "lucide-react";
 import { useEffect, useRef } from "react";
 import { SplitText } from "@/components/arden/motion";
-import { usePrefersReducedMotion } from "@/components/motion/usePrefersReducedMotion";
-import { ardenInsights } from "@/lib/arden-content";
+import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
+import { ardenInsights } from "@/lib/arden/content";
 import { ensureGsap, gsap } from "@/lib/gsap";
 
 ensureGsap();
@@ -42,7 +42,7 @@ export function Insights() {
       className="py-28 sm:py-32"
       aria-labelledby="insights-heading"
     >
-      <div className="aw-container">
+      <div className="ms-container">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="aw-eyebrow">Insights</p>

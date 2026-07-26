@@ -1,3 +1,4 @@
+import { isValidEmail } from "@/lib/validation";
 import type { FormErrors, FormState } from "./types";
 
 export function todayISO() {
@@ -31,7 +32,7 @@ export function validate(form: FormState): FormErrors {
   if (!form.name.trim()) errors.name = "Enter your name";
   if (!form.email.trim()) {
     errors.email = "Enter your email";
-  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) {
+  } else if (!isValidEmail(form.email)) {
     errors.email = "Enter a valid email";
   }
   return errors;

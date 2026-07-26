@@ -7,7 +7,7 @@ import {
   formaCategories,
   formaProducts,
   type FormaCategory,
-} from "@/lib/forma-content";
+} from "@/lib/forma/content";
 
 function ProductSkeleton() {
   return (

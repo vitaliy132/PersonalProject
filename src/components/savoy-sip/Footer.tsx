@@ -1,10 +1,10 @@
-import { savoySip, savoySipNav } from "@/lib/savoy-sip-content";
+import { savoySip, savoySipNav } from "@/lib/savoy-sip/content";
 import { Logo } from "./Logo";
 
 export function Footer() {
   return (
     <footer className="bg-[var(--ss-ink)] text-[var(--ss-on-dark)]">
-      <div className="ss-container py-16 sm:py-20">
+      <div className="ms-container py-16 sm:py-20">
         <div className="flex flex-col gap-12 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <Logo />

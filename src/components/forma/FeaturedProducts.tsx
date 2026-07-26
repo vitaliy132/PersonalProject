@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { ProductCard } from "@/components/forma/ProductCard";
-import { FadeIn as Reveal } from "@/components/ui/FadeIn";
-import { getFeaturedProducts } from "@/lib/forma-content";
+import { FadeIn } from "@/components/ui/FadeIn";
+import { getFeaturedProducts } from "@/lib/forma/content";
 
 export function FeaturedProducts() {
   const products = getFeaturedProducts();
@@ -13,8 +13,8 @@ export function FeaturedProducts() {
       aria-labelledby="featured-heading"
       className="scroll-mt-24 py-16 sm:py-20"
     >
-      <div className="fo-container">
-        <Reveal className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+      <div className="ms-container">
+        <FadeIn className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="fo-eyebrow">Collection / Featured</p>
             <h2
@@ -31,17 +31,17 @@ export function FeaturedProducts() {
             View all
             <ArrowRight size={14} />
           </Link>
-        </Reveal>
+        </FadeIn>
       </div>
 
       <div className="mt-10 pl-5 sm:pl-8 lg:pl-[max(2rem,calc((100vw-80rem)/2+2rem))]">
         <div className="fo-rail pr-5 sm:pr-8">
           {products.map((product, index) => (
-            <Reveal key={product.id} delay={index * 0.05}>
+            <FadeIn key={product.id} delay={index * 0.05}>
               <ProductCard product={product} index={index} />
-            </Reveal>
+            </FadeIn>
           ))}
-          <Reveal delay={0.2}>
+          <FadeIn delay={0.2}>
             <Link
               href="/work/forma-studio/shop"
               className="flex h-full min-h-[28rem] flex-col justify-between border border-dashed border-[var(--fo-border-strong)] bg-[var(--fo-bg-elevated)]/60 p-6 transition-colors hover:border-[var(--fo-ink)]"
@@ -62,7 +62,7 @@ export function FeaturedProducts() {
                 </span>
               </div>
             </Link>
-          </Reveal>
+          </FadeIn>
         </div>
       </div>
     </section>

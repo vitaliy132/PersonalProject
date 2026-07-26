@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { useBooking } from "@/components/brick-salt/booking-context";
-import { brickSaltHero } from "@/lib/brick-salt-content";
+import { brickSaltHero } from "@/lib/brick-salt/content";
 import { MagneticButton } from "@/components/motion/MagneticButton";
 import { ensureGsap, gsap } from "@/lib/gsap";
 
@@ -64,7 +64,7 @@ export function Hero() {
               id="hero-heading"
               className="font-display mt-8 text-[clamp(3.2rem,9vw,7rem)] leading-[0.88] text-[var(--bs-charcoal)]"
             >
-              <span className="bs-mask-line">
+              <span className="ms-mask-line">
                 <motion.span
                   className="block"
                   initial={reduceMotion ? false : { y: "110%" }}
@@ -74,7 +74,7 @@ export function Hero() {
                   {brickSaltHero.lineOne}
                 </motion.span>
               </span>
-              <span className="bs-mask-line mt-1 text-[var(--bs-brick)]">
+              <span className="ms-mask-line mt-1 text-[var(--bs-brick)]">
                 <motion.span
                   className="block"
                   initial={reduceMotion ? false : { y: "110%" }}

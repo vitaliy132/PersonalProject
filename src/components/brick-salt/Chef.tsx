@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 import { useEffect, useRef } from "react";
-import { usePrefersReducedMotion } from "@/components/motion/usePrefersReducedMotion";
-import { brickSaltChef } from "@/lib/brick-salt-content";
-import { Reveal } from "@/components/motion/Reveal";
+import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
+import { brickSaltChef } from "@/lib/brick-salt/content";
+import { FadeIn } from "@/components/ui/FadeIn";
 import { ensureGsap, gsap } from "@/lib/gsap";
 
 ensureGsap();
@@ -65,7 +65,7 @@ export function Chef() {
       className="bg-[var(--bs-cream-deep)]"
       aria-labelledby="chef-heading"
     >
-      <div className="bs-container border-b-2 border-[var(--bs-charcoal)] py-16 sm:py-20">
+      <div className="ms-container border-b-2 border-[var(--bs-charcoal)] py-16 sm:py-20">
         <p className="bs-eyebrow">The kitchen</p>
         <h2
           id="chef-heading"
@@ -95,8 +95,8 @@ export function Chef() {
             <div className="absolute inset-0 bg-[var(--bs-charcoal)]/55" />
           </div>
 
-          <div className="bs-container relative z-10 flex min-h-[85svh] items-end py-12 sm:py-16">
-            <Reveal className="bs-chef-copy max-w-xl border-l-4 border-[var(--bs-brick)] bg-[var(--bs-charcoal)]/70 p-6 backdrop-blur-sm sm:p-8">
+          <div className="ms-container relative z-10 flex min-h-[85svh] items-end py-12 sm:py-16">
+            <FadeIn className="bs-chef-copy max-w-xl border-l-4 border-[var(--bs-brick)] bg-[var(--bs-charcoal)]/70 p-6 backdrop-blur-sm sm:p-8">
               <p className="text-[0.7rem] font-bold uppercase tracking-[0.22em] text-[var(--bs-brick-hot)]">
                 Step 0{index + 1}
               </p>
@@ -106,7 +106,7 @@ export function Chef() {
               <p className="mt-4 text-base leading-relaxed text-[var(--bs-salt)]/70">
                 {beat.description}
               </p>
-            </Reveal>
+            </FadeIn>
           </div>
         </article>
       ))}

@@ -19,7 +19,7 @@ const helpLinks = [
 export function Footer() {
   return (
     <footer className="border-t border-[var(--fo-border)] bg-[var(--fo-panel)] pt-16 pb-8 text-white">
-      <div className="fo-container">
+      <div className="ms-container">
         <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
             <Logo light />

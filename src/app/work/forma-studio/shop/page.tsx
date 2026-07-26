@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import { ShopClient } from "@/components/forma/ShopClient";
-import { formaSeo } from "@/lib/forma-content";
+import { formaSeo } from "@/lib/forma/content";
 
 export const metadata = {
   title: formaSeo.shop.title,
@@ -10,7 +10,7 @@ export const metadata = {
 export default function ShopPage() {
   return (
     <main className="pb-20 pt-10 sm:pb-24 sm:pt-14">
-      <div className="fo-container">
+      <div className="ms-container">
         <p className="fo-eyebrow">Index / Collection</p>
         <h1 className="font-display mt-3 text-4xl tracking-tight sm:text-5xl lg:text-6xl">
           Shop the system

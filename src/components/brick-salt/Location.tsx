@@ -2,9 +2,9 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { useBooking } from "@/components/brick-salt/booking-context";
-import { brickSalt, brickSaltLocation } from "@/lib/brick-salt-content";
+import { brickSalt, brickSaltLocation } from "@/lib/brick-salt/content";
 import { MagneticButton } from "@/components/motion/MagneticButton";
-import { Reveal } from "@/components/motion/Reveal";
+import { FadeIn } from "@/components/ui/FadeIn";
 
 export function Location() {
   const reduceMotion = useReducedMotion();
@@ -18,7 +18,7 @@ export function Location() {
     >
       {/* Map-first industrial split — opposite of coffee text-then-map */}
       <div className="grid lg:grid-cols-2">
-        <Reveal className="order-2 lg:order-1">
+        <FadeIn className="order-2 lg:order-1">
           <div className="bs-map relative min-h-[22rem] overflow-hidden sm:min-h-[28rem] lg:min-h-full lg:h-full">
             <motion.div
               className="absolute inset-0 flex items-center justify-center"
@@ -50,7 +50,7 @@ export function Location() {
               </div>
             </motion.div>
           </div>
-        </Reveal>
+        </FadeIn>
 
         <div className="order-1 border-b-2 border-[var(--bs-charcoal)] px-5 py-16 sm:px-8 sm:py-20 lg:order-2 lg:border-b-0 lg:border-l-2 lg:px-12 lg:py-24">
           <p className="bs-eyebrow">Visit</p>
@@ -61,7 +61,7 @@ export function Location() {
             {brickSaltLocation.headline}
           </h2>
 
-          <Reveal className="mt-10 space-y-8">
+          <FadeIn className="mt-10 space-y-8">
             <div>
               <p className="text-sm font-bold uppercase tracking-[0.16em] text-[var(--bs-brick)]">
                 {brickSalt.location}
@@ -118,7 +118,7 @@ export function Location() {
                 Get directions
               </MagneticButton>
             </div>
-          </Reveal>
+          </FadeIn>
         </div>
       </div>
     </section>

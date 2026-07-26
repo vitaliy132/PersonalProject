@@ -1,24 +1,19 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { useBooking } from "@/components/brick-salt/booking-context";
-import { useLockBodyScroll } from "@/components/hooks/useLockBodyScroll";
-import { brickSalt, brickSaltNav } from "@/lib/brick-salt-content";
+import { useLockBodyScroll } from "@/hooks/useLockBodyScroll";
+import { useScrolled } from "@/hooks/useScrolled";
+import { brickSalt, brickSaltNav } from "@/lib/brick-salt/content";
 import { Logo } from "./Logo";
 
 export function Header() {
-  const [scrolled, setScrolled] = useState(false);
+  const scrolled = useScrolled(24);
   const [open, setOpen] = useState(false);
   const { openBooking } = useBooking();
   const reduceMotion = useReducedMotion();
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   useLockBodyScroll(open);
 
@@ -29,7 +24,7 @@ export function Header() {
       }`}
     >
       <div className="h-1.5 bg-[var(--bs-brick)]" aria-hidden />
-      <div className="bs-container flex h-[3.75rem] items-center justify-between sm:h-[4.25rem]">
+      <div className="ms-container flex h-[3.75rem] items-center justify-between sm:h-[4.25rem]">
         <a
           href="#top"
           className="text-[var(--bs-charcoal)]"
@@ -91,7 +86,7 @@ export function Header() {
             transition={{ duration: 0.3 }}
           >
             <nav
-              className="bs-container flex flex-col gap-5 border-t-2 border-[var(--bs-charcoal)] py-10"
+              className="ms-container flex flex-col gap-5 border-t-2 border-[var(--bs-charcoal)] py-10"
               aria-label="Mobile"
             >
               {brickSaltNav.map((link, i) => (

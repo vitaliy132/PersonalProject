@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { SplitText } from "@/components/arden/motion";
-import { ardenCta } from "@/lib/arden-content";
+import { ardenCta } from "@/lib/arden/content";
 
 export function Cta() {
   return (
@@ -21,7 +21,7 @@ export function Cta() {
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_70%_20%,rgba(196,160,110,0.2),transparent_45%)]" />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_15%_85%,rgba(42,99,70,0.28),transparent_40%)]" />
 
-      <div className="aw-container relative z-10 text-center">
+      <div className="ms-container relative z-10 text-center">
         <div className="flex justify-center">
           <p className="aw-eyebrow !text-[var(--aw-champagne)]">{ardenCta.eyebrow}</p>
         </div>

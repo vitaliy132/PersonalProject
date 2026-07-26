@@ -1,7 +1,7 @@
 "use client";
 
 import { useBooking } from "@/components/brick-salt/booking-context";
-import { brickSalt, brickSaltNav } from "@/lib/brick-salt-content";
+import { brickSalt, brickSaltNav } from "@/lib/brick-salt/content";
 import { Logo } from "./Logo";
 
 export function Footer() {
@@ -9,7 +9,7 @@ export function Footer() {
 
   return (
     <footer className="border-t border-[var(--bs-border)] bg-[var(--bs-charcoal)] text-[var(--bs-salt)]">
-      <div className="bs-container py-16 sm:py-20">
+      <div className="ms-container py-16 sm:py-20">
         <div className="flex flex-col gap-12 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <Logo />

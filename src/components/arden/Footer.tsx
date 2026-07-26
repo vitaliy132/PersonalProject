@@ -1,13 +1,13 @@
 import Link from "next/link";
 import { Logo } from "@/components/arden/Logo";
-import { arden, ardenNav } from "@/lib/arden-content";
+import { arden, ardenNav } from "@/lib/arden/content";
 
 export function Footer() {
   return (
     <footer className="relative overflow-hidden border-t border-white/10 bg-[var(--aw-ink)] pt-20 pb-10 text-[var(--aw-mist)]">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_0%_0%,rgba(42,99,70,0.18),transparent_40%)]" />
 
-      <div className="aw-container relative z-10">
+      <div className="ms-container relative z-10">
         <div className="grid gap-14 md:grid-cols-[1.6fr_1fr_1fr]">
           <div>
             <Logo light />

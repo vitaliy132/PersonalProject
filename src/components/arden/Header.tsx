@@ -2,25 +2,20 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Logo } from "@/components/arden/Logo";
-import { useLockBodyScroll } from "@/components/hooks/useLockBodyScroll";
-import { ardenNav } from "@/lib/arden-content";
+import { useLockBodyScroll } from "@/hooks/useLockBodyScroll";
+import { useScrolled } from "@/hooks/useScrolled";
+import { ardenNav } from "@/lib/arden/content";
 
 export function Header() {
   const pathname = usePathname();
   const isLanding = pathname === "/work/arden-wealth";
-  const [scrolled, setScrolled] = useState(false);
+  const scrolled = useScrolled(12);
   const [open, setOpen] = useState(false);
   const solid = !isLanding || scrolled || open;
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   useLockBodyScroll(open);
 
@@ -32,7 +27,7 @@ export function Header() {
           : "border-b border-transparent bg-transparent"
       }`}
     >
-      <div className="aw-container relative flex h-[4.25rem] items-center justify-between sm:h-[4.75rem]">
+      <div className="ms-container relative flex h-[4.25rem] items-center justify-between sm:h-[4.75rem]">
         <button
           type="button"
           className={`flex h-10 w-10 items-center justify-center lg:hidden ${
@@ -83,7 +78,7 @@ export function Header() {
           id="aw-mobile-nav"
           className="border-t border-[var(--aw-border)] bg-[var(--aw-mist)] lg:hidden"
         >
-          <nav className="aw-container flex flex-col gap-1 py-8" aria-label="Mobile">
+          <nav className="ms-container flex flex-col gap-1 py-8" aria-label="Mobile">
             {ardenNav.map((item) => (
               <Link
                 key={item.href}

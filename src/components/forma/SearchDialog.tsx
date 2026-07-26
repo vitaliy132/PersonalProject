@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { Search, X } from "lucide-react";
 import { useCart } from "@/components/forma/cart-context";
-import { formaProducts, formatPrice } from "@/lib/forma-content";
+import { formaProducts, formatPrice } from "@/lib/forma/content";
 
 export function SearchDialog() {
   const { searchOpen, setSearchOpen } = useCart();
@@ -46,7 +46,7 @@ export function SearchDialog() {
         onClick={() => setSearchOpen(false)}
       />
       <div className="absolute inset-x-0 top-0 bg-[var(--fo-bg)] shadow-xl">
-        <div className="fo-container flex items-center gap-3 py-4">
+        <div className="ms-container flex items-center gap-3 py-4">
           <Search size={18} className="text-[var(--fo-stone)]" aria-hidden="true" />
           <input
             autoFocus
@@ -65,7 +65,7 @@ export function SearchDialog() {
             <X size={18} />
           </button>
         </div>
-        <div className="fo-container border-t border-[var(--fo-border)] pb-6">
+        <div className="ms-container border-t border-[var(--fo-border)] pb-6">
           <p className="pt-4 text-xs tracking-[0.12em] text-[var(--fo-stone)] uppercase">
             {query.trim() ? "Results" : "Popular"}
           </p>

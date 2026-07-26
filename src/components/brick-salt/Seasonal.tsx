@@ -3,8 +3,8 @@
 import Image from "next/image";
 import { useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { brickSaltSeasonal } from "@/lib/brick-salt-content";
-import { Reveal } from "@/components/motion/Reveal";
+import { brickSaltSeasonal } from "@/lib/brick-salt/content";
+import { FadeIn } from "@/components/ui/FadeIn";
 
 export function Seasonal() {
   const [active, setActive] = useState(0);
@@ -17,7 +17,7 @@ export function Seasonal() {
       className="border-t-2 border-[var(--bs-charcoal)] bg-[var(--bs-cream)] py-20 sm:py-28"
       aria-labelledby="seasonal-heading"
     >
-      <div className="bs-container">
+      <div className="ms-container">
         <div className="mb-12 grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:items-end">
           <div>
             <p className="bs-eyebrow">Seasonal menu</p>
@@ -77,7 +77,7 @@ export function Seasonal() {
             })}
           </ul>
 
-          <Reveal className="relative min-h-[22rem] overflow-hidden bg-[var(--bs-charcoal)] sm:min-h-[28rem]">
+          <FadeIn className="relative min-h-[22rem] overflow-hidden bg-[var(--bs-charcoal)] sm:min-h-[28rem]">
             <AnimatePresence mode="wait">
               {card ? (
               <motion.div
@@ -107,7 +107,7 @@ export function Seasonal() {
               </motion.div>
               ) : null}
             </AnimatePresence>
-          </Reveal>
+          </FadeIn>
         </div>
       </div>
     </section>

@@ -1,4 +1,4 @@
-import type { NavLink, SeoMeta } from "@/lib/types/microsite";
+import type { MediaRef, NavLink, SeoMeta } from "@/lib/types/microsite";
 
 export {
   type FormaCategory,
@@ -9,13 +9,18 @@ export {
   getFeaturedProducts,
   getRelatedProducts,
   formatPrice,
-} from "./forma/products";
+} from "./products";
 
 export const formaNav: NavLink[] = [
   { label: "Shop", href: "/work/forma-studio/shop" },
   { label: "About", href: "/work/forma-studio#story" },
   { label: "Reviews", href: "/work/forma-studio#reviews" },
 ];
+
+export type FormaWhyUsItem = {
+  title: string;
+  description: string;
+};
 
 export const formaWhyUs = [
   {
@@ -43,7 +48,14 @@ export const formaWhyUs = [
     description:
       "30-day returns on unused items. If it is not right, send it back — no complicated process.",
   },
-];
+] as const satisfies readonly FormaWhyUsItem[];
+
+export type FormaReview = {
+  name: string;
+  role: string;
+  rating: number;
+  quote: string;
+};
 
 export const formaReviews = [
   {
@@ -67,7 +79,7 @@ export const formaReviews = [
     quote:
       "The travel organiser finally ended my cable chaos. Worth every pound for airport days alone.",
   },
-];
+] as const satisfies readonly FormaReview[];
 
 export const formaCommunity = [
   {
@@ -94,7 +106,7 @@ export const formaCommunity = [
     src: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80",
     alt: "Creative desk with essentials",
   },
-];
+] as const satisfies readonly MediaRef[];
 
 export const formaImages = {
   hero: {
@@ -105,7 +117,7 @@ export const formaImages = {
     src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1400&q=80",
     alt: "Craftsperson working with premium materials",
   },
-};
+} as const satisfies Record<"hero" | "story", MediaRef>;
 
 export const formaSeo: SeoMeta & {
   shop: SeoMeta;

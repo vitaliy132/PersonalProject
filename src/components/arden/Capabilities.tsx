@@ -1,7 +1,7 @@
 "use client";
 
 import { PinSection, SplitText } from "@/components/arden/motion";
-import { ardenCapabilities } from "@/lib/arden-content";
+import { ardenCapabilities } from "@/lib/arden/content";
 
 const washes = [
   "radial-gradient(ellipse at 20% 30%, rgba(42,99,70,0.22), transparent 55%)",
@@ -17,7 +17,7 @@ export function Capabilities() {
       className="relative bg-[var(--aw-ink)] text-[var(--aw-mist)]"
       aria-label="Capabilities"
     >
-      <div className="aw-container relative z-10 py-20 sm:py-24">
+      <div className="ms-container relative z-10 py-20 sm:py-24">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <p className="aw-eyebrow !text-[var(--aw-champagne)]">Capabilities</p>

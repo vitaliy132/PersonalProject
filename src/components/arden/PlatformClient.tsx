@@ -3,11 +3,11 @@
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { SplitText } from "@/components/arden/motion";
-import { usePrefersReducedMotion } from "@/components/motion/usePrefersReducedMotion";
+import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 import {
   ardenPortfolio,
   formatCurrency,
-} from "@/lib/arden-content";
+} from "@/lib/arden/content";
 import { ensureGsap, gsap } from "@/lib/gsap";
 
 ensureGsap();
@@ -203,7 +203,7 @@ export function PlatformClient() {
   return (
     <div ref={rootRef} className="relative pb-28 pt-32 sm:pt-36">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-72 bg-[radial-gradient(ellipse_at_20%_0%,rgba(42,99,70,0.1),transparent_55%)]" />
-      <div className="aw-container relative">
+      <div className="ms-container relative">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
             <p className="aw-eyebrow">Platform</p>

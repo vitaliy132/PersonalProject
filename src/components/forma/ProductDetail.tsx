@@ -5,11 +5,11 @@ import { useState } from "react";
 import { ProductCard } from "@/components/forma/ProductCard";
 import { ProductGallery } from "@/components/forma/ProductGallery";
 import { ProductPurchase } from "@/components/forma/ProductPurchase";
-import { FadeIn as Reveal } from "@/components/ui/FadeIn";
+import { FadeIn } from "@/components/ui/FadeIn";
 import {
   getRelatedProducts,
   type FormaProduct,
-} from "@/lib/forma-content";
+} from "@/lib/forma/content";
 
 type ProductDetailProps = {
   product: FormaProduct;
@@ -24,7 +24,7 @@ export function ProductDetail({ product }: ProductDetailProps) {
 
   return (
     <main className="pb-20 pt-8 sm:pb-24 sm:pt-10">
-      <div className="fo-container">
+      <div className="ms-container">
         <nav
           className="mb-8 font-mono text-[0.68rem] tracking-[0.12em] text-[var(--fo-stone)] uppercase"
           aria-label="Breadcrumb"
@@ -63,7 +63,7 @@ export function ProductDetail({ product }: ProductDetailProps) {
           className="mt-20 border-t border-[var(--fo-border)] pt-14"
           aria-labelledby="pdp-reviews"
         >
-          <Reveal>
+          <FadeIn>
             <p className="fo-eyebrow">Signal</p>
             <h2 id="pdp-reviews" className="font-display mt-3 text-3xl sm:text-4xl">
               Customer reviews
@@ -100,14 +100,14 @@ export function ProductDetail({ product }: ProductDetailProps) {
                 </blockquote>
               ))}
             </div>
-          </Reveal>
+          </FadeIn>
         </section>
 
         <section
           className="mt-20 border-t border-[var(--fo-border)] pt-14"
           aria-labelledby="related-heading"
         >
-          <Reveal>
+          <FadeIn>
             <p className="fo-eyebrow">Related</p>
             <h2 id="related-heading" className="font-display mt-3 text-3xl sm:text-4xl">
               Complete the system
@@ -117,7 +117,7 @@ export function ProductDetail({ product }: ProductDetailProps) {
                 <ProductCard key={item.id} product={item} index={index} />
               ))}
             </div>
-          </Reveal>
+          </FadeIn>
         </section>
       </div>
     </main>

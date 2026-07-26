@@ -3,12 +3,12 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { SplitText } from "@/components/arden/motion";
 import { usePlanning } from "@/components/arden/planning-context";
-import { usePrefersReducedMotion } from "@/components/motion/usePrefersReducedMotion";
+import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 import {
   ardenAdvisorySteps,
   ardenGoals,
   ardenTimeSlots,
-} from "@/lib/arden-content";
+} from "@/lib/arden/content";
 import { ensureGsap, gsap } from "@/lib/gsap";
 
 ensureGsap();
@@ -83,7 +83,7 @@ export function AdvisoryClient() {
     return (
       <div className="relative flex min-h-[80svh] items-center py-32">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_40%,rgba(42,99,70,0.1),transparent_55%)]" />
-        <div className="aw-container relative max-w-2xl text-center">
+        <div className="ms-container relative max-w-2xl text-center">
           <div className="mx-auto mb-6 flex justify-center">
             <p className="aw-eyebrow">Confirmed</p>
           </div>
@@ -107,7 +107,7 @@ export function AdvisoryClient() {
   return (
     <div className="relative pb-28 pt-32 sm:pt-36">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-72 bg-[radial-gradient(ellipse_at_50%_0%,rgba(42,99,70,0.08),transparent_50%)]" />
-      <div className="aw-container relative max-w-3xl">
+      <div className="ms-container relative max-w-3xl">
         <p className="aw-eyebrow">Advisory</p>
         <SplitText
           as="h1"

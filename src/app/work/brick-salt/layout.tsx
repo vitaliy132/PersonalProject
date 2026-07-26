@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
 import { Fraunces, Manrope } from "next/font/google";
 import { BookingModal } from "@/components/brick-salt/booking/BookingModal";
 import { BookingProvider } from "@/components/brick-salt/booking-context";
 import { Footer } from "@/components/brick-salt/Footer";
 import { Header } from "@/components/brick-salt/Header";
 import { MicrositeShell } from "@/components/microsite/MicrositeShell";
-import { brickSaltSeo } from "@/lib/brick-salt-content";
+import { brickSaltSeo } from "@/lib/brick-salt/content";
+import { buildMicrositeMetadata } from "@/lib/microsite-metadata";
 import "./brick-salt.css";
 
 const fraunces = Fraunces({
@@ -20,22 +20,7 @@ const manrope = Manrope({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: brickSaltSeo.title,
-  description: brickSaltSeo.description,
-  openGraph: {
-    title: brickSaltSeo.title,
-    description: brickSaltSeo.description,
-    type: "website",
-    locale: "en_GB",
-    siteName: "BRICK & SALT",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: brickSaltSeo.title,
-    description: brickSaltSeo.description,
-  },
-};
+export const metadata = buildMicrositeMetadata(brickSaltSeo, "BRICK & SALT");
 
 export default function BrickSaltLayout({
   children,
