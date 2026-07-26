@@ -2,17 +2,27 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { agency, navLinks } from "@/lib/content";
 import { Button } from "@/components/ui/Button";
 import { Magnetic } from "@/components/motion/Magnetic";
 import { useLockBodyScroll } from "@/components/hooks/useLockBodyScroll";
 
+function resolveHref(href: string, pathname: string) {
+  if (href.startsWith("#")) {
+    return pathname === "/" ? href : `/${href}`;
+  }
+  return href;
+}
+
 export function Header() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   // Pill only when scrolled AND menu closed — open menu must be full-width on phones
   const pill = scrolled && !open;
+  const contactHref = resolveHref("#contact", pathname);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -20,6 +30,10 @@ export function Header() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
 
   useLockBodyScroll(open);
 
@@ -79,25 +93,43 @@ export function Header() {
             ].join(" ")}
             aria-label="Primary"
           >
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className={[
-                  "tracking-[0.14em] text-stone uppercase transition-all duration-500 hover:text-off-white",
-                  pill ? "text-[0.65rem]" : "text-[0.8rem]",
-                ].join(" ")}
-                data-cursor="hover"
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const href = resolveHref(link.href, pathname);
+              const className = [
+                "tracking-[0.14em] text-stone uppercase transition-all duration-500 hover:text-off-white",
+                pill ? "text-[0.65rem]" : "text-[0.8rem]",
+              ].join(" ");
+
+              if (href.startsWith("#")) {
+                return (
+                  <a
+                    key={link.href}
+                    href={href}
+                    className={className}
+                    data-cursor="hover"
+                  >
+                    {link.label}
+                  </a>
+                );
+              }
+
+              return (
+                <Link
+                  key={link.href}
+                  href={href}
+                  className={className}
+                  data-cursor="hover"
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </nav>
 
           <div className="hidden md:block">
             <Magnetic strength={0.2}>
               <Button
-                href="#contact"
+                href={contactHref}
                 className={[
                   "tracking-[0.12em] uppercase transition-all duration-500",
                   pill
@@ -135,24 +167,52 @@ export function Header() {
             className="border-t border-border px-5 pb-6 pt-3 md:hidden"
           >
             <nav className="flex flex-col gap-1" aria-label="Mobile">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="py-2.5 text-base text-off-white"
-                  onClick={() => setOpen(false)}
-                >
-                  {link.label}
-                </a>
-              ))}
+              {navLinks.map((link) => {
+                const href = resolveHref(link.href, pathname);
+                const className = "py-2.5 text-base text-off-white";
+
+                if (href.startsWith("#")) {
+                  return (
+                    <a
+                      key={link.href}
+                      href={href}
+                      className={className}
+                      onClick={() => setOpen(false)}
+                    >
+                      {link.label}
+                    </a>
+                  );
+                }
+
+                return (
+                  <Link
+                    key={link.href}
+                    href={href}
+                    className={className}
+                    onClick={() => setOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
             </nav>
-            <a
-              href="#contact"
-              className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-full border border-accent bg-accent px-6 py-3 text-sm font-medium tracking-wide text-off-white"
-              onClick={() => setOpen(false)}
-            >
-              Start a project
-            </a>
+            {contactHref.startsWith("#") ? (
+              <a
+                href={contactHref}
+                className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-full border border-accent bg-accent px-6 py-3 text-sm font-medium tracking-wide text-off-white"
+                onClick={() => setOpen(false)}
+              >
+                Start a project
+              </a>
+            ) : (
+              <Link
+                href={contactHref}
+                className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-full border border-accent bg-accent px-6 py-3 text-sm font-medium tracking-wide text-off-white"
+                onClick={() => setOpen(false)}
+              >
+                Start a project
+              </Link>
+            )}
           </div>
         ) : null}
       </div>

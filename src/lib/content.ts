@@ -8,6 +8,7 @@ export const agency = {
 export const navLinks = [
   { label: "Services", href: "#services" },
   { label: "Work", href: "#work" },
+  { label: "About", href: "/about" },
   { label: "Pricing", href: "#pricing" },
   { label: "Contact", href: "#contact" },
 ] as const;
@@ -395,6 +396,47 @@ export const process = [
     description: "Optimisation and marketing.",
   },
 ];
+
+export const aboutPage = {
+  eyebrow: "About",
+  title: "About Northline Digital",
+  lead: "A Leeds studio for brands that want to look sharper, feel clearer and grow online.",
+  paragraphs: [
+    "Northline Digital is a creative studio based in Leeds, helping ambitious businesses build stronger brands, better websites and a more powerful online presence.",
+    "We combine thoughtful design, modern technology and data-driven strategy to create digital experiences that don't just look great — they deliver results.",
+    "From brand identity and website development to e-commerce and digital marketing, we work closely with businesses that want to stand out, grow and compete in an increasingly digital world.",
+    "Built in the North, we bring a fresh perspective, creative thinking and a commitment to quality to every project we take on.",
+  ],
+  meta: ["Leeds, UK", "Creative studio", "Digital-first"],
+  stats: [
+    { value: "50+", label: "Projects shipped" },
+    { value: "4+", label: "Years making" },
+    { value: "UK", label: "Wide reach" },
+  ],
+  images: {
+    hero: {
+      src: "https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?auto=format&fit=crop&w=2400&q=80",
+      alt: "City skyline at dusk — northern energy, modern ambition",
+    },
+    studio: {
+      src: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1600&q=80",
+      alt: "Quiet studio desk with laptop and notebooks",
+    },
+    craft: {
+      src: "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1200&q=80",
+      alt: "Design details and colour work in progress",
+    },
+    north: {
+      src: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=2400&q=80",
+      alt: "Historic stone architecture under open sky",
+    },
+    collab: {
+      src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80",
+      alt: "Team collaborating around a shared screen",
+    },
+  },
+  cta: { label: "Start a project", href: "/#contact" },
+};
 
 export const contact = {
   headline: "Have a project in mind?",

@@ -1,6 +1,10 @@
 import Link from "next/link";
 import { agency, footer, navLinks } from "@/lib/content";
 
+function footerHref(href: string) {
+  return href.startsWith("#") ? `/${href}` : href;
+}
+
 export function Footer() {
   return (
     <footer className="border-t border-border bg-bg-elevated">
@@ -26,13 +30,13 @@ export function Footer() {
           <ul className="mt-5 space-y-3">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <a
-                  href={link.href}
+                <Link
+                  href={footerHref(link.href)}
                   className="text-sm text-off-white/90 transition-colors hover:text-accent-strong"
                   data-cursor="hover"
                 >
                   {link.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -46,7 +50,7 @@ export function Footer() {
             {footer.services.map((item) => (
               <li key={item}>
                 <Link
-                  href="#services"
+                  href="/#services"
                   className="text-sm text-off-white/90 transition-colors hover:text-accent-strong"
                   data-cursor="hover"
                 >
