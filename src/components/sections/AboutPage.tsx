@@ -7,102 +7,76 @@ import { GsapReveal } from "@/components/motion/GsapReveal";
 import { Magnetic } from "@/components/motion/Magnetic";
 
 export function AboutPage() {
-  const { images, story, approach, why, north, cta } = aboutPage;
+  const { images, story, approach, why, values, cta } = aboutPage;
 
   return (
     <main>
-      {/* Hero */}
+      {/* 1. Statement hero */}
       <section
         aria-labelledby="about-page-heading"
-        className="relative min-h-[68svh] overflow-hidden border-b border-border sm:min-h-[72svh]"
+        className="relative min-h-[62svh] overflow-hidden border-b border-border sm:min-h-[68svh]"
       >
         <Image
           src={images.hero.src}
-          alt={images.hero.alt}
+          alt=""
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center"
+          className="object-cover object-center opacity-50"
+          aria-hidden
         />
         <div
           aria-hidden
-          className="absolute inset-0 bg-gradient-to-t from-bg via-bg/70 to-bg/30"
+          className="absolute inset-0 bg-gradient-to-t from-bg via-bg/80 to-bg/45"
         />
         <div
           aria-hidden
-          className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_20%_80%,rgba(92,107,74,0.28),transparent_55%)]"
+          className="absolute inset-0 bg-[radial-gradient(ellipse_65%_45%_at_15%_85%,rgba(92,107,74,0.22),transparent_55%)]"
         />
 
-        <div className="container-nl relative flex min-h-[68svh] flex-col justify-end pb-12 pt-28 sm:min-h-[72svh] sm:pb-16 sm:pt-36">
+        <div className="container-nl relative flex min-h-[62svh] flex-col justify-end pb-14 pt-28 sm:min-h-[68svh] sm:pb-20 sm:pt-36">
           <GsapReveal>
-            <p className="text-[0.7rem] tracking-[0.24em] text-accent-strong uppercase">
-              {aboutPage.eyebrow}
-            </p>
             <h1
               id="about-page-heading"
-              className="mt-4 max-w-3xl font-display text-[clamp(2.4rem,6.5vw,4.25rem)] font-semibold leading-[1.02] tracking-tight text-off-white"
+              className="max-w-4xl font-display text-[clamp(2.2rem,6vw,4rem)] font-semibold leading-[1.05] tracking-tight text-off-white"
             >
               {aboutPage.title}
             </h1>
-            <p className="mt-5 max-w-xl text-base leading-relaxed text-stone-light sm:text-lg">
+            <p className="mt-6 max-w-2xl text-base leading-relaxed text-stone-light sm:text-lg sm:leading-relaxed">
               {aboutPage.lead}
             </p>
-          </GsapReveal>
-
-          <GsapReveal delay={0.1}>
-            <ul className="mt-8 flex flex-wrap gap-2">
-              {aboutPage.meta.map((item) => (
-                <li
-                  key={item}
-                  className="border border-border/80 bg-bg/40 px-3 py-1.5 text-[0.65rem] tracking-[0.16em] text-stone-light uppercase backdrop-blur-sm"
-                >
-                  {item}
-                </li>
-              ))}
-            </ul>
           </GsapReveal>
         </div>
       </section>
 
-      {/* Our Story — editorial */}
+      {/* 2. Our Story — editorial */}
       <section
         aria-labelledby="about-story-heading"
         className="overflow-hidden border-b border-border py-20 sm:py-28"
       >
         <div className="container-nl">
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-            <GsapReveal>
-              <p className="text-[0.7rem] tracking-[0.24em] text-accent-strong uppercase">
-                {story.eyebrow}
-              </p>
-              <h2
-                id="about-story-heading"
-                className="mt-3 max-w-md font-display text-[clamp(1.5rem,3vw,2rem)] font-semibold tracking-tight text-off-white"
-              >
-                {story.title}
-              </h2>
-            </GsapReveal>
+          <GsapReveal>
+            <p className="text-[0.7rem] tracking-[0.24em] text-accent-strong uppercase">
+              {story.eyebrow}
+            </p>
+            <h2
+              id="about-story-heading"
+              className="mt-3 max-w-md font-display text-[clamp(1.5rem,3vw,2rem)] font-semibold tracking-tight text-off-white"
+            >
+              {story.title}
+            </h2>
+          </GsapReveal>
 
-            <GsapReveal delay={0.08}>
-              <p className="text-[0.65rem] tracking-[0.2em] text-stone uppercase">
-                Est. Leeds · Northern England
-              </p>
-            </GsapReveal>
-          </div>
-
-          {/* Pull quote */}
           <GsapReveal delay={0.06}>
             <blockquote className="relative mt-14 max-w-4xl border-l-2 border-accent-strong pl-6 sm:mt-16 sm:pl-10">
-              <p className="font-display text-[clamp(1.65rem,4.2vw,3rem)] font-semibold leading-[1.15] tracking-tight text-off-white">
+              <p className="font-display text-[clamp(1.5rem,3.8vw,2.75rem)] font-semibold leading-[1.18] tracking-tight text-off-white">
                 {story.pullQuote}
               </p>
             </blockquote>
           </GsapReveal>
 
-          {/* Overlapping photo stack + body */}
           <div className="mt-16 grid items-end gap-12 lg:mt-20 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-10">
             <div className="relative mx-auto w-full max-w-xl lg:mx-0 lg:max-w-none">
-              {/* Main studio plane */}
               <GsapReveal>
                 <figure
                   className="group relative aspect-[16/11] overflow-hidden border border-border bg-bg-elevated"
@@ -122,7 +96,6 @@ export function AboutPage() {
                 </figure>
               </GsapReveal>
 
-              {/* Mobile: clean two-up stack. Desktop: overlapping offsets */}
               <div className="mt-3 grid grid-cols-2 gap-3 sm:mt-0 sm:contents">
                 <GsapReveal delay={0.1} className="sm:contents">
                   <figure
@@ -174,34 +147,12 @@ export function AboutPage() {
                   </p>
                 </GsapReveal>
               ))}
-
-              {/* Thin meta stats — hairline separators, not Intro tiles */}
-              <GsapReveal delay={0.14}>
-                <dl className="mt-8 flex flex-wrap items-baseline gap-x-0 gap-y-3 border-t border-border pt-6">
-                  {aboutPage.stats.map((stat, index) => (
-                    <div
-                      key={stat.label}
-                      className={[
-                        "flex min-w-[6.5rem] flex-col pr-6",
-                        index > 0 ? "border-l border-border pl-6" : "",
-                      ].join(" ")}
-                    >
-                      <dt className="order-2 mt-1 text-[0.62rem] tracking-[0.14em] text-stone uppercase">
-                        {stat.label}
-                      </dt>
-                      <dd className="order-1 font-display text-xl font-semibold tracking-tight text-off-white">
-                        {stat.value}
-                      </dd>
-                    </div>
-                  ))}
-                </dl>
-              </GsapReveal>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Approach — open hairline chapters */}
+      {/* 3. Approach — open hairline chapters */}
       <section
         aria-labelledby="about-approach-heading"
         className="border-b border-border py-20 sm:py-28"
@@ -219,7 +170,6 @@ export function AboutPage() {
             </h2>
           </GsapReveal>
 
-          {/* Desktop: horizontal chapter track */}
           <ol className="mt-14 hidden border-y border-border lg:grid lg:grid-cols-4">
             {approach.steps.map((step, index) => (
               <GsapReveal key={step.step} delay={0.05 * index} className="h-full">
@@ -243,7 +193,6 @@ export function AboutPage() {
             ))}
           </ol>
 
-          {/* Mobile / tablet: horizontal scroll snap */}
           <div className="mt-12 lg:hidden">
             <ol className="flex snap-x snap-mandatory overflow-x-auto border-y border-border [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
               {approach.steps.map((step, index) => (
@@ -270,7 +219,7 @@ export function AboutPage() {
         </div>
       </section>
 
-      {/* Why — manifesto rows */}
+      {/* 4. Why — manifesto rows */}
       <section
         aria-labelledby="about-why-heading"
         className="border-b border-border py-20 sm:py-28"
@@ -305,38 +254,49 @@ export function AboutPage() {
         </div>
       </section>
 
-      {/* North band */}
-      <section className="relative overflow-hidden border-b border-border">
-        <div
-          className="relative min-h-[48svh] sm:min-h-[54svh]"
-          data-cursor="hover"
-          data-cursor-label="North"
-        >
-          <Image
-            src={images.north.src}
-            alt={images.north.alt}
-            fill
-            sizes="100vw"
-            className="object-cover object-center"
-          />
-          <div
-            aria-hidden
-            className="absolute inset-0 bg-gradient-to-r from-bg/90 via-bg/55 to-bg/25"
-          />
-          <div className="container-nl relative flex min-h-[48svh] items-end py-14 sm:min-h-[54svh] sm:py-20">
-            <GsapReveal>
-              <p className="text-[0.7rem] tracking-[0.24em] text-accent-strong uppercase">
-                {north.eyebrow}
-              </p>
-              <p className="mt-4 max-w-lg font-display text-[clamp(1.5rem,3.2vw,2.25rem)] font-semibold leading-tight tracking-tight text-off-white">
-                {north.text}
-              </p>
-            </GsapReveal>
-          </div>
+      {/* 5. Values — open columns, not Services tiles */}
+      <section
+        aria-labelledby="about-values-heading"
+        className="border-b border-border py-20 sm:py-28"
+      >
+        <div className="container-nl">
+          <GsapReveal>
+            <p className="text-[0.7rem] tracking-[0.24em] text-accent-strong uppercase">
+              {values.eyebrow}
+            </p>
+            <h2
+              id="about-values-heading"
+              className="mt-4 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.75rem)] font-semibold tracking-tight text-off-white"
+            >
+              {values.title}
+            </h2>
+          </GsapReveal>
+
+          <ul className="mt-14 grid border-y border-border lg:grid-cols-3">
+            {values.items.map((item, index) => (
+              <GsapReveal key={item.title} delay={0.05 * index} className="h-full">
+                <li
+                  className={[
+                    "flex h-full flex-col px-0 py-8 lg:px-8 lg:py-12",
+                    index > 0
+                      ? "border-t border-border lg:border-t-0 lg:border-l"
+                      : "",
+                  ].join(" ")}
+                >
+                  <h3 className="font-display text-[clamp(1.35rem,2.2vw,1.75rem)] font-semibold tracking-tight text-off-white">
+                    {item.title}
+                  </h3>
+                  <p className="mt-4 max-w-sm text-sm leading-relaxed text-stone-light">
+                    {item.description}
+                  </p>
+                </li>
+              </GsapReveal>
+            ))}
+          </ul>
         </div>
       </section>
 
-      {/* CTA — open strip, not contact-form card */}
+      {/* CTA */}
       <section className="py-20 sm:py-24">
         <div className="container-nl">
           <GsapReveal>
@@ -345,7 +305,7 @@ export function AboutPage() {
                 <p className="font-display text-xl font-semibold tracking-tight text-off-white sm:text-2xl">
                   {cta.title}
                 </p>
-                <p className="mt-3 text-sm leading-relaxed text-stone">
+                <p className="mt-3 text-sm leading-relaxed text-stone sm:text-base">
                   {cta.body}
                 </p>
               </div>

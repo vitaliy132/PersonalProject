@@ -4,7 +4,7 @@ import { AboutPage } from "@/components/sections/AboutPage";
 export const metadata: Metadata = {
   title: "About — Northline Digital",
   description:
-    "A Leeds creative studio helping ambitious businesses build stronger brands, better websites and digital experiences that deliver long-term results.",
+    "Creative thinking. Modern technology. Northern ambition. A Leeds-based creative studio helping businesses build memorable brands, high-performance websites and digital experiences designed for growth.",
 };
 
 export default function AboutRoute() {

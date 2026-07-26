@@ -398,20 +398,13 @@ export const process = [
 ];
 
 export const aboutPage = {
-  eyebrow: "About",
-  title: "About Northline Digital",
-  lead: "A Leeds creative studio for ambitious businesses that want sharper brands and stronger digital results.",
-  meta: ["Leeds, UK", "Creative studio", "Digital-first"],
-  stats: [
-    { value: "50+", label: "Projects shipped" },
-    { value: "4+", label: "Years making" },
-    { value: "UK", label: "Wide reach" },
-  ],
+  title: "Creative thinking. Modern technology. Northern ambition.",
+  lead: "Northline Digital is a Leeds-based creative studio helping businesses build memorable brands, high-performance websites and digital experiences designed for growth.",
   story: {
     eyebrow: "Our Story",
     title: "This is where we make it human.",
     pullQuote:
-      "Businesses shouldn't need a huge agency budget to have a world-class online presence.",
+      "Northline Digital was created with a simple idea: businesses shouldn't need a huge agency budget to have a world-class online presence.",
     paragraphs: [
       "Based in Leeds, we combine creative design, modern development and strategic thinking to help ambitious businesses compete in today's digital landscape.",
       "We believe every business has a story worth telling — our job is to help communicate it through thoughtful branding, intuitive websites and digital solutions that create real impact.",
@@ -419,7 +412,7 @@ export const aboutPage = {
   },
   approach: {
     eyebrow: "Our Approach",
-    title: "Four steps. Clear direction. Real momentum.",
+    title: "A clear path from first conversation to long-term growth.",
     steps: [
       {
         step: "01",
@@ -473,9 +466,26 @@ export const aboutPage = {
       },
     ],
   },
-  north: {
-    eyebrow: "Built in the North",
-    text: "Fresh perspective, creative thinking and a commitment to quality — on every project we take on.",
+  values: {
+    eyebrow: "Values",
+    title: "What we stand for.",
+    items: [
+      {
+        title: "Quality over quantity",
+        description:
+          "We focus on meaningful partnerships rather than producing endless projects.",
+      },
+      {
+        title: "Creativity with purpose",
+        description:
+          "Beautiful design matters, but it should always support a business goal.",
+      },
+      {
+        title: "Built to last",
+        description:
+          "We create digital foundations that grow alongside your business.",
+      },
+    ],
   },
   images: {
     hero: {
@@ -490,10 +500,6 @@ export const aboutPage = {
       src: "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1200&q=80",
       alt: "Design details and colour work in progress",
     },
-    north: {
-      src: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=2400&q=80",
-      alt: "Historic stone architecture under open sky",
-    },
     collab: {
       src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80",
       alt: "Team collaborating around a shared screen",
@@ -502,8 +508,8 @@ export const aboutPage = {
   cta: {
     label: "Start a project",
     href: "/#contact",
-    title: "Ready to build something that stands out?",
-    body: "Tell us about your brand, your goals, and where you want to go next.",
+    title: "Have a project in mind?",
+    body: "Let's create something that helps your business stand out.",
   },
 };
 
