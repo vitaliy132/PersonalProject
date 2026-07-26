@@ -400,20 +400,83 @@ export const process = [
 export const aboutPage = {
   eyebrow: "About",
   title: "About Northline Digital",
-  lead: "A Leeds studio for brands that want to look sharper, feel clearer and grow online.",
-  paragraphs: [
-    "Northline Digital is a creative studio based in Leeds, helping ambitious businesses build stronger brands, better websites and a more powerful online presence.",
-    "We combine thoughtful design, modern technology and data-driven strategy to create digital experiences that don't just look great — they deliver results.",
-    "From brand identity and website development to e-commerce and digital marketing, we work closely with businesses that want to stand out, grow and compete in an increasingly digital world.",
-    "Our approach is collaborative and hands-on. We take time to understand each business we work with, ensuring every project is tailored to real goals, real audiences and long-term success — not just short-term aesthetics.",
-    "Built in the North, we bring a fresh perspective, creative thinking and a commitment to quality to every project we take on.",
-  ],
+  lead: "A Leeds creative studio for ambitious businesses that want sharper brands and stronger digital results.",
   meta: ["Leeds, UK", "Creative studio", "Digital-first"],
   stats: [
     { value: "50+", label: "Projects shipped" },
     { value: "4+", label: "Years making" },
     { value: "UK", label: "Wide reach" },
   ],
+  story: {
+    eyebrow: "Our Story",
+    title: "This is where we make it human.",
+    pullQuote:
+      "Businesses shouldn't need a huge agency budget to have a world-class online presence.",
+    paragraphs: [
+      "Based in Leeds, we combine creative design, modern development and strategic thinking to help ambitious businesses compete in today's digital landscape.",
+      "We believe every business has a story worth telling — our job is to help communicate it through thoughtful branding, intuitive websites and digital solutions that create real impact.",
+    ],
+  },
+  approach: {
+    eyebrow: "Our Approach",
+    title: "Four steps. Clear direction. Real momentum.",
+    steps: [
+      {
+        step: "01",
+        title: "Discover",
+        description:
+          "We learn about your business, customers and goals.",
+      },
+      {
+        step: "02",
+        title: "Strategise",
+        description:
+          "We create a clear direction for your brand and digital presence.",
+      },
+      {
+        step: "03",
+        title: "Design",
+        description:
+          "We craft meaningful visuals and experiences that represent your business.",
+      },
+      {
+        step: "04",
+        title: "Build & Grow",
+        description:
+          "We develop fast, scalable websites and help you continue growing.",
+      },
+    ],
+  },
+  why: {
+    eyebrow: "Why Northline?",
+    title: "Why work with us?",
+    points: [
+      {
+        title: "Local understanding",
+        description:
+          "Based in Leeds, we understand the businesses and communities that make the North unique.",
+      },
+      {
+        title: "Design-led thinking",
+        description:
+          "We believe websites should do more than exist — they should communicate, engage and convert.",
+      },
+      {
+        title: "Modern technology",
+        description:
+          "We use current tools and development practices to create fast, reliable digital experiences.",
+      },
+      {
+        title: "Personal collaboration",
+        description:
+          "You work directly with the people creating your project, not through layers of account managers.",
+      },
+    ],
+  },
+  north: {
+    eyebrow: "Built in the North",
+    text: "Fresh perspective, creative thinking and a commitment to quality — on every project we take on.",
+  },
   images: {
     hero: {
       src: "https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?auto=format&fit=crop&w=2400&q=80",
@@ -436,7 +499,12 @@ export const aboutPage = {
       alt: "Team collaborating around a shared screen",
     },
   },
-  cta: { label: "Start a project", href: "/#contact" },
+  cta: {
+    label: "Start a project",
+    href: "/#contact",
+    title: "Ready to build something that stands out?",
+    body: "Tell us about your brand, your goals, and where you want to go next.",
+  },
 };
 
 export const contact = {
