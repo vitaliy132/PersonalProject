@@ -14,7 +14,6 @@ export const navLinks = [
 ] as const;
 
 export const hero = {
-  brand: "Northline Digital",
   lineOne: "Northern creativity.",
   lineTwo: "Digital experiences built to move businesses forward.",
   supporting:

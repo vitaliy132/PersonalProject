@@ -44,7 +44,7 @@ export function Hero() {
     const ctx = gsap.context(() => {
       if (reduced) {
         gsap.set(
-          [".hero-brand", ".hero-line", ".hero-support", ".hero-cta", ".hero-scroll"],
+          [".hero-line", ".hero-support", ".hero-cta", ".hero-scroll"],
           {
             opacity: 1,
             y: 0,
@@ -56,22 +56,16 @@ export function Hero() {
 
       const tl = gsap.timeline({ delay: 1.1 });
       tl.fromTo(
-        ".hero-brand",
-        { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" },
+        ".hero-line",
+        { y: 80, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1.05,
+          stagger: 0.12,
+          ease: "power4.out",
+        },
       )
-        .fromTo(
-          ".hero-line",
-          { y: 80, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 1.05,
-            stagger: 0.12,
-            ease: "power4.out",
-          },
-          "-=0.35",
-        )
         .fromTo(
           ".hero-support",
           { y: 24, opacity: 0 },
@@ -130,10 +124,6 @@ export function Hero() {
       </div>
 
       <div className="hero-parallax container-nl relative z-10 w-full">
-        <p className="hero-brand mb-8 text-[0.75rem] font-medium tracking-[0.32em] text-accent-strong uppercase opacity-0">
-          {hero.brand}
-        </p>
-
         <h1 className="max-w-5xl font-display text-[clamp(2.4rem,7vw,5.6rem)] font-semibold leading-[1.02] tracking-[-0.03em] text-off-white">
           <span className="hero-line block overflow-hidden opacity-0">
             {hero.lineOne}
