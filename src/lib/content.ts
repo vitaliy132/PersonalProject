@@ -16,8 +16,6 @@ export const navLinks = [
 export const hero = {
   lineOne: "Northern creativity.",
   lineTwo: "Digital experiences built to move businesses forward.",
-  supporting:
-    "Northline Digital is a creative studio based in Leeds, helping ambitious businesses across Yorkshire grow through branding, high-performance websites and data-driven marketing.",
   cta: { label: "Start a project", href: "#contact" },
 };
 
