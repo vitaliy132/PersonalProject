@@ -32,6 +32,7 @@
   color: var(--fo-ink);
   font-family: var(--font-space), system-ui, sans-serif;
   min-height: 100vh;
+  overflow-x: clip;
 }
 
 .forma ::selection {
@@ -160,6 +161,21 @@
   }
   100% {
     background-position: -100% 0;
+  }
+}
+
+.forma .fo-community-caption {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .forma .fo-community-caption {
+    opacity: 0;
+  }
+
+  .forma .group:hover .fo-community-caption {
+    opacity: 1;
   }
 }
 

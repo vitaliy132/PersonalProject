@@ -50,7 +50,7 @@ export function Philosophy() {
     <section
       ref={sectionRef}
       id="philosophy"
-      className="relative overflow-hidden py-28 sm:py-36"
+      className="relative scroll-mt-[5rem] overflow-hidden py-28 sm:py-36"
       aria-labelledby="philosophy-heading"
     >
       <p

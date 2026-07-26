@@ -16,6 +16,7 @@ import {
   Vector3,
   type Mesh,
 } from "three";
+import { useCoarsePointer } from "@/hooks/useCoarsePointer";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 
 function makeRibbon(
@@ -253,7 +254,9 @@ export function HeroScene({
   mouse: React.RefObject<{ x: number; y: number }>;
 }) {
   const reduced = usePrefersReducedMotion();
-  if (reduced) return null;
+  const coarse = useCoarsePointer();
+  // Skip WebGL on phones — static gradient fallback is enough
+  if (reduced || coarse) return null;
 
   return (
     <div className="pointer-events-none absolute inset-0 -z-0 opacity-75">

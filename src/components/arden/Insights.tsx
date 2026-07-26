@@ -39,7 +39,7 @@ export function Insights() {
     <section
       ref={sectionRef}
       id="insights"
-      className="py-28 sm:py-32"
+      className="scroll-mt-[5rem] py-28 sm:py-32"
       aria-labelledby="insights-heading"
     >
       <div className="ms-container">

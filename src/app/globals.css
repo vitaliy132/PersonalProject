@@ -318,3 +318,17 @@ html.cursor-visible .cursor-trail {
     width: min(100% - 4rem, 72rem);
   }
 }
+
+/* Safe-area helpers for notched / Dynamic Island devices */
+.safe-pt {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+.safe-pb {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.safe-px {
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
+}

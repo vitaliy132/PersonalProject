@@ -42,7 +42,7 @@ export function Craft() {
     <section
       ref={sectionRef}
       id={savoySipCraft.id}
-      className="relative overflow-hidden bg-[var(--ss-paper)]"
+      className="relative scroll-mt-[5rem] overflow-hidden bg-[var(--ss-paper)]"
       aria-labelledby="craft-heading"
     >
       <div className="grid min-h-[100svh] lg:grid-cols-2">

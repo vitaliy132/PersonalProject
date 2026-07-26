@@ -14,7 +14,7 @@ export function Capabilities() {
   return (
     <section
       id="capabilities"
-      className="relative bg-[var(--aw-ink)] text-[var(--aw-mist)]"
+      className="relative scroll-mt-[5rem] bg-[var(--aw-ink)] text-[var(--aw-mist)]"
       aria-label="Capabilities"
     >
       <div className="ms-container relative z-10 py-20 sm:py-24">
@@ -35,11 +35,11 @@ export function Capabilities() {
         </div>
       </div>
 
-      <PinSection className="min-h-[100svh]" pinType="horizontal">
+      <PinSection className="min-h-0 lg:min-h-[100svh]" pinType="horizontal">
         {ardenCapabilities.map((cap, i) => (
           <article
             key={cap.id}
-            className="relative flex h-[100svh] w-[min(100vw,30rem)] shrink-0 flex-col justify-between border-l border-white/[0.08] px-8 py-24 sm:w-[min(92vw,36rem)] sm:px-14"
+            className="relative flex h-auto w-full shrink-0 flex-col justify-between border-t border-l-0 border-white/[0.08] px-8 py-16 sm:px-14 lg:h-[100svh] lg:w-[min(100vw,30rem)] lg:border-t-0 lg:border-l lg:py-24 xl:w-[min(92vw,36rem)]"
             style={{ backgroundImage: washes[i] }}
           >
             <div>

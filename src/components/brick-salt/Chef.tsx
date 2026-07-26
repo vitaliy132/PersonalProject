@@ -62,7 +62,7 @@ export function Chef() {
     <section
       ref={sectionRef}
       id={brickSaltChef.id}
-      className="bg-[var(--bs-cream-deep)]"
+      className="scroll-mt-[5rem] bg-[var(--bs-cream-deep)]"
       aria-labelledby="chef-heading"
     >
       <div className="ms-container border-b-2 border-[var(--bs-charcoal)] py-16 sm:py-20">

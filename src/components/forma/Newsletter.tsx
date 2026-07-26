@@ -57,7 +57,7 @@ export function Newsletter() {
                     if (status === "success") setStatus("idle");
                   }}
                   placeholder="name@studio.com"
-                  className="mt-2 w-full border border-[var(--fo-border)] bg-[var(--fo-bg)] px-4 py-3.5 text-sm outline-none focus:border-[var(--fo-ink)]"
+                  className="mt-2 w-full border border-[var(--fo-border)] bg-[var(--fo-bg)] px-4 py-3.5 text-base outline-none focus:border-[var(--fo-ink)] sm:text-sm"
                 />
                 <button type="submit" className="fo-btn fo-btn-primary w-full">
                   Subscribe

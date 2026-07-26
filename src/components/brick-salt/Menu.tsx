@@ -39,7 +39,7 @@ export function Menu() {
   return (
     <section
       id="menu"
-      className="bs-paper border-t-2 border-[var(--bs-charcoal)] bg-[var(--bs-cream)] py-16 sm:py-24 lg:py-28"
+      className="bs-paper scroll-mt-[5rem] border-t-2 border-[var(--bs-charcoal)] bg-[var(--bs-cream)] py-16 sm:py-24 lg:py-28"
       aria-labelledby="menu-heading"
     >
       <div className="ms-container">

@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { X, Minus, Plus } from "lucide-react";
 import { useCart } from "@/components/forma/cart-context";
+import { useLockBodyScroll } from "@/hooks/useLockBodyScroll";
 import { formatPrice } from "@/lib/forma/content";
 
 export function CartDrawer() {
@@ -16,6 +17,8 @@ export function CartDrawer() {
     cartSubtotal,
   } = useCart();
 
+  useLockBodyScroll(cartOpen);
+
   if (!cartOpen) return null;
 
   return (
@@ -26,8 +29,8 @@ export function CartDrawer() {
         aria-label="Close cart"
         onClick={() => setCartOpen(false)}
       />
-      <aside className="absolute inset-y-0 right-0 flex w-full max-w-md flex-col bg-[var(--fo-bg)] shadow-2xl">
-        <div className="flex items-center justify-between border-b border-[var(--fo-border)] px-5 py-4">
+      <aside className="absolute inset-y-0 right-0 flex w-full max-w-md flex-col bg-[var(--fo-bg)] shadow-2xl ms-safe-pb">
+        <div className="flex items-center justify-between border-b border-[var(--fo-border)] px-5 py-4 ms-safe-pt">
           <h2 className="text-sm font-medium tracking-[0.12em] uppercase">
             Cart ({cart.reduce((n, l) => n + l.quantity, 0)})
           </h2>
@@ -35,7 +38,7 @@ export function CartDrawer() {
             type="button"
             onClick={() => setCartOpen(false)}
             aria-label="Close cart"
-            className="flex h-9 w-9 items-center justify-center"
+            className="flex h-11 w-11 items-center justify-center"
           >
             <X size={18} />
           </button>

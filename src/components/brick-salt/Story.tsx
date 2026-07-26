@@ -9,7 +9,7 @@ export function Story() {
   return (
     <section
       id={brickSaltStory.id}
-      className="relative overflow-hidden bg-[var(--bs-charcoal)] py-24 text-[var(--bs-salt)] sm:py-32 lg:py-36"
+      className="relative scroll-mt-[5rem] overflow-hidden bg-[var(--bs-charcoal)] py-24 text-[var(--bs-salt)] sm:py-32 lg:py-36"
       aria-labelledby="story-heading"
     >
       <div className="ms-container">

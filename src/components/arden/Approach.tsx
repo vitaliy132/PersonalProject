@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { PinSection, SplitText } from "@/components/arden/motion";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 import { ardenApproach } from "@/lib/arden/content";
 import { ensureGsap, gsap } from "@/lib/gsap";
@@ -11,10 +12,12 @@ ensureGsap();
 export function Approach() {
   const progressRef = useRef<HTMLDivElement>(null);
   const reduced = usePrefersReducedMotion();
+  const isLg = useMediaQuery("(min-width: 1024px)");
+  const usePin = !reduced && isLg;
 
   useEffect(() => {
     const el = progressRef.current;
-    if (!el || reduced) return;
+    if (!el || !usePin) return;
 
     const section = el.closest("[data-approach-root]");
     if (!section) return;
@@ -37,16 +40,27 @@ export function Approach() {
     }, section);
 
     return () => ctx.revert();
-  }, [reduced]);
+  }, [usePin]);
 
   return (
-    <section id="approach" data-approach-root aria-label="Approach">
+    <section
+      id="approach"
+      data-approach-root
+      className="scroll-mt-[5rem]"
+      aria-label="Approach"
+    >
       <PinSection
         pinType="vertical"
         end="+=280%"
         className="bg-[linear-gradient(180deg,var(--aw-mist)_0%,var(--aw-panel)_50%,var(--aw-mist)_100%)]"
       >
-        <div className="ms-container absolute inset-0 flex flex-col justify-center py-24">
+        <div
+          className={
+            usePin
+              ? "ms-container absolute inset-0 flex flex-col justify-center py-24"
+              : "ms-container flex flex-col justify-center"
+          }
+        >
           <div className="relative grid gap-12 lg:grid-cols-[1fr_1.2fr]">
             <div>
               <p className="aw-eyebrow">Approach</p>
@@ -61,29 +75,37 @@ export function Approach() {
                 Four movements from discovery to stewardship — paced for clarity, not haste.
               </p>
 
-              <div className="relative mt-14 ml-1 hidden h-48 lg:block">
-                <div className="aw-progress-rail h-full origin-top" />
-                <div
-                  ref={progressRef}
-                  className="absolute top-0 left-0 h-full w-px origin-top bg-[var(--aw-verdant)]"
-                  style={{ transform: "scaleY(0)" }}
-                />
-                {ardenApproach.map((step, i) => (
+              {usePin ? (
+                <div className="relative mt-14 ml-1 hidden h-48 lg:block">
+                  <div className="aw-progress-rail h-full origin-top" />
                   <div
-                    key={step.step}
-                    className="aw-progress-dot"
-                    style={{ top: `${(i / (ardenApproach.length - 1)) * 100}%` }}
+                    ref={progressRef}
+                    className="absolute top-0 left-0 h-full w-px origin-top bg-[var(--aw-verdant)]"
+                    style={{ transform: "scaleY(0)" }}
                   />
-                ))}
-              </div>
+                  {ardenApproach.map((step, i) => (
+                    <div
+                      key={step.step}
+                      className="aw-progress-dot"
+                      style={{
+                        top: `${(i / (ardenApproach.length - 1)) * 100}%`,
+                      }}
+                    />
+                  ))}
+                </div>
+              ) : null}
             </div>
 
-            <div className="relative min-h-[18rem]">
+            <div
+              className={
+                usePin ? "relative min-h-[18rem]" : "relative flex flex-col gap-14"
+              }
+            >
               {ardenApproach.map((step) => (
                 <div
                   key={step.step}
                   data-pin-panel
-                  className="absolute inset-x-0 top-0"
+                  className={usePin ? "absolute inset-x-0 top-0" : "relative"}
                 >
                   <p className="font-display text-[clamp(5rem,14vw,9rem)] leading-none text-[var(--aw-verdant)]/[0.12]">
                     {step.step}

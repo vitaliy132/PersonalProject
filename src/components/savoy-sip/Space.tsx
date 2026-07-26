@@ -45,7 +45,7 @@ export function Space() {
     return (
       <section
         id={savoySipSpace.id}
-        className="bg-[var(--ss-ink)] py-20 sm:py-28"
+        className="scroll-mt-[5rem] bg-[var(--ss-ink)] py-20 sm:py-28"
         aria-labelledby="space-heading"
       >
         <div className="ms-container">
@@ -90,7 +90,7 @@ export function Space() {
     <section
       ref={sectionRef}
       id={savoySipSpace.id}
-      className="relative overflow-hidden bg-[var(--ss-ink)]"
+      className="relative scroll-mt-[5rem] overflow-hidden bg-[var(--ss-ink)]"
       aria-labelledby="space-heading"
     >
       <div className="ms-container absolute inset-x-0 top-0 z-10 pt-10 sm:pt-14">

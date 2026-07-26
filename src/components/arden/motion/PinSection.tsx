@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, type ReactNode } from "react";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 import { ensureGsap, gsap } from "@/lib/gsap";
 
@@ -22,11 +23,13 @@ export function PinSection({
   const sectionRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const reduced = usePrefersReducedMotion();
+  const isLg = useMediaQuery("(min-width: 1024px)");
+  const usePin = !reduced && isLg;
 
   useEffect(() => {
     const section = sectionRef.current;
     const track = trackRef.current;
-    if (!section || !track || reduced) return;
+    if (!section || !track || !usePin) return;
 
     const ctx = gsap.context(() => {
       if (pinType === "horizontal") {
@@ -78,7 +81,26 @@ export function PinSection({
     }, section);
 
     return () => ctx.revert();
-  }, [end, pinType, reduced]);
+  }, [end, pinType, usePin]);
+
+  // Stacked fallback on phones / reduced motion — content stays reachable
+  if (!usePin) {
+    if (pinType === "horizontal") {
+      return (
+        <div className={`flex flex-col ${className}`}>
+          {children}
+        </div>
+      );
+    }
+
+    return (
+      <div className={className}>
+        <div className="relative min-h-0 py-16 sm:py-24">
+          {children}
+        </div>
+      </div>
+    );
+  }
 
   if (pinType === "horizontal") {
     return (

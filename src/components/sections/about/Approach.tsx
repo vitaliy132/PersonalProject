@@ -48,7 +48,10 @@ export function AboutApproach() {
           </ol>
 
           <div className="mt-12 lg:hidden">
-            <ol className="flex snap-x snap-mandatory overflow-x-auto border-y border-border [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            <ol
+              data-lenis-prevent
+              className="flex snap-x snap-mandatory overflow-x-auto border-y border-border [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            >
               {approach.steps.map((step, index) => (
                 <li
                   key={step.step}

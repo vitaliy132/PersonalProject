@@ -49,7 +49,7 @@ export function Community() {
                     className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                   />
                   <div className="absolute inset-0 bg-black/0 transition-colors group-hover:bg-black/20" />
-                  <p className="absolute bottom-3 left-3 font-mono text-[0.62rem] tracking-[0.14em] text-white uppercase opacity-0 transition-opacity group-hover:opacity-100">
+                  <p className="fo-community-caption absolute bottom-3 left-3 font-mono text-[0.62rem] tracking-[0.14em] text-white uppercase">
                     Frame {String(index + 1).padStart(2, "0")}
                   </p>
                 </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { useLockBodyScroll } from "@/hooks/useLockBodyScroll";
 import { useScrolled } from "@/hooks/useScrolled";
@@ -12,14 +12,22 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const reduceMotion = useReducedMotion();
 
-
   useLockBodyScroll(open);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
 
   const solid = scrolled || open;
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-[background,backdrop-filter,border-color] duration-500 ${
+      className={`fixed inset-x-0 top-0 z-50 transition-[background,backdrop-filter,border-color] duration-500 ms-safe-pt ${
         solid
           ? "border-b border-[var(--ss-border)] bg-[var(--ss-paper)]/90 backdrop-blur-xl"
           : "border-b border-transparent bg-transparent"
@@ -60,7 +68,7 @@ export function Header() {
 
         <button
           type="button"
-          className="relative z-50 flex h-10 w-10 items-center justify-center lg:hidden"
+          className="relative z-[60] flex h-11 w-11 items-center justify-center lg:hidden"
           aria-expanded={open}
           aria-controls="ss-mobile-nav"
           aria-label={open ? "Close menu" : "Open menu"}
@@ -85,7 +93,7 @@ export function Header() {
         {open && (
           <motion.div
             id="ss-mobile-nav"
-            className="fixed inset-0 z-50 bg-[var(--ss-paper)] pt-[5rem] lg:hidden"
+            className="fixed inset-0 z-50 bg-[var(--ss-paper)] pt-[5.5rem] ms-safe-pb lg:hidden"
             initial={reduceMotion ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

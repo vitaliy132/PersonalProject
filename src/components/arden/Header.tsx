@@ -21,7 +21,7 @@ export function Header() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter,padding] duration-500 ${
+      className={`fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter,padding] duration-500 ms-safe-pt ${
         solid
           ? "border-b border-[var(--aw-border)] bg-[var(--aw-mist)]/88 backdrop-blur-xl"
           : "border-b border-transparent bg-transparent"
@@ -30,7 +30,7 @@ export function Header() {
       <div className="ms-container relative flex h-[4.25rem] items-center justify-between sm:h-[4.75rem]">
         <button
           type="button"
-          className={`flex h-10 w-10 items-center justify-center lg:hidden ${
+          className={`flex h-11 w-11 items-center justify-center lg:hidden ${
             solid ? "text-[var(--aw-ink)]" : "text-[var(--aw-mist)]"
           }`}
           aria-expanded={open}

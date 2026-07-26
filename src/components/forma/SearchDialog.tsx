@@ -5,11 +5,14 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { Search, X } from "lucide-react";
 import { useCart } from "@/components/forma/cart-context";
+import { useLockBodyScroll } from "@/hooks/useLockBodyScroll";
 import { formaProducts, formatPrice } from "@/lib/forma/content";
 
 export function SearchDialog() {
   const { searchOpen, setSearchOpen } = useCart();
   const [query, setQuery] = useState("");
+
+  useLockBodyScroll(searchOpen);
 
   useEffect(() => {
     if (!searchOpen) setQuery("");
@@ -45,7 +48,7 @@ export function SearchDialog() {
         aria-label="Close search"
         onClick={() => setSearchOpen(false)}
       />
-      <div className="absolute inset-x-0 top-0 bg-[var(--fo-bg)] shadow-xl">
+      <div className="absolute inset-x-0 top-0 bg-[var(--fo-bg)] shadow-xl ms-safe-pt ms-safe-pb">
         <div className="ms-container flex items-center gap-3 py-4">
           <Search size={18} className="text-[var(--fo-stone)]" aria-hidden="true" />
           <input

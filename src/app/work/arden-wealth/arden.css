@@ -224,11 +224,17 @@
   background: var(--aw-white);
   color: var(--aw-ink);
   padding: 0.95rem 1.1rem;
-  font-size: 0.95rem;
+  font-size: 1rem; /* 16px+ avoids iOS focus zoom */
   outline: none;
   transition:
     border-color 0.3s ease,
     box-shadow 0.3s ease;
+}
+
+@media (min-width: 640px) {
+  .arden .aw-input {
+    font-size: 0.95rem;
+  }
 }
 
 .arden .aw-input:focus {
@@ -334,16 +340,23 @@
 }
 
 .arden .aw-insight-row .aw-insight-arrow {
-  opacity: 0;
-  transform: translateX(-8px);
+  opacity: 1;
+  transform: translateX(0);
   transition:
     opacity 0.35s ease,
     transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.arden .aw-insight-row:hover .aw-insight-arrow {
-  opacity: 1;
-  transform: translateX(0);
+@media (hover: hover) and (pointer: fine) {
+  .arden .aw-insight-row .aw-insight-arrow {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+
+  .arden .aw-insight-row:hover .aw-insight-arrow {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes aw-breathe {

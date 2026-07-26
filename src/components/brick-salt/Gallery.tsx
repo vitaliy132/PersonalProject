@@ -42,7 +42,7 @@ export function Gallery() {
     <section
       ref={sectionRef}
       id="gallery"
-      className="bg-[var(--bs-charcoal)]"
+      className="scroll-mt-[5rem] bg-[var(--bs-charcoal)]"
       aria-labelledby="gallery-heading"
     >
       <div className="ms-container border-b border-[var(--bs-salt)]/15 py-14 sm:py-16">

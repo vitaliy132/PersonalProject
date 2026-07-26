@@ -8,7 +8,7 @@ export function Drinks() {
   return (
     <section
       id="drinks"
-      className="border-t-2 border-[var(--bs-charcoal)] bg-[var(--bs-cream-deep)] py-20 sm:py-28"
+      className="scroll-mt-[5rem] border-t-2 border-[var(--bs-charcoal)] bg-[var(--bs-cream-deep)] py-20 sm:py-28"
       aria-labelledby="drinks-heading"
     >
       <div className="ms-container">

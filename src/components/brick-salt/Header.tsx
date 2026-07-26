@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { useBooking } from "@/components/brick-salt/booking-context";
 import { useLockBodyScroll } from "@/hooks/useLockBodyScroll";
@@ -14,12 +14,20 @@ export function Header() {
   const { openBooking } = useBooking();
   const reduceMotion = useReducedMotion();
 
-
   useLockBodyScroll(open);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 border-b-2 border-[var(--bs-charcoal)] bg-[var(--bs-cream)] transition-shadow duration-400 ${
+      className={`fixed inset-x-0 top-0 z-50 border-b-2 border-[var(--bs-charcoal)] bg-[var(--bs-cream)] transition-shadow duration-400 ms-safe-pt ${
         scrolled ? "shadow-[0_8px_24px_-12px_rgba(20,18,16,0.35)]" : ""
       }`}
     >
@@ -54,7 +62,7 @@ export function Header() {
 
         <button
           type="button"
-          className="relative z-50 flex h-10 w-10 items-center justify-center lg:hidden"
+          className="relative z-[60] flex h-11 w-11 items-center justify-center lg:hidden"
           aria-expanded={open}
           aria-controls="bs-mobile-nav"
           aria-label={open ? "Close menu" : "Open menu"}
@@ -79,7 +87,7 @@ export function Header() {
         {open && (
           <motion.div
             id="bs-mobile-nav"
-            className="fixed inset-0 z-50 bg-[var(--bs-cream)] pt-[5rem] lg:hidden"
+            className="fixed inset-0 z-50 bg-[var(--bs-cream)] pt-[5.5rem] ms-safe-pb lg:hidden"
             initial={reduceMotion ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

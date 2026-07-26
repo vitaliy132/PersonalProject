@@ -162,9 +162,15 @@
   background: var(--bs-salt);
   color: var(--bs-charcoal);
   padding: 0.75rem 0.9rem;
-  font-size: 0.9375rem;
+  font-size: 1rem; /* 16px+ avoids iOS focus zoom */
   outline: none;
   transition: border-color 0.25s ease;
+}
+
+@media (min-width: 640px) {
+  .brick-salt .bs-input {
+    font-size: 0.9375rem;
+  }
 }
 
 .brick-salt .bs-input:focus {

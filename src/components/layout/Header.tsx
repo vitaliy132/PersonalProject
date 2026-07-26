@@ -25,7 +25,6 @@ export function Header() {
   const pill = scrolled && !open;
   const contactHref = resolveHref("#contact", pathname);
 
-
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
@@ -42,7 +41,7 @@ export function Header() {
   }, [open]);
 
   return (
-    <header className="pointer-events-none fixed inset-x-0 top-0 z-50">
+    <header className="pointer-events-none fixed inset-x-0 top-0 z-50 safe-pt">
       {open ? (
         <button
           type="button"
@@ -54,16 +53,22 @@ export function Header() {
 
       <div
         className={[
-          "pointer-events-auto relative z-50 mx-auto transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
-          pill
-            ? "mt-3 w-[min(100%-1.5rem,52rem)] rounded-full border border-border bg-bg/80 px-4 shadow-[0_12px_40px_-18px_rgba(0,0,0,0.65)] backdrop-blur-xl sm:mt-4 sm:w-[min(100%-2rem,56rem)] sm:px-5"
-            : "mt-0 w-full rounded-none border border-transparent bg-transparent px-0",
-          open ? "border-b border-border bg-bg/95 backdrop-blur-md" : "",
+          "pointer-events-auto relative z-50 mx-auto",
+          // Skip geometry transitions while menu is open so pill→full doesn't morph
+          open
+            ? "mt-0 w-full rounded-none border-b border-border bg-bg/95 px-0 backdrop-blur-md"
+            : [
+                "transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
+                pill
+                  ? "mt-3 w-[min(100%-1.5rem,52rem)] rounded-full border border-border bg-bg/80 px-4 shadow-[0_12px_40px_-18px_rgba(0,0,0,0.65)] backdrop-blur-xl sm:mt-4 sm:w-[min(100%-2rem,56rem)] sm:px-5"
+                  : "mt-0 w-full rounded-none border border-transparent bg-transparent px-0",
+              ].join(" "),
         ].join(" ")}
       >
         <div
           className={[
-            "flex items-center justify-between transition-all duration-500",
+            "flex items-center justify-between",
+            open ? "" : "transition-all duration-500",
             pill ? "h-12 px-1" : "container-nl h-16 sm:h-[4.5rem]",
           ].join(" ")}
         >
@@ -71,7 +76,8 @@ export function Header() {
             <Link
               href="/"
               className={[
-                "font-display font-semibold tracking-[0.04em] text-off-white transition-all duration-500",
+                "font-display font-semibold tracking-[0.04em] text-off-white",
+                open ? "" : "transition-all duration-500",
                 pill ? "text-[0.78rem] sm:text-[0.82rem]" : "text-[0.95rem]",
               ].join(" ")}
               data-cursor="hover"
@@ -83,7 +89,8 @@ export function Header() {
 
           <nav
             className={[
-              "hidden items-center md:flex transition-all duration-500",
+              "hidden items-center md:flex",
+              open ? "" : "transition-all duration-500",
               pill ? "gap-4 lg:gap-5" : "gap-9",
             ].join(" ")}
             aria-label="Primary"
@@ -91,7 +98,8 @@ export function Header() {
             {navLinks.map((link) => {
               const href = resolveHref(link.href, pathname);
               const className = [
-                "tracking-[0.14em] text-stone uppercase transition-all duration-500 hover:text-off-white",
+                "tracking-[0.14em] text-stone uppercase hover:text-off-white",
+                open ? "" : "transition-all duration-500",
                 pill ? "text-[0.65rem]" : "text-[0.8rem]",
               ].join(" ");
 
@@ -126,7 +134,8 @@ export function Header() {
               <Button
                 href={contactHref}
                 className={[
-                  "tracking-[0.12em] uppercase transition-all duration-500",
+                  "tracking-[0.12em] uppercase",
+                  open ? "" : "transition-all duration-500",
                   pill
                     ? "!rounded-full !px-3.5 !py-1.5 text-[0.62rem]"
                     : "!px-5 !py-2.5 text-[0.75rem]",
@@ -140,31 +149,28 @@ export function Header() {
           <button
             type="button"
             className={[
-              "inline-flex items-center justify-center border border-border text-off-white transition-all duration-500 md:hidden",
-              pill ? "h-8 w-8 rounded-full" : "h-10 w-10 rounded-none",
+              "inline-flex min-h-11 min-w-11 items-center justify-center border border-border text-off-white md:hidden",
+              open ? "" : "transition-all duration-500",
+              pill ? "h-11 w-11 rounded-full" : "h-11 w-11 rounded-none",
             ].join(" ")}
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={open ? "Close menu" : "Open menu"}
             onClick={() => setOpen((v) => !v)}
           >
-            {open ? (
-              <X size={pill ? 15 : 18} />
-            ) : (
-              <Menu size={pill ? 15 : 18} />
-            )}
+            {open ? <X size={18} /> : <Menu size={18} />}
           </button>
         </div>
 
         {open ? (
           <div
             id="mobile-nav"
-            className="border-t border-border px-5 pb-6 pt-3 md:hidden"
+            className="border-t border-border px-5 pb-6 pt-3 safe-pb md:hidden"
           >
             <nav className="flex flex-col gap-1" aria-label="Mobile">
               {navLinks.map((link) => {
                 const href = resolveHref(link.href, pathname);
-                const className = "py-2.5 text-base text-off-white";
+                const className = "py-3.5 text-base text-off-white";
 
                 if (href.startsWith("#")) {
                   return (

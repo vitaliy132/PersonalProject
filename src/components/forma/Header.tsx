@@ -21,7 +21,7 @@ export function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-300 ${
+      className={`sticky top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-300 ms-safe-pt ${
         scrolled || open
           ? "border-b border-[var(--fo-border)] bg-[var(--fo-bg)]/92 backdrop-blur-md"
           : "border-b border-[var(--fo-border)] bg-[var(--fo-bg)]/80 backdrop-blur-sm"
@@ -30,7 +30,7 @@ export function Header() {
       <div className="ms-container flex h-14 items-center justify-between sm:h-16">
         <button
           type="button"
-          className="flex h-10 w-10 items-center justify-center lg:hidden"
+          className="flex h-11 w-11 items-center justify-center lg:hidden"
           aria-expanded={open}
           aria-controls="fo-mobile-nav"
           aria-label={open ? "Close menu" : "Open menu"}

@@ -49,7 +49,7 @@ export function CheckoutForm({
               type="email"
               value={form.email}
               onChange={(e) => setField("email", e.target.value)}
-              className="mt-2 w-full border border-[var(--fo-border)] bg-[var(--fo-bg-elevated)] px-4 py-3 text-sm outline-none focus:border-[var(--fo-black)]"
+              className="mt-2 w-full border border-[var(--fo-border)] bg-[var(--fo-bg-elevated)] px-4 py-3 text-base outline-none focus:border-[var(--fo-black)] sm:text-sm"
             />
           </label>
           <label className="block">
@@ -59,7 +59,7 @@ export function CheckoutForm({
               type="text"
               value={form.name}
               onChange={(e) => setField("name", e.target.value)}
-              className="mt-2 w-full border border-[var(--fo-border)] bg-[var(--fo-bg-elevated)] px-4 py-3 text-sm outline-none focus:border-[var(--fo-black)]"
+              className="mt-2 w-full border border-[var(--fo-border)] bg-[var(--fo-bg-elevated)] px-4 py-3 text-base outline-none focus:border-[var(--fo-black)] sm:text-sm"
             />
           </label>
         </>
@@ -75,7 +75,7 @@ export function CheckoutForm({
               type="text"
               value={form.address}
               onChange={(e) => setField("address", e.target.value)}
-              className="mt-2 w-full border border-[var(--fo-border)] bg-[var(--fo-bg-elevated)] px-4 py-3 text-sm outline-none focus:border-[var(--fo-black)]"
+              className="mt-2 w-full border border-[var(--fo-border)] bg-[var(--fo-bg-elevated)] px-4 py-3 text-base outline-none focus:border-[var(--fo-black)] sm:text-sm"
             />
           </label>
           <div className="grid gap-4 sm:grid-cols-2">
@@ -86,7 +86,7 @@ export function CheckoutForm({
                 type="text"
                 value={form.city}
                 onChange={(e) => setField("city", e.target.value)}
-                className="mt-2 w-full border border-[var(--fo-border)] bg-[var(--fo-bg-elevated)] px-4 py-3 text-sm outline-none focus:border-[var(--fo-black)]"
+                className="mt-2 w-full border border-[var(--fo-border)] bg-[var(--fo-bg-elevated)] px-4 py-3 text-base outline-none focus:border-[var(--fo-black)] sm:text-sm"
               />
             </label>
             <label className="block">
@@ -96,7 +96,7 @@ export function CheckoutForm({
                 type="text"
                 value={form.postcode}
                 onChange={(e) => setField("postcode", e.target.value)}
-                className="mt-2 w-full border border-[var(--fo-border)] bg-[var(--fo-bg-elevated)] px-4 py-3 text-sm outline-none focus:border-[var(--fo-black)]"
+                className="mt-2 w-full border border-[var(--fo-border)] bg-[var(--fo-bg-elevated)] px-4 py-3 text-base outline-none focus:border-[var(--fo-black)] sm:text-sm"
               />
             </label>
           </div>

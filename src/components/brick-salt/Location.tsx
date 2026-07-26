@@ -13,7 +13,7 @@ export function Location() {
   return (
     <section
       id={brickSaltLocation.id}
-      className="border-t-2 border-[var(--bs-charcoal)] bg-[var(--bs-cream)]"
+      className="scroll-mt-[5rem] border-t-2 border-[var(--bs-charcoal)] bg-[var(--bs-cream)]"
       aria-labelledby="location-heading"
     >
       {/* Map-first industrial split — opposite of coffee text-then-map */}

@@ -13,7 +13,7 @@ export function Menu() {
   return (
     <section
       id={savoySipMenuSection.id}
-      className="bg-[var(--ss-fog)] py-20 sm:py-28"
+      className="scroll-mt-[5rem] bg-[var(--ss-fog)] py-20 sm:py-28"
       aria-labelledby="menu-heading"
     >
       <div className="ms-container">
@@ -35,7 +35,7 @@ export function Menu() {
         </GsapReveal>
 
         <div
-          className="mt-12 flex gap-2 border-b border-[var(--ss-border)] pb-px"
+          className="mt-12 flex gap-2 overflow-x-auto border-b border-[var(--ss-border)] pb-px [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           role="tablist"
           aria-label="Drink categories"
         >
@@ -46,7 +46,7 @@ export function Menu() {
               role="tab"
               aria-selected={active === cat.id}
               onClick={() => setActive(cat.id)}
-              className={`relative px-4 py-3 text-[0.72rem] font-medium uppercase tracking-[0.18em] transition-colors sm:px-6 ${
+              className={`relative shrink-0 px-4 py-3 text-[0.72rem] font-medium uppercase tracking-[0.18em] transition-colors sm:px-6 ${
                 active === cat.id
                   ? "text-[var(--ss-ink)]"
                   : "text-[var(--ss-mute)] hover:text-[var(--ss-ink)]"

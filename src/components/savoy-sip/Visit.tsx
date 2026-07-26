@@ -38,7 +38,7 @@ export function Visit() {
     <section
       ref={sectionRef}
       id={savoySipVisit.id}
-      className="relative min-h-[100svh] overflow-hidden"
+      className="relative min-h-[100svh] scroll-mt-[5rem] overflow-hidden"
       aria-labelledby="visit-heading"
     >
       <div ref={imageRef} className="absolute inset-0 scale-110">

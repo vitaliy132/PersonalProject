@@ -98,7 +98,7 @@ export function Contact() {
                 name="name"
                 required
                 disabled={status === "sending"}
-                className="mt-2 w-full border-b border-border bg-transparent py-3 text-sm text-off-white outline-none transition-colors focus:border-accent-strong disabled:opacity-60"
+                className="mt-2 w-full border-b border-border bg-transparent py-3 text-base text-off-white outline-none transition-colors focus:border-accent-strong disabled:opacity-60 sm:text-sm"
               />
             </div>
             <div>
@@ -114,7 +114,7 @@ export function Contact() {
                 type="email"
                 required
                 disabled={status === "sending"}
-                className="mt-2 w-full border-b border-border bg-transparent py-3 text-sm text-off-white outline-none transition-colors focus:border-accent-strong disabled:opacity-60"
+                className="mt-2 w-full border-b border-border bg-transparent py-3 text-base text-off-white outline-none transition-colors focus:border-accent-strong disabled:opacity-60 sm:text-sm"
               />
             </div>
             <div>
@@ -130,7 +130,7 @@ export function Contact() {
                 required
                 rows={4}
                 disabled={status === "sending"}
-                className="mt-2 w-full resize-none border-b border-border bg-transparent py-3 text-sm text-off-white outline-none transition-colors focus:border-accent-strong disabled:opacity-60"
+                className="mt-2 w-full resize-none border-b border-border bg-transparent py-3 text-base text-off-white outline-none transition-colors focus:border-accent-strong disabled:opacity-60 sm:text-sm"
               />
             </div>
 

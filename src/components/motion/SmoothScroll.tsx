@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import Lenis from "lenis";
+import { useCoarsePointer } from "@/hooks/useCoarsePointer";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 import { ensureGsap, gsap, ScrollTrigger } from "@/lib/gsap";
 import { setLenisInstance } from "@/lib/lenis-control";
@@ -11,11 +12,13 @@ ensureGsap();
 
 export function SmoothScroll({ children }: { children: React.ReactNode }) {
   const reduced = usePrefersReducedMotion();
+  const coarse = useCoarsePointer();
   const pathname = usePathname();
   const lenisRef = useRef<Lenis | null>(null);
 
   useEffect(() => {
-    if (reduced) return;
+    // Native scroll on phones/touch — Lenis fights nested overflow and GSAP pins
+    if (reduced || coarse) return;
 
     const lenis = new Lenis({
       duration: 1.15,
@@ -41,7 +44,7 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
       lenisRef.current = null;
       setLenisInstance(null);
     };
-  }, [reduced]);
+  }, [reduced, coarse]);
 
   useEffect(() => {
     let cancelled = false;
