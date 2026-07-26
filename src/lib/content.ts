@@ -8,7 +8,6 @@ export const agency = {
 export const navLinks = [
   { label: "Services", href: "#services" },
   { label: "Work", href: "#work" },
-  { label: "About", href: "#about" },
   { label: "Pricing", href: "#pricing" },
   { label: "Contact", href: "#contact" },
 ] as const;
