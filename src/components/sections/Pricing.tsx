@@ -9,7 +9,7 @@ export function Pricing() {
     <section
       id="pricing"
       aria-labelledby="pricing-heading"
-      className="section-pad scroll-mt-24 border-t border-border"
+      className="section-pad scroll-mt-[4.25rem] border-t border-border sm:scroll-mt-[4.75rem]"
     >
       <div className="container-nl">
         <GsapReveal className="mx-auto max-w-2xl text-center">

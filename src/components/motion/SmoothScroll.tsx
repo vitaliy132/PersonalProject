@@ -21,6 +21,8 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
       duration: 1.15,
       smoothWheel: true,
       touchMultiplier: 1.4,
+      // Use each target's CSS scroll-margin so nav hashes clear the fixed header
+      anchors: true,
     });
     lenisRef.current = lenis;
     setLenisInstance(lenis);

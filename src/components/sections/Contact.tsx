@@ -53,7 +53,7 @@ export function Contact() {
     <section
       id="contact"
       aria-labelledby="contact-heading"
-      className="section-pad scroll-mt-24 border-t border-border"
+      className="section-pad scroll-mt-[4.25rem] border-t border-border sm:scroll-mt-[4.75rem]"
     >
       <div className="container-nl grid gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
         <GsapReveal>

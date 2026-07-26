@@ -9,7 +9,7 @@ export function Services() {
     <section
       id="services"
       aria-labelledby="services-heading"
-      className="section-pad scroll-mt-24 border-t border-border"
+      className="section-pad scroll-mt-[4.25rem] border-t border-border sm:scroll-mt-[4.75rem]"
     >
       <div className="container-nl">
         <GsapReveal>
