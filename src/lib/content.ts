@@ -313,7 +313,7 @@ export const pricing = [
   {
     id: "growth",
     name: "Growth",
-    price: "From £1,500",
+    price: "From £1,000",
     description: "Ideal for established businesses.",
     featuresLabel: "Everything in Launch plus",
     features: [
@@ -334,7 +334,7 @@ export const pricing = [
   {
     id: "scale",
     name: "Scale",
-    price: "From £3,000",
+    price: "From £1,700",
     description: "For businesses ready to invest in growth.",
     featuresLabel: "Everything in Growth plus",
     features: [
