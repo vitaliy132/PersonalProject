@@ -405,6 +405,7 @@ export const aboutPage = {
     "Northline Digital is a creative studio based in Leeds, helping ambitious businesses build stronger brands, better websites and a more powerful online presence.",
     "We combine thoughtful design, modern technology and data-driven strategy to create digital experiences that don't just look great — they deliver results.",
     "From brand identity and website development to e-commerce and digital marketing, we work closely with businesses that want to stand out, grow and compete in an increasingly digital world.",
+    "Our approach is collaborative and hands-on. We take time to understand each business we work with, ensuring every project is tailored to real goals, real audiences and long-term success — not just short-term aesthetics.",
     "Built in the North, we bring a fresh perspective, creative thinking and a commitment to quality to every project we take on.",
   ],
   meta: ["Leeds, UK", "Creative studio", "Digital-first"],

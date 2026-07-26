@@ -188,7 +188,7 @@ export function AboutPage() {
                 Built in the North
               </p>
               <p className="mt-4 max-w-lg font-display text-[clamp(1.6rem,3.5vw,2.5rem)] font-semibold leading-tight tracking-tight text-off-white">
-                {aboutPage.paragraphs[3]}
+                {aboutPage.paragraphs[4]}
               </p>
             </GsapReveal>
           </div>
@@ -198,14 +198,21 @@ export function AboutPage() {
       {/* Closing copy + CTA */}
       <section className="section-pad">
         <div className="container-nl grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-end lg:gap-20">
-          <GsapReveal>
-            <p className="text-[0.7rem] tracking-[0.24em] text-accent-strong uppercase">
-              How we work
-            </p>
-            <p className="mt-5 max-w-2xl text-[1.05rem] leading-[1.75] text-stone-light sm:text-[1.15rem] sm:leading-[1.8]">
-              {aboutPage.paragraphs[2]}
-            </p>
-          </GsapReveal>
+          <div>
+            <GsapReveal>
+              <p className="text-[0.7rem] tracking-[0.24em] text-accent-strong uppercase">
+                How we work
+              </p>
+              <p className="mt-5 max-w-2xl text-[1.05rem] leading-[1.75] text-stone-light sm:text-[1.15rem] sm:leading-[1.8]">
+                {aboutPage.paragraphs[2]}
+              </p>
+            </GsapReveal>
+            <GsapReveal delay={0.08}>
+              <p className="mt-6 max-w-2xl text-[1.05rem] leading-[1.75] text-stone-light sm:text-[1.15rem] sm:leading-[1.8]">
+                {aboutPage.paragraphs[3]}
+              </p>
+            </GsapReveal>
+          </div>
 
           <GsapReveal delay={0.1}>
             <div className="border border-border bg-bg-elevated p-7 sm:p-9">
