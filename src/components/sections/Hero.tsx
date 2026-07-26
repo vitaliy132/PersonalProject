@@ -43,11 +43,14 @@ export function Hero() {
 
     const ctx = gsap.context(() => {
       if (reduced) {
-        gsap.set([".hero-brand", ".hero-line", ".hero-cta", ".hero-scroll"], {
-          opacity: 1,
-          y: 0,
-          clearProps: "all",
-        });
+        gsap.set(
+          [".hero-brand", ".hero-line", ".hero-support", ".hero-cta", ".hero-scroll"],
+          {
+            opacity: 1,
+            y: 0,
+            clearProps: "all",
+          },
+        );
         return;
       }
 
@@ -68,6 +71,12 @@ export function Hero() {
             ease: "power4.out",
           },
           "-=0.35",
+        )
+        .fromTo(
+          ".hero-support",
+          { y: 24, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.75, ease: "power3.out" },
+          "-=0.55",
         )
         .fromTo(
           ".hero-cta",
@@ -133,6 +142,10 @@ export function Hero() {
             {hero.lineTwo}
           </span>
         </h1>
+
+        <p className="hero-support mt-6 max-w-xl text-base leading-relaxed text-stone opacity-0 sm:mt-8 sm:text-lg">
+          {hero.supporting}
+        </p>
 
         <div className="hero-cta mt-10 opacity-0 sm:mt-12">
           <Magnetic strength={0.22} className="inline-block">
