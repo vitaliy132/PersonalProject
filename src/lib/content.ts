@@ -291,7 +291,7 @@ export const pricing = [
   {
     id: "launch",
     name: "Launch",
-    price: "£600",
+    price: "From £600",
     description: "Perfect for startups and local businesses.",
     featuresLabel: "Includes",
     features: [
