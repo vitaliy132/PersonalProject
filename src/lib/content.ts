@@ -365,7 +365,6 @@ export const pricingAddOns = [
   { service: "SEO Audit & Optimisation", price: "£300" },
   { service: "Digital Marketing", price: "£500/mo" },
   { service: "Google Analytics & Search Console Setup", price: "£100" },
-  { service: "Copywriting", price: "£200" },
   { service: "Website Maintenance & Updates", price: "£75/mo" },
   { service: "Priority Support", price: "£150/mo" },
 ];
