@@ -105,7 +105,11 @@ export function AboutPage() {
 
           <div className="grid grid-cols-2 gap-3 sm:gap-4">
             <GsapReveal className="col-span-2">
-              <figure className="group relative aspect-[16/10] overflow-hidden border border-border bg-bg-elevated">
+              <figure
+                className="group relative aspect-[16/10] overflow-hidden border border-border bg-bg-elevated"
+                data-cursor="hover"
+                data-cursor-label="Studio"
+              >
                 <Image
                   src={images.studio.src}
                   alt={images.studio.alt}
@@ -120,7 +124,11 @@ export function AboutPage() {
             </GsapReveal>
 
             <GsapReveal delay={0.08}>
-              <figure className="group relative aspect-[4/5] overflow-hidden border border-border bg-bg-elevated">
+              <figure
+                className="group relative aspect-[4/5] overflow-hidden border border-border bg-bg-elevated"
+                data-cursor="hover"
+                data-cursor-label="Craft"
+              >
                 <Image
                   src={images.craft.src}
                   alt={images.craft.alt}
@@ -135,7 +143,11 @@ export function AboutPage() {
             </GsapReveal>
 
             <GsapReveal delay={0.14} className="mt-6 sm:mt-10">
-              <figure className="group relative aspect-[4/5] overflow-hidden border border-border bg-bg-elevated">
+              <figure
+                className="group relative aspect-[4/5] overflow-hidden border border-border bg-bg-elevated"
+                data-cursor="hover"
+                data-cursor-label="Team"
+              >
                 <Image
                   src={images.collab.src}
                   alt={images.collab.alt}
@@ -154,7 +166,11 @@ export function AboutPage() {
 
       {/* Wide north image */}
       <section className="relative overflow-hidden border-b border-border">
-        <div className="relative min-h-[52svh] sm:min-h-[60svh]">
+        <div
+          className="relative min-h-[52svh] sm:min-h-[60svh]"
+          data-cursor="hover"
+          data-cursor-label="North"
+        >
           <Image
             src={images.north.src}
             alt={images.north.alt}

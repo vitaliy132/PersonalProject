@@ -16,6 +16,10 @@ export function CustomCursor() {
     const fine = window.matchMedia("(pointer: fine)").matches;
     if (!fine) return;
     setEnabled(true);
+  }, [reduced]);
+
+  useEffect(() => {
+    if (!enabled) return;
 
     const core = document.querySelector<HTMLElement>(".cursor-core");
     const ring = document.querySelector<HTMLElement>(".cursor-ring");
@@ -122,7 +126,7 @@ export function CustomCursor() {
         "cursor-visible",
       );
     };
-  }, [reduced]);
+  }, [enabled]);
 
   if (!enabled) return null;
 
