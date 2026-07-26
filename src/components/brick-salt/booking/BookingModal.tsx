@@ -11,6 +11,7 @@ import {
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { X } from "lucide-react";
 import { useBooking } from "@/components/brick-salt/booking-context";
+import { lockScroll, unlockScroll } from "@/lib/lenis-control";
 import { BookingForm } from "./BookingForm";
 import { BookingSuccess } from "./BookingSuccess";
 import { emptyForm, type FormErrors, type FormState } from "./types";
@@ -47,8 +48,7 @@ export function BookingModal() {
   useEffect(() => {
     if (!bookingOpen) return;
 
-    const prevOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+    lockScroll();
     closeRef.current?.focus();
 
     const onKey = (e: KeyboardEvent) => {
@@ -57,7 +57,7 @@ export function BookingModal() {
     window.addEventListener("keydown", onKey);
 
     return () => {
-      document.body.style.overflow = prevOverflow;
+      unlockScroll();
       window.removeEventListener("keydown", onKey);
     };
   }, [bookingOpen, handleClose]);

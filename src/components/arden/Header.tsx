@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Logo } from "@/components/arden/Logo";
+import { useLockBodyScroll } from "@/components/hooks/useLockBodyScroll";
 import { ardenNav } from "@/lib/arden-content";
 
 export function Header() {
@@ -21,12 +22,7 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [open]);
+  useLockBodyScroll(open);
 
   return (
     <header
@@ -36,19 +32,23 @@ export function Header() {
           : "border-b border-transparent bg-transparent"
       }`}
     >
-      <div className="aw-container flex h-[4.25rem] items-center justify-between sm:h-[4.75rem]">
+      <div className="aw-container relative flex h-[4.25rem] items-center justify-between sm:h-[4.75rem]">
         <button
           type="button"
           className={`flex h-10 w-10 items-center justify-center lg:hidden ${
             solid ? "text-[var(--aw-ink)]" : "text-[var(--aw-mist)]"
           }`}
+          aria-expanded={open}
+          aria-controls="aw-mobile-nav"
           aria-label={open ? "Close menu" : "Open menu"}
           onClick={() => setOpen((v) => !v)}
         >
           {open ? <X size={18} /> : <Menu size={18} />}
         </button>
 
-        <Logo light={!solid} />
+        <div className="absolute left-1/2 -translate-x-1/2 lg:static lg:translate-x-0">
+          <Logo light={!solid} />
+        </div>
 
         <nav className="hidden items-center gap-9 lg:flex" aria-label="Primary">
           {ardenNav.map((item) => (
@@ -68,7 +68,7 @@ export function Header() {
 
         <Link
           href="/work/arden-wealth/advisory"
-          className={`hidden border px-4 py-2 text-[0.65rem] font-semibold tracking-[0.16em] uppercase transition-colors sm:inline-flex ${
+          className={`ml-auto border px-4 py-2 text-[0.65rem] font-semibold tracking-[0.16em] uppercase transition-colors max-sm:invisible max-sm:pointer-events-none sm:ml-0 ${
             solid
               ? "border-[var(--aw-verdant)] text-[var(--aw-verdant)] hover:bg-[var(--aw-verdant)] hover:text-[var(--aw-mist)]"
               : "border-[var(--aw-champagne)]/50 text-[var(--aw-champagne)] hover:border-[var(--aw-champagne)] hover:bg-[var(--aw-champagne)]/10"
@@ -79,7 +79,10 @@ export function Header() {
       </div>
 
       {open && (
-        <div className="border-t border-[var(--aw-border)] bg-[var(--aw-mist)] lg:hidden">
+        <div
+          id="aw-mobile-nav"
+          className="border-t border-[var(--aw-border)] bg-[var(--aw-mist)] lg:hidden"
+        >
           <nav className="aw-container flex flex-col gap-1 py-8" aria-label="Mobile">
             {ardenNav.map((item) => (
               <Link

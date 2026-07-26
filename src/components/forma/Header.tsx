@@ -6,6 +6,7 @@ import { Heart, Menu, Search, ShoppingBag, X } from "lucide-react";
 import { useCart } from "@/components/forma/cart-context";
 import { Logo } from "@/components/forma/Logo";
 import { WishlistDrawer } from "@/components/forma/WishlistDrawer";
+import { useLockBodyScroll } from "@/components/hooks/useLockBodyScroll";
 import { formaNav } from "@/lib/forma-content";
 
 export function Header() {
@@ -21,12 +22,7 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [open]);
+  useLockBodyScroll(open);
 
   return (
     <header
@@ -40,6 +36,8 @@ export function Header() {
         <button
           type="button"
           className="flex h-10 w-10 items-center justify-center lg:hidden"
+          aria-expanded={open}
+          aria-controls="fo-mobile-nav"
           aria-label={open ? "Close menu" : "Open menu"}
           onClick={() => setOpen((v) => !v)}
         >
@@ -97,7 +95,10 @@ export function Header() {
       </div>
 
       {open && (
-        <div className="border-t border-[var(--fo-border)] bg-[var(--fo-bg)] lg:hidden">
+        <div
+          id="fo-mobile-nav"
+          className="border-t border-[var(--fo-border)] bg-[var(--fo-bg)] lg:hidden"
+        >
           <nav className="fo-container flex flex-col py-4" aria-label="Mobile">
             {formaNav.map((item) => (
               <Link

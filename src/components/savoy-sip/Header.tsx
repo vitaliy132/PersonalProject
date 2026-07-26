@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { useLockBodyScroll } from "@/components/hooks/useLockBodyScroll";
 import { savoySip, savoySipNav } from "@/lib/savoy-sip-content";
 import { Logo } from "./Logo";
 
@@ -17,18 +18,13 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [open]);
+  useLockBodyScroll(open);
 
   const solid = scrolled || open;
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-40 transition-[background,backdrop-filter,border-color] duration-500 ${
+      className={`fixed inset-x-0 top-0 z-50 transition-[background,backdrop-filter,border-color] duration-500 ${
         solid
           ? "border-b border-[var(--ss-border)] bg-[var(--ss-paper)]/90 backdrop-blur-xl"
           : "border-b border-transparent bg-transparent"
@@ -94,7 +90,7 @@ export function Header() {
         {open && (
           <motion.div
             id="ss-mobile-nav"
-            className="fixed inset-0 z-40 bg-[var(--ss-paper)] pt-[5rem] lg:hidden"
+            className="fixed inset-0 z-50 bg-[var(--ss-paper)] pt-[5rem] lg:hidden"
             initial={reduceMotion ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
