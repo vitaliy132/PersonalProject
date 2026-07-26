@@ -78,11 +78,7 @@ export function AboutPage() {
           <div className="mt-16 grid items-end gap-12 lg:mt-20 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-10">
             <div className="relative mx-auto w-full max-w-xl lg:mx-0 lg:max-w-none">
               <GsapReveal>
-                <figure
-                  className="group relative aspect-[16/11] overflow-hidden border border-border bg-bg-elevated"
-                  data-cursor="hover"
-                  data-cursor-label="Studio"
-                >
+                <figure className="group relative aspect-[16/11] overflow-hidden border border-border bg-bg-elevated">
                   <Image
                     src={images.studio.src}
                     alt={images.studio.alt}
@@ -98,11 +94,7 @@ export function AboutPage() {
 
               <div className="mt-3 grid grid-cols-2 gap-3 sm:mt-0 sm:contents">
                 <GsapReveal delay={0.1} className="sm:contents">
-                  <figure
-                    className="group relative aspect-[4/5] overflow-hidden border border-border bg-bg-elevated sm:absolute sm:-bottom-8 sm:-left-4 sm:z-10 sm:w-[38%] sm:-rotate-2 lg:-left-6"
-                    data-cursor="hover"
-                    data-cursor-label="Craft"
-                  >
+                  <figure className="group relative aspect-[4/5] overflow-hidden border border-border bg-bg-elevated sm:absolute sm:-bottom-8 sm:-left-4 sm:z-10 sm:w-[38%] sm:-rotate-2 lg:-left-6">
                     <Image
                       src={images.craft.src}
                       alt={images.craft.alt}
@@ -117,11 +109,7 @@ export function AboutPage() {
                 </GsapReveal>
 
                 <GsapReveal delay={0.16} className="sm:contents">
-                  <figure
-                    className="group relative aspect-[4/5] overflow-hidden border border-border bg-bg-elevated sm:absolute sm:-right-2 sm:-top-10 sm:z-10 sm:w-[34%] sm:rotate-3 lg:-right-4"
-                    data-cursor="hover"
-                    data-cursor-label="Team"
-                  >
+                  <figure className="group relative aspect-[4/5] overflow-hidden border border-border bg-bg-elevated sm:absolute sm:-right-2 sm:-top-10 sm:z-10 sm:w-[34%] sm:rotate-3 lg:-right-4">
                     <Image
                       src={images.collab.src}
                       alt={images.collab.alt}
