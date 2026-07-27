@@ -2,6 +2,6 @@
   <rect width="32" height="32" fill="#000000"/>
   <path
     fill="#FFFFFF"
-    d="M8 6h4.2L19.6 20.2V6H24v20h-4.2L12.4 11.8V26H8V6z"
+    d="M8 6h4L20 23.2V6H24v20h-4L12 8.8V26H8V6z"
   />
 </svg>
