@@ -7,6 +7,20 @@ import { GsapReveal } from "@/components/motion/GsapReveal";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+  }
+}
+
+function trackEnquiryConversion() {
+  window.gtag?.("event", "conversion", {
+    send_to: "AW-18351550152/zLlJCPaL6tYcEMjd2a5E",
+    value: 1.0,
+    currency: "GBP",
+  });
+}
+
 export function Contact() {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState("");
@@ -41,6 +55,7 @@ export function Contact() {
         return;
       }
 
+      trackEnquiryConversion();
       setStatus("sent");
       form.reset();
     } catch {
